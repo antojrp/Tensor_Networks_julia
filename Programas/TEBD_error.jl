@@ -150,7 +150,7 @@ let
   m=1
   #Number of simulations
   nsim=6
-  p=9.5
+  p=10
   D=2^p
 
   mkpath("resultados")
