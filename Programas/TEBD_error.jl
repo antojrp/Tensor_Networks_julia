@@ -150,7 +150,7 @@ let
   m=1
   #Number of simulations
   nsim=6
-  p=8
+  p=9.5
   D=2^p
 
   mkpath("resultados")
@@ -210,7 +210,6 @@ let
           max_bond[k,i]=schmidt(psiD,N)
           renyi[k,i]=entropy(psiD,div(N,2))
           error[k,i]=real(sqrt(inner(psi, psi) - 2 * real(inner(psiD, psi)) + inner(psiD, psiD)))
-          print(typeof(e))
         end
         print("\n\n")
       end
