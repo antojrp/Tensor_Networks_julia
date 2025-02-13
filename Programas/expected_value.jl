@@ -5,7 +5,7 @@ using Random
 using .Threads
 
 let
-    io = open("Expected_t$(BLAS.get_num_threads()).txt","w")
+    io = open("resultados/Expected_t$(BLAS.get_num_threads()).txt","w")
     print("Qubit    tiempo\n")
     close(io)
     nsim=5
@@ -18,11 +18,11 @@ let
     expect(phi,"Sz";sites=s)
     for p in 1:12
         max=2^p
-        io = open("Expected_t$(BLAS.get_num_threads()).txt","a")
+        io = open("resultados/Expected_t$(BLAS.get_num_threads()).txt","a")
         write(io,"D:$max   \n")
         close(io)
         for k in 1:m
-            io = open("Expected_t$(BLAS.get_num_threads()).txt","a")
+            io = open("resultados/Expected_t$(BLAS.get_num_threads()).txt","a")
             t=zeros(nsim)
             N=Num+k-1
             write(io,"Qubits:$(Num+k-1)\n")
