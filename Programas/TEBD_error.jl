@@ -184,7 +184,7 @@ let
     max_bond=zeros(nsim,L)
     tiempo=zeros(nsim,L)
     renyi=zeros(nsim,L)
-    norm_diff=zeros(nsim,L)
+    error=zeros(nsim,L)
 
     for k in 1:nsim
       let
@@ -209,7 +209,8 @@ let
           tiempo[k,i]=t
           max_bond[k,i]=schmidt(psiD,N)
           renyi[k,i]=entropy(psiD,div(N,2))
-          error[k,i] = sqrt(inner(psi, psi) - 2 * real(inner(psiD, psi)) + inner(psiD, psiD))
+          error[k,i]=real(sqrt(inner(psi, psi) - 2 * real(inner(psiD, psi)) + inner(psiD, psiD)))
+          print(typeof(e))
         end
         print("\n\n")
       end
