@@ -1,0 +1,2 @@
+Numero de qubits: 20 
+Layer   Time var(Time)

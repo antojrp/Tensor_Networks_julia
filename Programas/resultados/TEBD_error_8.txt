@@ -1,0 +1,2 @@
+Numero de qubits: 20 
+Layer   Error var(error)

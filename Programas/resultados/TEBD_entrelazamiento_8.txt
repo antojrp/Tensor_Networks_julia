@@ -1,0 +1,2 @@
+Numero de qubits: 20 
+Layer   D  var(D)  Renyi  var(Renyi)
