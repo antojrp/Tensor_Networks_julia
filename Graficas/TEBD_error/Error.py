@@ -14,15 +14,13 @@ plt.rcParams.update({
 color=['#073a4b','#108ab1','#06d7a0','#ffd167','#f04770']
 
 # Función para procesar el archivo y generar matrices
-def generar_matrices(file_path):
+def generar_matrices_tiempo(file_path):
     with open(file_path, 'r') as f:
         lines = f.readlines()
 
     matrices = {
-        'D': [],
-        'var(D)': [],
-        'Renyi': [],
-        'var(Renyi)': []
+        'Error': [],
+        'var(Error)': []
     }
     qubits = []
     current_qubits = None
@@ -33,18 +31,18 @@ def generar_matrices(file_path):
         if line.startswith('Numero de qubits:'):
             if current_qubits is not None:
                 # Convertir los datos actuales en DataFrame
-                df = pd.DataFrame(data, columns=['Layer', 'D', 'var(D)', 'Renyi', 'var(Renyi)'])
+                df = pd.DataFrame(data, columns=['Layer', 'Error', 'var(Error)'])
                 for key in matrices:
                     matrices[key].append(df[key].values)
                 qubits.append(current_qubits)
                 data = []
             current_qubits = int(line.split(':')[1].strip())
-        elif line and not line.startswith('Layer'):
+        elif line and not line.startswith('Layer') and not line.startswith('Total') and not line.startswith('Varianza'):
             data.append([float(x) for x in line.split()])
 
     # Agregar los últimos datos
     if current_qubits is not None:
-        df = pd.DataFrame(data, columns=['Layer', 'D', 'var(D)', 'Renyi', 'var(Renyi)'])
+        df = pd.DataFrame(data, columns=['Layer', 'Error', 'var(Error)'])
         for key in matrices:
             matrices[key].append(df[key].values)
         qubits.append(current_qubits)
@@ -56,55 +54,32 @@ def generar_matrices(file_path):
 
     return final_matrices, qubits
 
+# Ruta del archivo de texto
+file_path = '../../resultados/Random_tiempo_30.txt'
 
+# Generar matrices
+matrices, qubits = generar_matrices_tiempo(file_path)
 
 
 
 L=30
 N=20
-plt.figure()
 c=0
-for p in [8,9,9.5,10]:
+plt.figure()
+for p in [8,9,9.5]:
     # Ruta del archivo de texto
-    file_path = '../../Programas/resultados/TEBD_entrelazamiento_'+str(p)+'.txt'
+    file_path = '../../Programas/resultados/TEBD_error_'+str(p)+'.txt'
     # Generar matrices
-    matrices, qubits = generar_matrices(file_path)
+    matrices, qubits = generar_matrices_tiempo(file_path)
     x=range(1,L+1)
-    y=matrices['D'][:L,0]
-    error=matrices['var(D)'][:L,0]
-    plt.errorbar(x, y, yerr=error, markersize=3, fmt='o',color=color[c], capsize=5, linestyle='None', label='N='+str(N))
+    y=matrices['Error'][:,0]
+    error=matrices['var(Error)'][:,0]
+    plt.errorbar(x, y, yerr=error, markersize=3, fmt='o',color=color[c], capsize=5, linestyle='None', label='N='+str(N)) 
     c=c+1
-
     
 plt.xlabel('Layer')
-plt.ylabel('D$_{Max}$')
-plt.title('Maximum bond dimension per layer')
-# Mostrar la leyenda
-#plt.legend()
-# Mostrar la gráfica
-plt.tight_layout()
-plt.show()
-#savefig('Comparation_2'+str(i)+'.pdf',format='pdf', bbox_inches='tight')
-plt.figure()
-
-
-N=20
-x=range(1,L+1)
-c=0
-for p in [8,9,9.5,10]:
-    # Ruta del archivo de texto
-    file_path = '../../Programas/resultados/TEBD_entrelazamiento_'+str(p)+'.txt'
-    # Generar matrices
-    matrices, qubits = generar_matrices(file_path)
-    y=matrices['Renyi'][:L,0]
-    error=matrices['var(Renyi)'][:L,0]
-    plt.errorbar(x, y, yerr=error, markersize=3, fmt='o',color=color[c], capsize=5, linestyle='None', label='N='+str(N))
-    c=c+1
-
-
-plt.xlabel('Layer')
-plt.ylabel('Renyi entroppy S$_2$')
-plt.title('Renyi entropy per layer')
+plt.ylabel('Error(s)')
+plt.title('Simulation Error per layer')
 # Mostrar la leyenda
 #plt.legend()
 # Mostrar la gráfica

@@ -63,21 +63,26 @@ matrices, qubits = generar_matrices_tiempo(file_path)
 
 
 L=30
-N_ini=20
-
-for N in range(len(qubits)):
-    plt.figure()
+N=20
+c=0
+plt.figure()
+for p in [8,9,9.5,10]:
+    # Ruta del archivo de texto
+    file_path = '../../Programas/resultados/TEBD_tiempo_'+str(p)+'.txt'
+    # Generar matrices
+    matrices, qubits = generar_matrices_tiempo(file_path)
     x=range(1,L+1)
-    y=matrices['Time'][:,N]
-    error=matrices['var(Time)'][:,N]
+    y=matrices['Time'][:,0]
+    error=matrices['var(Time)'][:,0]
+    plt.errorbar(x, y, yerr=error, markersize=3, fmt='o',color=color[c], capsize=5, linestyle='None', label='N='+str(N)) 
+    c=c+1
     
-    plt.errorbar(x, y, yerr=error, markersize=3, fmt='o',color=color[N], capsize=5, linestyle='None', label='N='+str(N_ini+N))    
-    plt.xlabel('Layer')
-    plt.ylabel('Time(s)')
-    plt.title('Simulation time per layer')
-    # Mostrar la leyenda
-    #plt.legend()
-    # Mostrar la gráfica
-    plt.tight_layout()
-    plt.show()
-    #savefig('Comparation_2'+str(i)+'.pdf',format='pdf', bbox_inches='tight')
+plt.xlabel('Layer')
+plt.ylabel('Time(s)')
+plt.title('Simulation time per layer')
+# Mostrar la leyenda
+#plt.legend()
+# Mostrar la gráfica
+plt.tight_layout()
+plt.show()
+#savefig('Comparation_2'+str(i)+'.pdf',format='pdf', bbox_inches='tight')
