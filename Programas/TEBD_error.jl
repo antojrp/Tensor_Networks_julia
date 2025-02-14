@@ -149,7 +149,7 @@ let
   Ni=20
   m=1
   #Number of simulations
-  nsim=6
+  nsim=21
   p=10
   D=2^p
 
