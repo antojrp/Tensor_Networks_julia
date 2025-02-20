@@ -29,9 +29,8 @@ let
 
   #Create 1-qubit random gate given index i
   function random_1gate(i)
-    #options=["H","Y","X","Z"]
+    #=
     options=["Phase","Rn"]
-    #options=["H","T"]
     s=rand(1:length(options))
     if s == 1
       p=rand()*2*pi      
@@ -42,11 +41,37 @@ let
       l=rand()*2*pi
       gate=op(options[2],i,ϕ=p,θ=t,λ=l)
     end
+    =#
+    s=rand(1:3)
+    if s == 1
+      gate=op("Rx", i;θ=π/2)
+    
+    elseif s == 2
+      gate=op("Ry", i;θ=π/2)
+
+    else
+      gate=op("W", i)
+
+    end
+
     return gate
   end
 
+
+  ITensors.op(::OpName"fSim",::SiteType"Qubit")= [
+      1  0                 0                 0
+      0  cos(π/2)           -im*sin(π/2)        0
+      0  -im*sin(π/2)       cos(π/2)            0
+      0  0                 0                 exp(-im*π/6)
+  ]
+
+  ITensors.op(::OpName"W",::SiteType"Qubit")= (1/sqrt(2)) * [1 -sqrt(im); sqrt(-im) 1]
+
+  
+
   #Create 2-qubit random gate given index i,j
   function random_2gate(i,j)
+    #=
     options=["CNOT"]
     s=rand(1:length(options))
     n=rand(1:1)
@@ -55,6 +80,8 @@ let
     else
       gate=op(options[s],j,i)
     end
+    =#
+    gate = op("fSim",i,j)
     return gate
   end
 
@@ -203,6 +230,7 @@ let
 
         #Creates a random_circuit
         circuit,i=random_circuit(i,N,L)
+
 
         #Apply the circuit to the state
         @time for i in 1:L
