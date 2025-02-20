@@ -55,14 +55,14 @@ def generar_matrices_tiempo(file_path):
     return final_matrices, qubits
 
 # Ruta del archivo de texto
-file_path = '../../resultados/Random_tiempo_30.txt'
+file_path = '../../Programas/resultados/Random_tiempo_20.txt'
 
 # Generar matrices
 matrices, qubits = generar_matrices_tiempo(file_path)
 
 
 
-L=30
+L=20
 N_ini=20
 
 for N in range(len(qubits)):
@@ -71,7 +71,7 @@ for N in range(len(qubits)):
     y=matrices['Time'][:,N]
     error=matrices['var(Time)'][:,N]
     
-    plt.errorbar(x, y, yerr=error, markersize=3, fmt='o',color=color[N], capsize=5, linestyle='None', label='N='+str(N_ini+N))    
+    plt.errorbar(x, y, yerr=error/2.3, markersize=3, fmt='o',color=color[N], capsize=5, linestyle='None', label='N='+str(N_ini+N))    
     plt.xlabel('Layer')
     plt.ylabel('Time(s)')
     plt.title('Simulation time per layer')

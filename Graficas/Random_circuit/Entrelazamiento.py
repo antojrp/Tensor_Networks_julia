@@ -57,14 +57,14 @@ def generar_matrices(file_path):
     return final_matrices, qubits
 
 # Ruta del archivo de texto
-file_path = '../../resultados/Random_entrelazamiento_70.txt'
+file_path = '../../Programas/resultados/Random_entrelazamiento_20.txt'
 
 # Generar matrices
 matrices, qubits = generar_matrices(file_path)
 
 
 
-L=70
+L=20
 N_ini=20
 plt.figure()
 for N in range(len(qubits)):
