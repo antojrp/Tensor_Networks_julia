@@ -182,9 +182,9 @@ let
   end
 
   #Number of Layers
-  L=3
+  L=20
   #Number of qubits starting
-  Ni=4
+  Ni=20
   m=1
   #Number of simulations
   nsim=6
