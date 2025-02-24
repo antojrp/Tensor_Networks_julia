@@ -28,7 +28,7 @@ let
   end
 
   #Create 1-qubit random gate given index i
-  function random_1gate(i)
+  function random_1gate(i,random,j)
     #=
     options=["Phase","Rn"]
     s=rand(1:length(options))
@@ -42,11 +42,13 @@ let
       gate=op(options[2],i,ϕ=p,θ=t,λ=l)
     end
     =#
-    s=rand(1:3)
-    if s == 1
+    s=rand(1:2)
+    s=(s+random[j])%3
+    random[j]=s
+    if s == 0
       gate=op("Rx", i;θ=π/2)
     
-    elseif s == 2
+    elseif s == 1
       gate=op("Ry", i;θ=π/2)
 
     else
@@ -86,10 +88,10 @@ let
   end
 
   #Create a layer of 1-qubit random gate given the number ob qubits (N) and a array of index i1
-  function layer1(N,i1)
+  function layer1(N,i1,random)
     l=ITensor[]
     for j in 1:N
-      gate=random_1gate(i1[j])
+      gate=random_1gate(i1[j],random,j)
       push!(l,gate)
     end
     return l
@@ -124,8 +126,10 @@ let
   #Creates a random circuit of L layers, each layer is composed by a 1-qubit layer and 2-qubit layer.
   function random_circuit(i1,N,L)
     circuit=[]
+    random=rand(0:2,N)
     for i in 1:L
-      layer=layer1(N,i1)
+      layer=layer1(N,i1,random)
+      print(random)
       push!(circuit,layer)
       #i2=i1'
       i2=i1
@@ -182,12 +186,12 @@ let
   end
 
   #Number of Layers
-  L=20
+  L=15
   #Number of qubits starting
   Ni=20
-  m=1
+  m=6
   #Number of simulations
-  nsim=6
+  nsim=21
 
   mkpath("resultados")
 
