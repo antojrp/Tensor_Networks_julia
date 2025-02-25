@@ -185,10 +185,10 @@ let
   end
 
   #Number of Layers
-  L=15
+  L=16
   #Number of qubits starting
   Ni=20
-  m=6
+  m=2
   #Number of simulations
   nsim=21
 
@@ -245,7 +245,7 @@ let
           renyi[k,i]=entropy(psi,div(N,2))
         end
         print("\n\n")
-        if k==1
+        if true
           eigenvalues(psi,div(N,2))
         end
       end
