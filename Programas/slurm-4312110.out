@@ -1,0 +1,23 @@
+Numero de qubits: 20 
+Threads (LinearAlgebra) :15
+Threads (Julia) :1
+
+
+ 54.318599 seconds (88.89 M allocations: 37.142 GiB, 12.01% gc time, 38.50% compilation time)
+
+
+ 33.384074 seconds (977.29 k allocations: 32.773 GiB, 16.38% gc time)
+
+
+ 33.270359 seconds (977.28 k allocations: 32.788 GiB, 16.48% gc time)
+
+
+ 34.631784 seconds (4.85 M allocations: 32.963 GiB, 16.70% gc time, 3.54% compilation time)
+
+
+ 32.430820 seconds (977.31 k allocations: 32.783 GiB, 16.80% gc time)
+
+
+ 32.823395 seconds (977.30 k allocations: 32.773 GiB, 16.58% gc time)
+
+

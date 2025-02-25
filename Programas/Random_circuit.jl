@@ -129,7 +129,6 @@ let
     random=rand(0:2,N)
     for i in 1:L
       layer=layer1(N,i1,random)
-      print(random)
       push!(circuit,layer)
       #i2=i1'
       i2=i1
