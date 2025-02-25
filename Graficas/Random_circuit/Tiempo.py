@@ -55,14 +55,14 @@ def generar_matrices_tiempo(file_path):
     return final_matrices, qubits
 
 # Ruta del archivo de texto
-file_path = '../../Programas/resultados/Random_tiempo_20.txt'
+file_path = '../../Programas/resultados/Random_tiempo_15.txt'
 
 # Generar matrices
 matrices, qubits = generar_matrices_tiempo(file_path)
 
 
 
-L=20
+L=15
 N_ini=20
 
 for N in range(len(qubits)):

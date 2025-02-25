@@ -11,7 +11,7 @@ plt.rcParams.update({
     'xtick.labelsize': 14, # Tamaño de las etiquetas del eje x
     'ytick.labelsize': 14  # Tamaño de las etiquetas del eje y
 })
-color=['#073a4b','#108ab1','#06d7a0','#ffd167','#f04770']
+color=['#073a4b','#108ab1','#06d7a0','#ffd167','#f04770','#073a4b']
 
 # Función para procesar el archivo y generar matrices
 def generar_matrices(file_path):
@@ -57,17 +57,18 @@ def generar_matrices(file_path):
     return final_matrices, qubits
 
 # Ruta del archivo de texto
-file_path = '../../Programas/resultados/Random_entrelazamiento_20.txt'
+file_path = '../../Programas/resultados/Random_entrelazamiento_15.txt'
 
 # Generar matrices
 matrices, qubits = generar_matrices(file_path)
 
 
 
-L=20
+L=15
 N_ini=20
 plt.figure()
 for N in range(len(qubits)):
+    print(N)
     x=range(1,L+1)
     y=matrices['D'][:L,N]
     error=matrices['var(D)'][:L,N]
@@ -86,7 +87,8 @@ plt.show()
 #savefig('Comparation_2'+str(i)+'.pdf',format='pdf', bbox_inches='tight')
 
 plt.figure()
-N=20
+
+N=22
 x=range(1,L+1)
 y=matrices['Renyi'][:L,N-N_ini]
 error=matrices['var(Renyi)'][:L,N-N_ini]
