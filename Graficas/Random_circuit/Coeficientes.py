@@ -42,8 +42,8 @@ def leer_coeficientes_schmidt(archivo, num_qubits):
     return coeficientes
 
 
-archivo=r'../../Programas/resultados/Random_coeficientes_15.txt'
-N=21  
+archivo=r'../../Programas/resultados/Random_coeficientes_15_2.txt'
+N=20  
 coef=leer_coeficientes_schmidt(archivo, N)
 plt.figure()
 x=range(len(coef))
@@ -93,3 +93,5 @@ plt.xlabel("Valores")
 plt.ylabel("Probabilidad")
 plt.title("Distribución de Probabilidad")
 plt.show()
+
+
