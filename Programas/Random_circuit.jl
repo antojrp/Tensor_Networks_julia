@@ -173,7 +173,7 @@ let
   end
 
   function eigenvalues(psi,b)
-    io3 = open("resultados/Random_coeficientes_$(L)_t$(BLAS.get_num_threads()).txt","a")
+    io3 = open("resultados/Random_coeficientes_$(L)_3.txt","a")
     psi = orthogonalize(psi, b)
     U,S,V = svd(psi[b], (linkinds(psi, b-1)..., siteinds(psi, b)...))
     for n=1:dim(S, 1)
@@ -187,26 +187,30 @@ let
   #Number of Layers
   L=15
   #Number of qubits starting
-  Ni=20
-  m=1
+  Ni=25
+  m=15
   #Number of simulations
   nsim=21
 
   mkpath("resultados")
 
-  io1 = open("resultados/Random_entrelazamiento_$(L)_t$(BLAS.get_num_threads()).txt","w")
-  io2 = open("resultados/Random_tiempo_$(L)_t$(BLAS.get_num_threads()).txt","w")
-  io3 = open("resultados/Random_coeficientes_$(L)_t$(BLAS.get_num_threads()).txt","w")
+  io1 = open("resultados/Random_entrelazamiento_$(L)_3.txt","w")
+  io2 = open("resultados/Random_tiempo_$(L)_3.txt","w")
+  io3 = open("resultados/Random_coeficientes_$(L)_3.txt","w")
   close(io1)
   close(io2)
   close(io3)
 
   for num in 1:m
-    N=Ni+num-1
+    if num==1
+      N=20
+    else
+      N=Ni+num-1
+    end
     #Print 
-    io1 = open("resultados/Random_entrelazamiento_$(L)_t$(BLAS.get_num_threads()).txt","a")
-    io2 = open("resultados/Random_tiempo_$(L)_t$(BLAS.get_num_threads()).txt","a")
-    io3 = open("resultados/Random_coeficientes_$(L)_t$(BLAS.get_num_threads()).txt","a")
+    io1 = open("resultados/Random_entrelazamiento_$(L)_3.txt","a")
+    io2 = open("resultados/Random_tiempo_$(L)_3.txt","a")
+    io3 = open("resultados/Random_coeficientes_$(L)_3.txt","a")
     print("Numero de qubits: $N \n")
     print("Threads (LinearAlgebra) :$(BLAS.get_num_threads())\n")
     print("Threads (Julia) :$(Threads.nthreads())\n\n\n")
@@ -245,7 +249,7 @@ let
           renyi[k,i]=entropy(psi,div(N,2))
         end
         print("\n\n")
-        if true
+        if false
           eigenvalues(psi,div(N,2))
         end
       end
