@@ -1,0 +1,110 @@
+Numero de qubits: 100 
+Threads (LinearAlgebra) :2
+Threads (Julia) :1
+
+
+-99.0After sweep 1 energy=-126.83458341353801  maxlinkdim=4 maxerr=0.00E+00 time=9.510
+-126.83458341353837After sweep 1 energy=-126.9230774639686  maxlinkdim=16 maxerr=0.00E+00 time=0.059
+-126.9230774639686After sweep 1 energy=-126.93309635145756  maxlinkdim=51 maxerr=9.98E-16 time=0.173
+-126.93309635145766After sweep 1 energy=-126.93867170915573  maxlinkdim=100 maxerr=1.64E-14 time=1.052
+-126.93867170915544After sweep 1 energy=-126.94292121796016  maxlinkdim=100 maxerr=4.11E-13 time=1.437
+Numero de qubits: 100 
+Threads (LinearAlgebra) :2
+Threads (Julia) :1
+
+
+0.0After sweep 1 energy=0.0  maxlinkdim=1 maxerr=0.00E+00 time=0.034
+0.0After sweep 1 energy=0.0  maxlinkdim=1 maxerr=0.00E+00 time=0.019
+0.0After sweep 1 energy=0.0  maxlinkdim=1 maxerr=0.00E+00 time=0.020
+0.0After sweep 1 energy=0.0  maxlinkdim=1 maxerr=0.00E+00 time=0.020
+0.0After sweep 1 energy=0.0  maxlinkdim=1 maxerr=0.00E+00 time=0.033
+Numero de qubits: 100 
+Threads (LinearAlgebra) :2
+Threads (Julia) :1
+
+
+-99.0After sweep 1 energy=-126.83458341353801  maxlinkdim=4 maxerr=0.00E+00 time=0.039
+-126.83458341353837After sweep 1 energy=-126.9230774639686  maxlinkdim=16 maxerr=0.00E+00 time=0.050
+-126.9230774639686After sweep 1 energy=-126.93309635145756  maxlinkdim=51 maxerr=9.98E-16 time=0.162
+-126.93309635145766After sweep 1 energy=-126.93867088815362  maxlinkdim=121 maxerr=9.99E-16 time=1.076
+-126.93867088815456After sweep 1 energy=-126.94288808133702  maxlinkdim=252 maxerr=1.00E-15 time=4.142
+Numero de qubits: 100 
+Threads (LinearAlgebra) :2
+Threads (Julia) :1
+
+
+0.0After sweep 1 energy=0.0  maxlinkdim=1 maxerr=0.00E+00 time=0.020
+0.0After sweep 1 energy=0.0  maxlinkdim=1 maxerr=0.00E+00 time=0.019
+0.0After sweep 1 energy=0.0  maxlinkdim=1 maxerr=0.00E+00 time=0.020
+0.0After sweep 1 energy=0.0  maxlinkdim=1 maxerr=0.00E+00 time=0.019
+0.0After sweep 1 energy=0.0  maxlinkdim=1 maxerr=0.00E+00 time=0.020
+Numero de qubits: 100 
+Threads (LinearAlgebra) :2
+Threads (Julia) :1
+
+
+-99.0After sweep 1 energy=-126.83458341353801  maxlinkdim=4 maxerr=0.00E+00 time=0.037
+-126.83458341353837After sweep 1 energy=-126.9230774639686  maxlinkdim=16 maxerr=0.00E+00 time=0.055
+-126.9230774639686After sweep 1 energy=-126.93309635145756  maxlinkdim=51 maxerr=9.98E-16 time=0.155
+-126.93309635145766After sweep 1 energy=-126.93867088815362  maxlinkdim=121 maxerr=9.99E-16 time=0.915
+-126.93867088815456After sweep 1 energy=-126.94288808133702  maxlinkdim=252 maxerr=1.00E-15 time=4.174
+Numero de qubits: 100 
+Threads (LinearAlgebra) :2
+Threads (Julia) :1
+
+
+0.0After sweep 1 energy=0.0  maxlinkdim=1 maxerr=0.00E+00 time=0.024
+0.0After sweep 1 energy=0.0  maxlinkdim=1 maxerr=0.00E+00 time=0.025
+0.0After sweep 1 energy=0.0  maxlinkdim=1 maxerr=0.00E+00 time=0.020
+0.0After sweep 1 energy=0.0  maxlinkdim=1 maxerr=0.00E+00 time=0.025
+0.0After sweep 1 energy=0.0  maxlinkdim=1 maxerr=0.00E+00 time=0.023
+Numero de qubits: 100 
+Threads (LinearAlgebra) :2
+Threads (Julia) :1
+
+
+-99.0After sweep 1 energy=-126.83458341353801  maxlinkdim=4 maxerr=0.00E+00 time=0.034
+-126.83458341353837After sweep 1 energy=-126.9230774639686  maxlinkdim=16 maxerr=0.00E+00 time=0.058
+-126.9230774639686After sweep 1 energy=-126.93309635145756  maxlinkdim=51 maxerr=9.98E-16 time=0.161
+-126.93309635145766After sweep 1 energy=-126.93867088815362  maxlinkdim=121 maxerr=9.99E-16 time=0.934
+-126.93867088815456After sweep 1 energy=-126.94288808133702  maxlinkdim=252 maxerr=1.00E-15 time=4.079
+Numero de qubits: 100 
+Threads (LinearAlgebra) :2
+Threads (Julia) :1
+
+
+0.0After sweep 1 energy=0.0  maxlinkdim=1 maxerr=0.00E+00 time=0.022
+0.0After sweep 1 energy=0.0  maxlinkdim=1 maxerr=0.00E+00 time=0.023
+0.0After sweep 1 energy=0.0  maxlinkdim=1 maxerr=0.00E+00 time=0.022
+0.0After sweep 1 energy=0.0  maxlinkdim=1 maxerr=0.00E+00 time=0.020
+0.0After sweep 1 energy=0.0  maxlinkdim=1 maxerr=0.00E+00 time=0.019
+Numero de qubits: 100 
+Threads (LinearAlgebra) :2
+Threads (Julia) :1
+
+
+-99.0After sweep 1 energy=-126.83458341353801  maxlinkdim=4 maxerr=0.00E+00 time=0.037
+-126.83458341353837After sweep 1 energy=-126.9230774639686  maxlinkdim=16 maxerr=0.00E+00 time=0.050
+-126.9230774639686After sweep 1 energy=-126.93309635145756  maxlinkdim=51 maxerr=9.98E-16 time=0.157
+-126.93309635145766After sweep 1 energy=-126.93867088815362  maxlinkdim=121 maxerr=9.99E-16 time=0.909
+-126.93867088815456After sweep 1 energy=-126.94288808133702  maxlinkdim=252 maxerr=1.00E-15 time=4.065
+Numero de qubits: 100 
+Threads (LinearAlgebra) :2
+Threads (Julia) :1
+
+
+0.0After sweep 1 energy=0.0  maxlinkdim=1 maxerr=0.00E+00 time=0.020
+0.0After sweep 1 energy=0.0  maxlinkdim=1 maxerr=0.00E+00 time=0.024
+0.0After sweep 1 energy=0.0  maxlinkdim=1 maxerr=0.00E+00 time=0.026
+0.0After sweep 1 energy=0.0  maxlinkdim=1 maxerr=0.00E+00 time=0.037
+0.0After sweep 1 energy=0.0  maxlinkdim=1 maxerr=0.00E+00 time=0.020
+Numero de qubits: 100 
+Threads (LinearAlgebra) :2
+Threads (Julia) :1
+
+
+-99.0After sweep 1 energy=-126.83458341353801  maxlinkdim=4 maxerr=0.00E+00 time=0.056
+-126.83458341353837After sweep 1 energy=-126.9230774639686  maxlinkdim=16 maxerr=0.00E+00 time=0.060
+-126.9230774639686After sweep 1 energy=-126.93309635145756  maxlinkdim=51 maxerr=9.98E-16 time=0.164
+-126.93309635145766After sweep 1 energy=-126.93867088815362  maxlinkdim=121 maxerr=9.99E-16 time=0.923
+-126.93867088815456After sweep 1 energy=-126.94288808133702  maxlinkdim=252 maxerr=1.00E-15 time=4.082
