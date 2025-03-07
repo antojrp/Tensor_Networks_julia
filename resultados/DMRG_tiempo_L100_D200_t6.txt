@@ -1,0 +1,22 @@
+Numero de qubits: 100 
+Dimension: 200 
+Layer   Time var(Time)
+1  0.0966907  0.0
+2  0.1078019  0.0
+3  0.4390295  0.0
+4  2.3332  0.0
+5  8.9442187  0.0
+Total= 11.9209408
+Varianza= 0.0
+
+Numero de qubits: 100 
+Dimension: 300 
+Layer   Time var(Time)
+1  0.0971376  0.0
+2  0.1470417  0.0
+3  0.4279014  0.0
+4  2.7014872  0.0
+5  10.1621301  0.0
+Total= 13.535698
+Varianza= 0.0
+
