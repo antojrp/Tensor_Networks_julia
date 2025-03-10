@@ -10,12 +10,12 @@ let
   ITensors.disable_warn_order() 
   Ni=100
   m=1
-  nsim=1
+  nsim=10
   paso=100
-  nsweeps=5
-  dim_i=200
+  nsweeps=10
+  dim_i=100
   pasod=100
-  ndims=2
+  ndims=10
   J=1
   g=1
   cutoff = [1E-15]
