@@ -43,8 +43,8 @@ let
       write(io2,"Numero de qubits: $N \n")
       write(io1,"Dimension: $dim \n")
       write(io2,"Dimension: $dim \n")
-      write(io1,"Layer   Energy  var(Energy)  \n")
-      write(io2,"Layer   Time var(Time)\n")
+      write(io1,"Sweep   Energy  var(Energy)  \n")
+      write(io2,"Sweep   Time var(Time)\n")
 
       sites = siteinds("Qubit",N)
       os1 = OpSum()

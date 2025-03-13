@@ -1,0 +1,3 @@
+ERROR: LoadError: UndefVarError: `@ellapsed` not defined in `Main`
+in expression starting at /home/ajrp/Tensor_Networks_julia/Programas/GPU-CPU.jl:57
+in expression starting at /home/ajrp/Tensor_Networks_julia/Programas/GPU-CPU.jl:39
