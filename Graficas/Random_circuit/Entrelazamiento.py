@@ -67,20 +67,20 @@ matrices, qubits = generar_matrices(file_path)
 L=15
 N_ini=20
 plt.figure()
-for N in range(len(qubits)):
+for N in range(0,len(qubits),2):
     print(N)
     x=range(1,L+1)
     y=matrices['D'][:L,N]
     error=matrices['var(D)'][:L,N]
     
-    plt.errorbar(x, y, yerr=error, markersize=3, fmt='o',color=color[N], capsize=5, linestyle='None', label='N='+str(N_ini+N))
-
-    
+    plt.errorbar(x, y, yerr=error, markersize=3, fmt='o',color=color[int(N/2)], capsize=5, linestyle='None', label='N='+str(N_ini+N))
+    plt.axvline((N_ini+N)/2,ymin=0,ymax=2**((N_ini+N)/2))
+    plt.axv
 plt.xlabel('Layer')
 plt.ylabel('D$_{Max}$')
 plt.title('Maximum bond dimension per layer')
 # Mostrar la leyenda
-#plt.legend()
+plt.legend()
 # Mostrar la gráfica
 plt.tight_layout()
 plt.show()
@@ -88,7 +88,7 @@ plt.show()
 
 plt.figure()
 
-N=22
+N=20
 x=range(1,L+1)
 y=matrices['Renyi'][:L,N-N_ini]
 error=matrices['var(Renyi)'][:L,N-N_ini]
