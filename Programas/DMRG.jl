@@ -20,8 +20,8 @@ let
   g=1
   cutoff = [1E-15]
 
-  io1 = open("resultados/DMRG_energia_L$(Ni)_D$(dim_i)_t$(BLAS.get_num_threads()).txt","w")
-  io2 = open("resultados/DMRG_tiempo_L$(Ni)_D$(dim_i)_t$(BLAS.get_num_threads()).txt","w")
+  io1 = open("resultados/DMRG_2_energia_L$(Ni)_D$(dim_i)_t$(BLAS.get_num_threads()).txt","w")
+  io2 = open("resultados/DMRG_2_tiempo_L$(Ni)_D$(dim_i)_t$(BLAS.get_num_threads()).txt","w")
   close(io1)
   close(io2)  
   os1 = OpSum()
@@ -33,8 +33,8 @@ let
     for num in 1:m
       N=Ni+(num-1)*paso
 
-      io1 = open("resultados/DMRG_energia_L$(Ni)_D$(dim_i)_t$(BLAS.get_num_threads()).txt","a")
-      io2 = open("resultados/DMRG_tiempo_L$(Ni)_D$(dim_i)_t$(BLAS.get_num_threads()).txt","a")
+      io1 = open("resultados/DMRG_2_energia_L$(Ni)_D$(dim_i)_t$(BLAS.get_num_threads()).txt","a")
+      io2 = open("resultados/DMRG_2_tiempo_L$(Ni)_D$(dim_i)_t$(BLAS.get_num_threads()).txt","a")
       print("Numero de qubits: $N \n")
       print("Dimension max: $dim \n")
       print("Threads (LinearAlgebra) :$(BLAS.get_num_threads())\n")
@@ -64,9 +64,9 @@ let
 
 
       for k in 1:nsim
-        #psi = random_mps(sites;linkdims=1)
-        state = ["0" for z in 1:N]
-        psi = MPS(sites, state)
+        psi = random_mps(sites;linkdims=dim)
+        #state = ["0" for z in 1:N]
+        #psi = MPS(sites, state)
         print(inner(psi',H,psi))
         for i in 1:nsweeps
           t=@elapsed energy[k,i],psi = dmrg(H,psi;nsweeps=1,maxdim=dim,cutoff)
