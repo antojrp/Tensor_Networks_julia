@@ -9,7 +9,7 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 from mpl_toolkits.axes_grid1.inset_locator import inset_axes, mark_inset
-
+from scipy.optimize import curve_fit
 
 plt.rcParams.update({
     'font.size': 14,       # Tamaño de fuente general
@@ -45,13 +45,13 @@ def leer_coeficientes_schmidt(archivo, num_qubits):
 
 
 archivo=r'../../Programas/resultados/Random_coeficientes_15_2.txt'
-N=20  
+N=20
 coef=leer_coeficientes_schmidt(archivo, N)
 plt.figure()
 x=range(len(coef))
 plt.plot(x, coef, markersize=3,color=color[0], linestyle='-')   
     
-# plt.hlines(1/pow(2,N/2),0,len(df)) 
+
 plt.xlabel('N')
 plt.ylabel('$\lambda$')
 plt.title('Hola')
@@ -62,9 +62,16 @@ plt.show()
 #savefig('Comparation_2'+str(i)+'.pdf',format='pdf', bbox_inches='tight')
 
 
+def freedman_diaconis(data):
+    num_data = len(data)
+    irq = np.percentile(data, 75) - np.percentile(data, 25)
+    bin_width = 2 * irq / np.power(num_data, 1/3)
+    num_bins = int((np.max(data) -  np.min(data)) / bin_width)  + 1
+    return num_bins
+
 
 # Crear histograma normalizado para la distribución de probabilidad
-num_bins = 30  # Número de intervalos
+num_bins = freedman_diaconis(coef)  # Número de intervalos
 nsim=21
 counts_i= [None] * nsim
 for i in range(nsim):    
@@ -87,6 +94,11 @@ def omega_s(p, N_A, N_B, a, b):
         return (N_A * N_B / (2 * np.pi)) * np.sqrt((p - a) * (b - p)) /( N_A*p)
     else:
         return 0
+
+omega_vals =[omega_s(p, N_A, N_B, a, b) for p in bins[:-1]]
+error = (counts[5:25] - omega_vals[5:25])**2/omega_vals[5:25]
+chi=sum(error)
+print(chi)
 
 # Crear valores de p en el rango relevante
 p_values = np.linspace(0.000001, 1.05*b, 1000)
@@ -121,7 +133,6 @@ axins.set_xticks([])
 axins.set_yticks([])
 # Conectar el recuadro de zoom con la gráfica principal
 mark_inset(ax, axins, loc1=2, loc2=4, fc="none", ec="0.5")
-
 plt.show()
 
 

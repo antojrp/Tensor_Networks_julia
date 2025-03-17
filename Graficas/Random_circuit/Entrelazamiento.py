@@ -5,11 +5,11 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 plt.rcParams.update({
-    'font.size': 14,       # Tamaño de fuente general
-    'axes.titlesize': 14,  # Tamaño del título de los ejes
-    'axes.labelsize': 14,  # Tamaño de las etiquetas de los ejes
-    'xtick.labelsize': 14, # Tamaño de las etiquetas del eje x
-    'ytick.labelsize': 14  # Tamaño de las etiquetas del eje y
+    'font.size': 18,       # Tamaño de fuente general
+    'axes.titlesize': 18,  # Tamaño del título de los ejes
+    'axes.labelsize': 18,  # Tamaño de las etiquetas de los ejes
+    'xtick.labelsize': 18, # Tamaño de las etiquetas del eje x
+    'ytick.labelsize': 18  # Tamaño de las etiquetas del eje y
 })
 color=['#073a4b','#108ab1','#06d7a0','#ffd167','#f04770','#073a4b']
 
@@ -74,21 +74,30 @@ for N in range(0,len(qubits),2):
     error=matrices['var(D)'][:L,N]
     
     plt.errorbar(x, y, yerr=error, markersize=3, fmt='o',color=color[int(N/2)], capsize=5, linestyle='None', label='N='+str(N_ini+N))
-    plt.axvline((N_ini+N)/2,ymin=0,ymax=2**((N_ini+N)/2))
-    plt.axv
+    
 plt.xlabel('Layer')
-plt.ylabel('D$_{Max}$')
-plt.title('Maximum bond dimension per layer')
-# Mostrar la leyenda
+plt.ylabel('D')
+plt.title('Maximum bond dimension of the MPS per layer')
+#plt.yscale('log', base=2)  # Escala logarítmica base 2 en el eje Y
+plt.yticks([2**10, 2**11, 2**12, 2**13, 2**14], labels=['$2^{10}$', '$2^{11}$', '$2^{12}$', '$2^{13}$', '$2^{14}$'])  # Etiquetas específicas en potencias de 2
+plt.grid(True, which='both', linestyle='--', linewidth=0.5)  # Cuadrícula
 plt.legend()
-# Mostrar la gráfica
 plt.tight_layout()
 plt.show()
-#savefig('Comparation_2'+str(i)+'.pdf',format='pdf', bbox_inches='tight')
+plt.savefig('Maximum_D.pdf',format='pdf', bbox_inches='tight')
+
+
+plt.rcParams.update({
+    'font.size': 14,       # Tamaño de fuente general
+    'axes.titlesize': 14,  # Tamaño del título de los ejes
+    'axes.labelsize': 14,  # Tamaño de las etiquetas de los ejes
+    'xtick.labelsize': 14, # Tamaño de las etiquetas del eje x
+    'ytick.labelsize': 14  # Tamaño de las etiquetas del eje y
+})
 
 plt.figure()
 
-N=20
+N=21
 x=range(1,L+1)
 y=matrices['Renyi'][:L,N-N_ini]
 error=matrices['var(Renyi)'][:L,N-N_ini]
@@ -98,10 +107,11 @@ plt.errorbar(x, y, yerr=error, markersize=3, fmt='o',color=color[0], capsize=5, 
     
 plt.xlabel('Layer')
 plt.ylabel('Renyi entroppy S$_2$')
-plt.title('Renyi entropy per layer')
+plt.title('Renyi entropy per layer N='+str(N)+' qubits')
 # Mostrar la leyenda
 #plt.legend()
 # Mostrar la gráfica
+plt.axhline(10, color='r', linestyle='--', label="Línea horizontal")
 plt.tight_layout()
 plt.show()
-#savefig('Comparation_2'+str(i)+'.pdf',format='pdf', bbox_inches='tight')
+plt.savefig('Renyi_'+str(N)+'.pdf',format='pdf', bbox_inches='tight')
