@@ -1,0 +1,7 @@
+Numero de qubits: 20 
+Numero de qubits: 23 
+Numero de qubits: 21 
+Numero de qubits: 24 
+Numero de qubits: 22 
+Numero de qubits: 23 
+Numero de qubits: 25 
