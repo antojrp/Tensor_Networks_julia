@@ -1,0 +1,2788 @@
+Numero de qubits: 20 
+Threads (LinearAlgebra) :15
+Threads (Julia) :1
+
+
+ 22.586192 seconds (88.33 M allocations: 5.475 GiB, 4.62% gc time, 95.23% compilation time)
+
+
+  1.709024 seconds (3.05 M allocations: 1.245 GiB, 20.11% gc time, 33.76% compilation time)
+
+
+  0.962108 seconds (412.80 k allocations: 1.117 GiB, 19.33% gc time)
+
+
+  0.950979 seconds (412.80 k allocations: 1.117 GiB, 17.85% gc time)
+
+
+  0.961160 seconds (412.80 k allocations: 1.117 GiB, 19.03% gc time)
+
+
+  0.947365 seconds (412.80 k allocations: 1.117 GiB, 18.18% gc time)
+
+
+  1.095593 seconds (412.79 k allocations: 1.117 GiB, 30.01% gc time)
+
+
+  0.930085 seconds (412.80 k allocations: 1.117 GiB, 18.30% gc time)
+
+
+  0.965457 seconds (412.81 k allocations: 1.117 GiB, 17.71% gc time)
+
+
+  0.939692 seconds (412.80 k allocations: 1.117 GiB, 18.16% gc time)
+
+
+  0.949037 seconds (412.80 k allocations: 1.117 GiB, 18.00% gc time)
+
+
+  0.960230 seconds (412.79 k allocations: 1.117 GiB, 19.97% gc time)
+
+
+  1.490220 seconds (1.65 M allocations: 1.179 GiB, 12.11% gc time, 37.27% compilation time)
+
+
+  0.952682 seconds (412.81 k allocations: 1.117 GiB, 17.77% gc time)
+
+
+  0.938588 seconds (412.80 k allocations: 1.117 GiB, 19.18% gc time)
+
+
+  1.123159 seconds (412.80 k allocations: 1.117 GiB, 29.35% gc time)
+
+
+  0.961977 seconds (412.80 k allocations: 1.117 GiB, 18.77% gc time)
+
+
+  0.955882 seconds (412.80 k allocations: 1.117 GiB, 18.01% gc time)
+
+
+  0.976618 seconds (412.81 k allocations: 1.117 GiB, 17.70% gc time)
+
+
+  0.921774 seconds (412.80 k allocations: 1.117 GiB, 18.67% gc time)
+
+
+  0.909912 seconds (412.80 k allocations: 1.117 GiB, 18.67% gc time)
+
+
+Numero de qubits: 21 
+Threads (LinearAlgebra) :15
+Threads (Julia) :1
+
+
+  1.002992 seconds (437.49 k allocations: 1.211 GiB, 18.90% gc time)
+
+
+  1.116934 seconds (437.48 k allocations: 1.211 GiB, 28.72% gc time)
+
+
+  0.981145 seconds (437.48 k allocations: 1.211 GiB, 17.44% gc time)
+
+
+  0.971550 seconds (437.48 k allocations: 1.211 GiB, 17.57% gc time)
+
+
+  1.009210 seconds (437.47 k allocations: 1.211 GiB, 18.42% gc time)
+
+
+  1.005956 seconds (437.49 k allocations: 1.211 GiB, 17.15% gc time)
+
+
+  1.140480 seconds (437.48 k allocations: 1.211 GiB, 28.22% gc time)
+
+
+  1.019224 seconds (437.48 k allocations: 1.211 GiB, 18.27% gc time)
+
+
+  0.979952 seconds (437.48 k allocations: 1.211 GiB, 17.57% gc time)
+
+
+  0.966496 seconds (437.47 k allocations: 1.211 GiB, 17.59% gc time)
+
+
+  1.164822 seconds (437.49 k allocations: 1.211 GiB, 27.93% gc time)
+
+
+  1.019651 seconds (437.48 k allocations: 1.211 GiB, 17.00% gc time)
+
+
+  0.965440 seconds (437.46 k allocations: 1.211 GiB, 17.74% gc time)
+
+
+  0.972567 seconds (437.48 k allocations: 1.211 GiB, 17.60% gc time)
+
+
+  1.158031 seconds (437.47 k allocations: 1.211 GiB, 28.70% gc time)
+
+
+  1.027522 seconds (437.48 k allocations: 1.211 GiB, 18.54% gc time)
+
+
+  0.972929 seconds (437.48 k allocations: 1.211 GiB, 17.61% gc time)
+
+
+  0.988041 seconds (437.49 k allocations: 1.211 GiB, 17.83% gc time)
+
+
+  1.138859 seconds (437.48 k allocations: 1.211 GiB, 28.47% gc time)
+
+
+  1.016511 seconds (437.47 k allocations: 1.211 GiB, 17.98% gc time)
+
+
+  0.970043 seconds (437.47 k allocations: 1.211 GiB, 17.94% gc time)
+
+
+Numero de qubits: 22 
+Threads (LinearAlgebra) :15
+Threads (Julia) :1
+
+
+  1.370092 seconds (459.49 k allocations: 1.447 GiB, 24.24% gc time)
+
+
+  1.217237 seconds (459.47 k allocations: 1.447 GiB, 14.91% gc time)
+
+
+  1.398776 seconds (459.47 k allocations: 1.447 GiB, 24.05% gc time)
+
+
+  1.219084 seconds (459.48 k allocations: 1.447 GiB, 14.60% gc time)
+
+
+  1.414207 seconds (459.49 k allocations: 1.447 GiB, 23.82% gc time)
+
+
+  1.413051 seconds (459.48 k allocations: 1.447 GiB, 23.35% gc time)
+
+
+  1.181696 seconds (459.48 k allocations: 1.447 GiB, 14.42% gc time)
+
+
+  1.356362 seconds (459.48 k allocations: 1.447 GiB, 24.38% gc time)
+
+
+  1.380671 seconds (459.49 k allocations: 1.447 GiB, 24.33% gc time)
+
+
+  1.195959 seconds (459.48 k allocations: 1.447 GiB, 14.65% gc time)
+
+
+  1.357043 seconds (459.48 k allocations: 1.447 GiB, 24.21% gc time)
+
+
+  1.197597 seconds (459.48 k allocations: 1.447 GiB, 14.37% gc time)
+
+
+  1.372881 seconds (459.49 k allocations: 1.447 GiB, 25.00% gc time)
+
+
+  1.221600 seconds (459.48 k allocations: 1.447 GiB, 15.82% gc time)
+
+
+  1.395041 seconds (459.49 k allocations: 1.447 GiB, 22.37% gc time)
+
+
+  1.393234 seconds (459.49 k allocations: 1.447 GiB, 23.55% gc time)
+
+
+  1.215667 seconds (459.49 k allocations: 1.447 GiB, 15.51% gc time)
+
+
+  1.334170 seconds (459.48 k allocations: 1.447 GiB, 24.59% gc time)
+
+
+  1.205804 seconds (459.49 k allocations: 1.447 GiB, 16.05% gc time)
+
+
+  1.386512 seconds (459.49 k allocations: 1.447 GiB, 22.42% gc time)
+
+
+  1.421581 seconds (459.48 k allocations: 1.447 GiB, 23.26% gc time)
+
+
+Numero de qubits: 23 
+Threads (LinearAlgebra) :15
+Threads (Julia) :1
+
+
+  1.290042 seconds (484.49 k allocations: 1.541 GiB, 15.63% gc time)
+
+
+  1.446735 seconds (484.49 k allocations: 1.541 GiB, 21.67% gc time)
+
+
+  1.457813 seconds (484.48 k allocations: 1.541 GiB, 23.88% gc time)
+
+
+  1.288825 seconds (484.50 k allocations: 1.541 GiB, 14.08% gc time)
+
+
+  1.411347 seconds (484.49 k allocations: 1.541 GiB, 23.14% gc time)
+
+
+  1.389685 seconds (484.48 k allocations: 1.541 GiB, 23.64% gc time)
+
+
+  1.221740 seconds (484.50 k allocations: 1.541 GiB, 14.20% gc time)
+
+
+  1.464837 seconds (484.46 k allocations: 1.541 GiB, 23.94% gc time)
+
+
+  1.403722 seconds (484.48 k allocations: 1.541 GiB, 23.26% gc time)
+
+
+  1.419961 seconds (484.49 k allocations: 1.541 GiB, 23.16% gc time)
+
+
+  1.245581 seconds (484.48 k allocations: 1.541 GiB, 14.19% gc time)
+
+
+  1.437681 seconds (484.48 k allocations: 1.541 GiB, 24.39% gc time)
+
+
+  1.414980 seconds (484.49 k allocations: 1.541 GiB, 23.13% gc time)
+
+
+  1.400887 seconds (484.51 k allocations: 1.541 GiB, 23.54% gc time)
+
+
+  1.236412 seconds (484.49 k allocations: 1.541 GiB, 14.14% gc time)
+
+
+  1.456404 seconds (484.49 k allocations: 1.541 GiB, 23.56% gc time)
+
+
+  1.436819 seconds (484.50 k allocations: 1.541 GiB, 22.85% gc time)
+
+
+  1.387481 seconds (484.50 k allocations: 1.541 GiB, 23.80% gc time)
+
+
+  1.226748 seconds (484.49 k allocations: 1.541 GiB, 14.09% gc time)
+
+
+  1.436728 seconds (484.48 k allocations: 1.541 GiB, 23.64% gc time)
+
+
+  1.426829 seconds (484.50 k allocations: 1.541 GiB, 23.09% gc time)
+
+
+Numero de qubits: 24 
+Threads (LinearAlgebra) :15
+Threads (Julia) :1
+
+
+  1.544235 seconds (505.44 k allocations: 1.747 GiB, 22.51% gc time)
+
+
+  1.517717 seconds (505.42 k allocations: 1.747 GiB, 21.94% gc time)
+
+
+  1.498449 seconds (505.42 k allocations: 1.747 GiB, 22.16% gc time)
+
+
+  1.464264 seconds (505.43 k allocations: 1.747 GiB, 22.62% gc time)
+
+
+  1.474538 seconds (505.42 k allocations: 1.747 GiB, 22.26% gc time)
+
+
+  1.361794 seconds (505.43 k allocations: 1.747 GiB, 14.34% gc time)
+
+
+  1.548238 seconds (505.44 k allocations: 1.747 GiB, 22.60% gc time)
+
+
+  1.514402 seconds (505.44 k allocations: 1.747 GiB, 21.13% gc time)
+
+
+  1.570810 seconds (505.43 k allocations: 1.747 GiB, 22.30% gc time)
+
+
+  1.523125 seconds (505.43 k allocations: 1.747 GiB, 20.79% gc time)
+
+
+  1.556878 seconds (505.41 k allocations: 1.747 GiB, 21.42% gc time)
+
+
+  1.552799 seconds (505.44 k allocations: 1.747 GiB, 21.47% gc time)
+
+
+  1.576731 seconds (505.43 k allocations: 1.747 GiB, 22.38% gc time)
+
+
+  1.560377 seconds (505.43 k allocations: 1.747 GiB, 21.19% gc time)
+
+
+  1.556889 seconds (505.44 k allocations: 1.747 GiB, 21.33% gc time)
+
+
+  1.547917 seconds (505.44 k allocations: 1.747 GiB, 21.55% gc time)
+
+
+  1.575489 seconds (505.44 k allocations: 1.747 GiB, 21.32% gc time)
+
+
+  1.613022 seconds (505.43 k allocations: 1.747 GiB, 21.92% gc time)
+
+
+  1.539446 seconds (505.43 k allocations: 1.747 GiB, 20.47% gc time)
+
+
+  1.535062 seconds (505.43 k allocations: 1.747 GiB, 22.85% gc time)
+
+
+  1.529084 seconds (505.44 k allocations: 1.747 GiB, 20.53% gc time)
+
+
+Numero de qubits: 25 
+Threads (LinearAlgebra) :15
+Threads (Julia) :1
+
+
+  1.753425 seconds (530.76 k allocations: 1.841 GiB, 27.86% gc time)
+
+
+  1.552055 seconds (530.79 k allocations: 1.841 GiB, 21.45% gc time)
+
+
+  1.554593 seconds (530.77 k allocations: 1.841 GiB, 21.81% gc time)
+
+
+  1.582733 seconds (530.76 k allocations: 1.841 GiB, 21.54% gc time)
+
+
+  1.547958 seconds (530.75 k allocations: 1.841 GiB, 21.97% gc time)
+
+
+  1.534980 seconds (530.77 k allocations: 1.841 GiB, 21.88% gc time)
+
+
+  1.574044 seconds (530.77 k allocations: 1.841 GiB, 21.33% gc time)
+
+
+  1.494989 seconds (530.77 k allocations: 1.841 GiB, 21.91% gc time)
+
+
+  1.525056 seconds (530.77 k allocations: 1.841 GiB, 21.65% gc time)
+
+
+  1.506348 seconds (530.76 k allocations: 1.841 GiB, 21.84% gc time)
+
+
+  1.528662 seconds (530.76 k allocations: 1.841 GiB, 23.15% gc time)
+
+
+  1.582110 seconds (530.76 k allocations: 1.841 GiB, 21.51% gc time)
+
+
+  1.557936 seconds (530.78 k allocations: 1.841 GiB, 21.70% gc time)
+
+
+  1.543874 seconds (530.78 k allocations: 1.841 GiB, 21.72% gc time)
+
+
+  1.510607 seconds (530.78 k allocations: 1.841 GiB, 22.15% gc time)
+
+
+  1.529410 seconds (530.76 k allocations: 1.841 GiB, 22.43% gc time)
+
+
+  1.511588 seconds (530.78 k allocations: 1.841 GiB, 21.77% gc time)
+
+
+  1.495900 seconds (530.75 k allocations: 1.841 GiB, 21.94% gc time)
+
+
+  1.571387 seconds (530.77 k allocations: 1.841 GiB, 21.53% gc time)
+
+
+  1.561426 seconds (530.77 k allocations: 1.841 GiB, 21.70% gc time)
+
+
+  1.549426 seconds (530.76 k allocations: 1.841 GiB, 21.74% gc time)
+
+
+Numero de qubits: 26 
+Threads (LinearAlgebra) :15
+Threads (Julia) :1
+
+
+  1.797811 seconds (553.41 k allocations: 2.077 GiB, 19.19% gc time)
+
+
+  1.965947 seconds (553.41 k allocations: 2.077 GiB, 25.07% gc time)
+
+
+  1.784121 seconds (553.40 k allocations: 2.077 GiB, 18.77% gc time)
+
+
+  1.899610 seconds (553.41 k allocations: 2.077 GiB, 25.60% gc time)
+
+
+  1.760179 seconds (553.41 k allocations: 2.077 GiB, 19.39% gc time)
+
+
+  1.747650 seconds (553.40 k allocations: 2.077 GiB, 19.91% gc time)
+
+
+  1.923603 seconds (553.39 k allocations: 2.077 GiB, 25.43% gc time)
+
+
+  1.770391 seconds (553.40 k allocations: 2.077 GiB, 19.19% gc time)
+
+
+  1.758136 seconds (553.40 k allocations: 2.077 GiB, 19.29% gc time)
+
+
+  1.884624 seconds (553.41 k allocations: 2.077 GiB, 26.29% gc time)
+
+
+  1.754974 seconds (553.39 k allocations: 2.077 GiB, 19.24% gc time)
+
+
+  1.875474 seconds (553.41 k allocations: 2.077 GiB, 26.66% gc time)
+
+
+  1.747081 seconds (553.41 k allocations: 2.077 GiB, 19.47% gc time)
+
+
+  1.727482 seconds (553.40 k allocations: 2.077 GiB, 19.78% gc time)
+
+
+  1.872074 seconds (553.41 k allocations: 2.077 GiB, 25.98% gc time)
+
+
+  1.727399 seconds (553.40 k allocations: 2.077 GiB, 19.52% gc time)
+
+
+  1.883706 seconds (553.40 k allocations: 2.077 GiB, 26.75% gc time)
+
+
+  1.739620 seconds (553.38 k allocations: 2.077 GiB, 19.46% gc time)
+
+
+  1.885531 seconds (553.40 k allocations: 2.077 GiB, 25.83% gc time)
+
+
+  1.737388 seconds (553.40 k allocations: 2.077 GiB, 19.72% gc time)
+
+
+  1.721615 seconds (553.40 k allocations: 2.077 GiB, 19.81% gc time)
+
+
+Numero de qubits: 27 
+Threads (LinearAlgebra) :15
+Threads (Julia) :1
+
+
+  1.993474 seconds (579.08 k allocations: 2.171 GiB, 24.77% gc time)
+
+
+  1.860355 seconds (579.07 k allocations: 2.171 GiB, 18.68% gc time)
+
+
+  1.944041 seconds (579.07 k allocations: 2.171 GiB, 24.92% gc time)
+
+
+  1.807890 seconds (579.06 k allocations: 2.171 GiB, 18.35% gc time)
+
+
+  1.935455 seconds (579.08 k allocations: 2.171 GiB, 25.06% gc time)
+
+
+  1.766663 seconds (579.07 k allocations: 2.171 GiB, 19.12% gc time)
+
+
+  1.852270 seconds (579.08 k allocations: 2.171 GiB, 18.89% gc time)
+
+
+  1.852569 seconds (579.05 k allocations: 2.171 GiB, 18.89% gc time)
+
+
+  2.014006 seconds (579.07 k allocations: 2.171 GiB, 24.75% gc time)
+
+
+  1.817892 seconds (579.07 k allocations: 2.171 GiB, 18.53% gc time)
+
+
+  1.906011 seconds (579.05 k allocations: 2.171 GiB, 25.48% gc time)
+
+
+  1.788524 seconds (579.09 k allocations: 2.171 GiB, 19.21% gc time)
+
+
+  1.910895 seconds (579.08 k allocations: 2.171 GiB, 25.35% gc time)
+
+
+  1.804697 seconds (579.05 k allocations: 2.171 GiB, 18.84% gc time)
+
+
+  1.946916 seconds (579.07 k allocations: 2.171 GiB, 25.82% gc time)
+
+
+  1.787782 seconds (579.07 k allocations: 2.171 GiB, 18.81% gc time)
+
+
+  1.965052 seconds (579.07 k allocations: 2.171 GiB, 24.89% gc time)
+
+
+  1.811120 seconds (579.08 k allocations: 2.171 GiB, 18.93% gc time)
+
+
+  1.812523 seconds (579.06 k allocations: 2.171 GiB, 18.73% gc time)
+
+
+  1.996993 seconds (579.08 k allocations: 2.171 GiB, 24.57% gc time)
+
+
+  1.829827 seconds (579.06 k allocations: 2.171 GiB, 18.22% gc time)
+
+
+Numero de qubits: 28 
+Threads (LinearAlgebra) :15
+Threads (Julia) :1
+
+
+  2.062106 seconds (600.64 k allocations: 2.377 GiB, 24.99% gc time)
+
+
+  2.020047 seconds (600.66 k allocations: 2.377 GiB, 23.96% gc time)
+
+
+  1.884161 seconds (600.65 k allocations: 2.377 GiB, 18.14% gc time)
+
+
+  2.006754 seconds (600.65 k allocations: 2.377 GiB, 24.17% gc time)
+
+
+  2.024924 seconds (600.66 k allocations: 2.377 GiB, 24.40% gc time)
+
+
+  1.871791 seconds (600.65 k allocations: 2.377 GiB, 19.31% gc time)
+
+
+  2.098792 seconds (600.64 k allocations: 2.377 GiB, 22.57% gc time)
+
+
+  2.040974 seconds (600.65 k allocations: 2.377 GiB, 24.14% gc time)
+
+
+  1.995926 seconds (600.65 k allocations: 2.377 GiB, 24.36% gc time)
+
+
+  2.064270 seconds (600.66 k allocations: 2.377 GiB, 24.03% gc time)
+
+
+  1.876004 seconds (600.65 k allocations: 2.377 GiB, 18.50% gc time)
+
+
+  1.877628 seconds (600.66 k allocations: 2.377 GiB, 18.23% gc time)
+
+
+  2.002058 seconds (600.65 k allocations: 2.377 GiB, 24.21% gc time)
+
+
+  2.032956 seconds (600.65 k allocations: 2.377 GiB, 24.43% gc time)
+
+
+  1.930140 seconds (600.66 k allocations: 2.377 GiB, 18.77% gc time)
+
+
+  2.079041 seconds (600.65 k allocations: 2.377 GiB, 22.85% gc time)
+
+
+  2.023676 seconds (600.65 k allocations: 2.377 GiB, 24.09% gc time)
+
+
+  2.010966 seconds (600.65 k allocations: 2.377 GiB, 24.28% gc time)
+
+
+  1.872954 seconds (600.66 k allocations: 2.377 GiB, 18.47% gc time)
+
+
+  2.109194 seconds (600.64 k allocations: 2.377 GiB, 24.96% gc time)
+
+
+  2.018156 seconds (600.65 k allocations: 2.377 GiB, 24.22% gc time)
+
+
+Numero de qubits: 29 
+Threads (LinearAlgebra) :15
+Threads (Julia) :1
+
+
+  2.115379 seconds (626.65 k allocations: 2.472 GiB, 23.41% gc time)
+
+
+  2.127679 seconds (626.64 k allocations: 2.472 GiB, 23.64% gc time)
+
+
+  1.926687 seconds (626.65 k allocations: 2.472 GiB, 18.09% gc time)
+
+
+  2.073995 seconds (626.65 k allocations: 2.472 GiB, 23.60% gc time)
+
+
+  2.120077 seconds (626.64 k allocations: 2.472 GiB, 23.97% gc time)
+
+
+  2.053916 seconds (626.65 k allocations: 2.472 GiB, 24.09% gc time)
+
+
+  1.895260 seconds (626.65 k allocations: 2.472 GiB, 17.98% gc time)
+
+
+  2.066100 seconds (626.66 k allocations: 2.472 GiB, 24.08% gc time)
+
+
+  2.104834 seconds (626.65 k allocations: 2.472 GiB, 23.68% gc time)
+
+
+  1.972144 seconds (626.66 k allocations: 2.472 GiB, 18.48% gc time)
+
+
+  2.163046 seconds (626.64 k allocations: 2.472 GiB, 22.08% gc time)
+
+
+  2.117374 seconds (626.65 k allocations: 2.472 GiB, 23.77% gc time)
+
+
+  2.103457 seconds (626.66 k allocations: 2.472 GiB, 23.31% gc time)
+
+
+  2.149477 seconds (626.64 k allocations: 2.472 GiB, 23.26% gc time)
+
+
+  1.997078 seconds (626.65 k allocations: 2.472 GiB, 17.62% gc time)
+
+
+  2.161721 seconds (626.64 k allocations: 2.472 GiB, 22.98% gc time)
+
+
+  2.164854 seconds (626.63 k allocations: 2.472 GiB, 23.40% gc time)
+
+
+  2.082115 seconds (626.66 k allocations: 2.472 GiB, 23.97% gc time)
+
+
+  2.083140 seconds (626.65 k allocations: 2.472 GiB, 23.58% gc time)
+
+
+  2.177786 seconds (626.64 k allocations: 2.472 GiB, 23.03% gc time)
+
+
+  2.100703 seconds (626.65 k allocations: 2.472 GiB, 23.93% gc time)
+
+
+Numero de qubits: 30 
+Threads (LinearAlgebra) :15
+Threads (Julia) :1
+
+
+  2.337691 seconds (649.91 k allocations: 2.708 GiB, 21.82% gc time)
+
+
+  2.197031 seconds (649.92 k allocations: 2.708 GiB, 16.83% gc time)
+
+
+  2.538523 seconds (649.93 k allocations: 2.708 GiB, 25.16% gc time)
+
+
+  2.296463 seconds (649.93 k allocations: 2.708 GiB, 22.14% gc time)
+
+
+  2.303063 seconds (649.91 k allocations: 2.708 GiB, 22.15% gc time)
+
+
+  2.354100 seconds (649.92 k allocations: 2.708 GiB, 21.62% gc time)
+
+
+  2.323001 seconds (649.93 k allocations: 2.708 GiB, 21.71% gc time)
+
+
+  2.294504 seconds (649.92 k allocations: 2.708 GiB, 21.69% gc time)
+
+
+  2.272199 seconds (649.91 k allocations: 2.708 GiB, 22.28% gc time)
+
+
+  2.261347 seconds (649.93 k allocations: 2.708 GiB, 22.14% gc time)
+
+
+  2.289464 seconds (649.92 k allocations: 2.708 GiB, 21.57% gc time)
+
+
+  2.316134 seconds (649.91 k allocations: 2.708 GiB, 22.39% gc time)
+
+
+  2.558889 seconds (649.93 k allocations: 2.708 GiB, 25.63% gc time)
+
+
+  2.251336 seconds (649.93 k allocations: 2.708 GiB, 21.87% gc time)
+
+
+  2.298125 seconds (649.92 k allocations: 2.708 GiB, 21.58% gc time)
+
+
+  2.178083 seconds (649.93 k allocations: 2.708 GiB, 16.92% gc time)
+
+
+  2.533636 seconds (649.91 k allocations: 2.708 GiB, 25.13% gc time)
+
+
+  2.273389 seconds (649.93 k allocations: 2.708 GiB, 22.31% gc time)
+
+
+  2.289093 seconds (649.92 k allocations: 2.708 GiB, 21.90% gc time)
+
+
+  2.126362 seconds (649.92 k allocations: 2.708 GiB, 17.52% gc time)
+
+
+  2.528584 seconds (649.92 k allocations: 2.708 GiB, 25.16% gc time)
+
+
+Numero de qubits: 31 
+Threads (LinearAlgebra) :15
+Threads (Julia) :1
+
+
+  2.322855 seconds (676.26 k allocations: 2.802 GiB, 21.61% gc time)
+
+
+  2.339473 seconds (676.23 k allocations: 2.802 GiB, 21.77% gc time)
+
+
+  2.343150 seconds (676.23 k allocations: 2.802 GiB, 21.14% gc time)
+
+
+  2.332806 seconds (676.26 k allocations: 2.802 GiB, 21.23% gc time)
+
+
+  2.544450 seconds (676.25 k allocations: 2.802 GiB, 25.57% gc time)
+
+
+  2.337880 seconds (676.26 k allocations: 2.802 GiB, 21.31% gc time)
+
+
+  2.359897 seconds (676.27 k allocations: 2.802 GiB, 21.15% gc time)
+
+
+  2.341203 seconds (676.25 k allocations: 2.802 GiB, 21.19% gc time)
+
+
+  2.364414 seconds (676.25 k allocations: 2.802 GiB, 21.20% gc time)
+
+
+  2.341089 seconds (676.25 k allocations: 2.802 GiB, 21.22% gc time)
+
+
+  2.327650 seconds (676.25 k allocations: 2.802 GiB, 21.44% gc time)
+
+
+  2.341110 seconds (676.24 k allocations: 2.802 GiB, 21.20% gc time)
+
+
+  2.361844 seconds (676.25 k allocations: 2.802 GiB, 21.04% gc time)
+
+
+  2.336274 seconds (676.24 k allocations: 2.802 GiB, 21.29% gc time)
+
+
+  2.326397 seconds (676.25 k allocations: 2.802 GiB, 21.48% gc time)
+
+
+  2.314909 seconds (676.24 k allocations: 2.802 GiB, 21.49% gc time)
+
+
+  2.302769 seconds (676.25 k allocations: 2.802 GiB, 21.59% gc time)
+
+
+  2.323602 seconds (676.24 k allocations: 2.802 GiB, 21.33% gc time)
+
+
+  2.392538 seconds (676.24 k allocations: 2.802 GiB, 22.08% gc time)
+
+
+  2.386527 seconds (676.25 k allocations: 2.802 GiB, 20.95% gc time)
+
+
+  2.336912 seconds (676.25 k allocations: 2.802 GiB, 21.18% gc time)
+
+
+Numero de qubits: 32 
+Threads (LinearAlgebra) :15
+Threads (Julia) :1
+
+
+  2.680559 seconds (698.47 k allocations: 3.008 GiB, 24.93% gc time)
+
+
+  2.488766 seconds (698.45 k allocations: 3.008 GiB, 20.38% gc time)
+
+
+  2.733988 seconds (698.47 k allocations: 3.008 GiB, 24.75% gc time)
+
+
+  2.434083 seconds (698.48 k allocations: 3.008 GiB, 20.88% gc time)
+
+
+  2.689869 seconds (698.45 k allocations: 3.008 GiB, 24.61% gc time)
+
+
+  2.476849 seconds (698.46 k allocations: 3.008 GiB, 21.21% gc time)
+
+
+  2.667619 seconds (698.48 k allocations: 3.008 GiB, 24.05% gc time)
+
+
+  2.455869 seconds (698.46 k allocations: 3.008 GiB, 21.57% gc time)
+
+
+  2.659634 seconds (698.46 k allocations: 3.008 GiB, 24.01% gc time)
+
+
+  2.476877 seconds (698.46 k allocations: 3.008 GiB, 21.10% gc time)
+
+
+  2.679631 seconds (698.46 k allocations: 3.008 GiB, 23.89% gc time)
+
+
+  2.411688 seconds (698.47 k allocations: 3.008 GiB, 21.06% gc time)
+
+
+  2.740324 seconds (698.47 k allocations: 3.008 GiB, 24.33% gc time)
+
+
+  2.506137 seconds (698.48 k allocations: 3.008 GiB, 20.94% gc time)
+
+
+  2.695839 seconds (698.47 k allocations: 3.008 GiB, 23.68% gc time)
+
+
+  2.424595 seconds (698.46 k allocations: 3.008 GiB, 20.98% gc time)
+
+
+  2.714795 seconds (698.48 k allocations: 3.008 GiB, 24.40% gc time)
+
+
+  2.430393 seconds (698.47 k allocations: 3.008 GiB, 21.63% gc time)
+
+
+  2.690469 seconds (698.47 k allocations: 3.008 GiB, 23.90% gc time)
+
+
+  2.433433 seconds (698.47 k allocations: 3.008 GiB, 21.47% gc time)
+
+
+  2.671765 seconds (698.46 k allocations: 3.008 GiB, 24.18% gc time)
+
+
+Numero de qubits: 33 
+Threads (LinearAlgebra) :15
+Threads (Julia) :1
+
+
+  2.685189 seconds (725.11 k allocations: 3.103 GiB, 24.89% gc time)
+
+
+  2.510809 seconds (725.12 k allocations: 3.103 GiB, 20.10% gc time)
+
+
+  2.638716 seconds (725.13 k allocations: 3.103 GiB, 25.53% gc time)
+
+
+  2.542289 seconds (725.12 k allocations: 3.103 GiB, 20.36% gc time)
+
+
+  2.529703 seconds (725.12 k allocations: 3.103 GiB, 20.58% gc time)
+
+
+  2.619379 seconds (725.11 k allocations: 3.103 GiB, 25.08% gc time)
+
+
+  2.474423 seconds (725.13 k allocations: 3.103 GiB, 20.77% gc time)
+
+
+  2.489678 seconds (725.14 k allocations: 3.103 GiB, 21.10% gc time)
+
+
+  2.650960 seconds (725.12 k allocations: 3.103 GiB, 24.74% gc time)
+
+
+  2.498972 seconds (725.12 k allocations: 3.103 GiB, 20.55% gc time)
+
+
+  2.658811 seconds (725.10 k allocations: 3.103 GiB, 24.65% gc time)
+
+
+  2.501853 seconds (725.12 k allocations: 3.103 GiB, 20.16% gc time)
+
+
+  2.661807 seconds (725.15 k allocations: 3.103 GiB, 25.28% gc time)
+
+
+  2.696377 seconds (725.13 k allocations: 3.103 GiB, 24.76% gc time)
+
+
+  2.511357 seconds (725.14 k allocations: 3.103 GiB, 20.58% gc time)
+
+
+  2.545376 seconds (725.14 k allocations: 3.103 GiB, 20.32% gc time)
+
+
+  2.632807 seconds (725.11 k allocations: 3.103 GiB, 24.99% gc time)
+
+
+  2.540975 seconds (725.11 k allocations: 3.103 GiB, 20.43% gc time)
+
+
+  2.660488 seconds (725.11 k allocations: 3.103 GiB, 24.73% gc time)
+
+
+  2.536052 seconds (725.11 k allocations: 3.103 GiB, 20.06% gc time)
+
+
+  2.485599 seconds (725.13 k allocations: 3.103 GiB, 20.00% gc time)
+
+
+Numero de qubits: 34 
+Threads (LinearAlgebra) :15
+Threads (Julia) :1
+
+
+  2.937048 seconds (749.03 k allocations: 3.339 GiB, 22.87% gc time)
+
+
+  2.940125 seconds (749.04 k allocations: 3.339 GiB, 22.49% gc time)
+
+
+  2.891522 seconds (749.02 k allocations: 3.339 GiB, 22.58% gc time)
+
+
+  2.886934 seconds (749.03 k allocations: 3.339 GiB, 22.74% gc time)
+
+
+  2.868863 seconds (749.02 k allocations: 3.339 GiB, 23.14% gc time)
+
+
+  2.841405 seconds (749.04 k allocations: 3.339 GiB, 23.18% gc time)
+
+
+  2.973557 seconds (749.04 k allocations: 3.339 GiB, 23.10% gc time)
+
+
+  2.855932 seconds (749.03 k allocations: 3.339 GiB, 23.24% gc time)
+
+
+  2.942318 seconds (749.05 k allocations: 3.339 GiB, 22.60% gc time)
+
+
+  2.863801 seconds (749.04 k allocations: 3.339 GiB, 22.86% gc time)
+
+
+  2.890411 seconds (749.03 k allocations: 3.339 GiB, 23.29% gc time)
+
+
+  2.865255 seconds (749.04 k allocations: 3.339 GiB, 22.98% gc time)
+
+
+  2.849037 seconds (749.03 k allocations: 3.339 GiB, 22.94% gc time)
+
+
+  2.887993 seconds (749.04 k allocations: 3.339 GiB, 22.78% gc time)
+
+
+  2.864820 seconds (749.02 k allocations: 3.339 GiB, 23.34% gc time)
+
+
+  2.708235 seconds (749.03 k allocations: 3.339 GiB, 19.35% gc time)
+
+
+  2.855265 seconds (749.02 k allocations: 3.339 GiB, 22.85% gc time)
+
+
+  2.722364 seconds (749.02 k allocations: 3.339 GiB, 19.11% gc time)
+
+
+  2.986763 seconds (749.05 k allocations: 3.339 GiB, 22.38% gc time)
+
+
+  2.902095 seconds (749.03 k allocations: 3.339 GiB, 22.66% gc time)
+
+
+  2.887020 seconds (749.02 k allocations: 3.339 GiB, 22.75% gc time)
+
+
+Numero de qubits: 35 
+Threads (LinearAlgebra) :15
+Threads (Julia) :1
+
+
+  2.971806 seconds (776.01 k allocations: 3.433 GiB, 22.46% gc time)
+
+
+  3.066212 seconds (776.04 k allocations: 3.433 GiB, 22.05% gc time)
+
+
+  2.927309 seconds (776.03 k allocations: 3.433 GiB, 22.45% gc time)
+
+
+  2.970198 seconds (776.04 k allocations: 3.433 GiB, 22.49% gc time)
+
+
+  3.014460 seconds (776.01 k allocations: 3.433 GiB, 21.96% gc time)
+
+
+  2.910893 seconds (776.01 k allocations: 3.433 GiB, 22.58% gc time)
+
+
+  2.965216 seconds (776.00 k allocations: 3.433 GiB, 22.44% gc time)
+
+
+  2.983419 seconds (776.01 k allocations: 3.433 GiB, 22.18% gc time)
+
+
+  3.015475 seconds (776.00 k allocations: 3.433 GiB, 22.97% gc time)
+
+
+  2.953517 seconds (776.03 k allocations: 3.433 GiB, 22.60% gc time)
+
+
+  2.928923 seconds (776.02 k allocations: 3.433 GiB, 22.80% gc time)
+
+
+  2.938650 seconds (776.00 k allocations: 3.433 GiB, 22.58% gc time)
+
+
+  2.940426 seconds (776.01 k allocations: 3.433 GiB, 22.89% gc time)
+
+
+  2.964730 seconds (776.03 k allocations: 3.433 GiB, 22.14% gc time)
+
+
+  2.910806 seconds (776.02 k allocations: 3.433 GiB, 22.82% gc time)
+
+
+  2.941575 seconds (776.00 k allocations: 3.433 GiB, 22.42% gc time)
+
+
+  2.969019 seconds (776.01 k allocations: 3.433 GiB, 22.59% gc time)
+
+
+  2.936473 seconds (776.01 k allocations: 3.433 GiB, 22.69% gc time)
+
+
+  3.005820 seconds (776.01 k allocations: 3.433 GiB, 21.88% gc time)
+
+
+  2.932982 seconds (776.01 k allocations: 3.433 GiB, 22.46% gc time)
+
+
+  2.917074 seconds (776.02 k allocations: 3.433 GiB, 22.74% gc time)
+
+
+Numero de qubits: 36 
+Threads (LinearAlgebra) :15
+Threads (Julia) :1
+
+
+  3.258950 seconds (798.88 k allocations: 3.640 GiB, 25.47% gc time)
+
+
+  3.000587 seconds (798.89 k allocations: 3.640 GiB, 22.53% gc time)
+
+
+  2.964399 seconds (798.87 k allocations: 3.640 GiB, 22.85% gc time)
+
+
+  2.956848 seconds (798.86 k allocations: 3.640 GiB, 22.87% gc time)
+
+
+  2.980231 seconds (798.87 k allocations: 3.640 GiB, 22.68% gc time)
+
+
+  2.960243 seconds (798.88 k allocations: 3.640 GiB, 22.87% gc time)
+
+
+  2.984496 seconds (798.84 k allocations: 3.640 GiB, 22.58% gc time)
+
+
+  2.951354 seconds (798.87 k allocations: 3.640 GiB, 22.71% gc time)
+
+
+  2.975342 seconds (798.87 k allocations: 3.640 GiB, 22.73% gc time)
+
+
+  3.000675 seconds (798.89 k allocations: 3.640 GiB, 23.02% gc time)
+
+
+  2.999257 seconds (798.87 k allocations: 3.640 GiB, 22.61% gc time)
+
+
+  3.004471 seconds (798.85 k allocations: 3.640 GiB, 22.38% gc time)
+
+
+  3.012998 seconds (798.90 k allocations: 3.640 GiB, 22.50% gc time)
+
+
+  3.025920 seconds (798.88 k allocations: 3.640 GiB, 22.25% gc time)
+
+
+  2.964290 seconds (798.86 k allocations: 3.640 GiB, 22.83% gc time)
+
+
+  2.981576 seconds (798.88 k allocations: 3.640 GiB, 23.03% gc time)
+
+
+  2.997288 seconds (798.87 k allocations: 3.640 GiB, 22.77% gc time)
+
+
+  3.009880 seconds (798.89 k allocations: 3.640 GiB, 22.61% gc time)
+
+
+  2.878795 seconds (798.87 k allocations: 3.640 GiB, 18.66% gc time)
+
+
+  3.302573 seconds (798.87 k allocations: 3.640 GiB, 24.97% gc time)
+
+
+  2.912471 seconds (798.88 k allocations: 3.640 GiB, 18.60% gc time)
+
+
+Numero de qubits: 37 
+Threads (LinearAlgebra) :15
+Threads (Julia) :1
+
+
+  3.333540 seconds (826.19 k allocations: 3.734 GiB, 24.35% gc time)
+
+
+  3.028695 seconds (826.17 k allocations: 3.734 GiB, 22.02% gc time)
+
+
+  3.023606 seconds (826.20 k allocations: 3.734 GiB, 22.40% gc time)
+
+
+  3.230125 seconds (826.17 k allocations: 3.734 GiB, 25.43% gc time)
+
+
+  3.105175 seconds (826.18 k allocations: 3.734 GiB, 22.10% gc time)
+
+
+  3.026496 seconds (826.18 k allocations: 3.734 GiB, 22.53% gc time)
+
+
+  3.028084 seconds (826.20 k allocations: 3.734 GiB, 22.12% gc time)
+
+
+  3.050605 seconds (826.20 k allocations: 3.734 GiB, 22.67% gc time)
+
+
+  3.328824 seconds (826.21 k allocations: 3.734 GiB, 24.50% gc time)
+
+
+  3.049774 seconds (826.16 k allocations: 3.734 GiB, 22.30% gc time)
+
+
+  3.049246 seconds (826.18 k allocations: 3.734 GiB, 22.46% gc time)
+
+
+  3.023014 seconds (826.18 k allocations: 3.734 GiB, 22.63% gc time)
+
+
+  3.064944 seconds (826.18 k allocations: 3.734 GiB, 22.42% gc time)
+
+
+  3.031741 seconds (826.19 k allocations: 3.734 GiB, 22.86% gc time)
+
+
+  3.058522 seconds (826.19 k allocations: 3.734 GiB, 22.37% gc time)
+
+
+  3.033347 seconds (826.19 k allocations: 3.734 GiB, 22.16% gc time)
+
+
+  3.105937 seconds (826.18 k allocations: 3.734 GiB, 21.91% gc time)
+
+
+  3.017631 seconds (826.21 k allocations: 3.734 GiB, 22.77% gc time)
+
+
+  3.280850 seconds (826.19 k allocations: 3.734 GiB, 25.22% gc time)
+
+
+  3.075650 seconds (826.18 k allocations: 3.734 GiB, 22.30% gc time)
+
+
+  3.074281 seconds (826.19 k allocations: 3.734 GiB, 22.94% gc time)
+
+
+Numero de qubits: 38 
+Threads (LinearAlgebra) :15
+Threads (Julia) :1
+
+
+  3.280026 seconds (850.73 k allocations: 3.971 GiB, 21.21% gc time)
+
+
+  3.435748 seconds (850.74 k allocations: 3.971 GiB, 24.17% gc time)
+
+
+  3.286464 seconds (850.75 k allocations: 3.971 GiB, 20.76% gc time)
+
+
+  3.298890 seconds (850.72 k allocations: 3.971 GiB, 21.04% gc time)
+
+
+  3.275341 seconds (850.74 k allocations: 3.971 GiB, 20.51% gc time)
+
+
+  3.394419 seconds (850.73 k allocations: 3.971 GiB, 24.28% gc time)
+
+
+  3.305404 seconds (850.72 k allocations: 3.970 GiB, 20.64% gc time)
+
+
+  3.281047 seconds (850.73 k allocations: 3.971 GiB, 20.45% gc time)
+
+
+  3.570581 seconds (850.75 k allocations: 3.971 GiB, 23.59% gc time)
+
+
+  3.250250 seconds (850.74 k allocations: 3.971 GiB, 20.92% gc time)
+
+
+  3.375979 seconds (850.74 k allocations: 3.971 GiB, 24.73% gc time)
+
+
+  3.292831 seconds (850.73 k allocations: 3.971 GiB, 21.23% gc time)
+
+
+  3.278430 seconds (850.75 k allocations: 3.971 GiB, 21.13% gc time)
+
+
+  3.279398 seconds (850.74 k allocations: 3.971 GiB, 20.88% gc time)
+
+
+  3.454482 seconds (850.73 k allocations: 3.971 GiB, 23.91% gc time)
+
+
+  3.320292 seconds (850.74 k allocations: 3.971 GiB, 21.20% gc time)
+
+
+  3.267733 seconds (850.72 k allocations: 3.970 GiB, 20.83% gc time)
+
+
+  3.390329 seconds (850.75 k allocations: 3.971 GiB, 24.23% gc time)
+
+
+  3.298549 seconds (850.74 k allocations: 3.971 GiB, 20.94% gc time)
+
+
+  3.285316 seconds (850.73 k allocations: 3.971 GiB, 20.84% gc time)
+
+
+  3.403520 seconds (850.73 k allocations: 3.971 GiB, 24.19% gc time)
+
+
+Numero de qubits: 39 
+Threads (LinearAlgebra) :15
+Threads (Julia) :1
+
+
+  3.351849 seconds (878.38 k allocations: 4.065 GiB, 20.78% gc time)
+
+
+  3.412923 seconds (878.38 k allocations: 4.065 GiB, 24.34% gc time)
+
+
+  3.357255 seconds (878.39 k allocations: 4.065 GiB, 20.67% gc time)
+
+
+  3.463489 seconds (878.39 k allocations: 4.065 GiB, 24.05% gc time)
+
+
+  3.379166 seconds (878.36 k allocations: 4.065 GiB, 20.41% gc time)
+
+
+  3.494640 seconds (878.38 k allocations: 4.065 GiB, 23.56% gc time)
+
+
+  3.383749 seconds (878.37 k allocations: 4.065 GiB, 20.35% gc time)
+
+
+  3.470555 seconds (878.39 k allocations: 4.065 GiB, 23.74% gc time)
+
+
+  3.337712 seconds (878.40 k allocations: 4.065 GiB, 20.59% gc time)
+
+
+  3.465552 seconds (878.38 k allocations: 4.065 GiB, 24.26% gc time)
+
+
+  3.333158 seconds (878.37 k allocations: 4.065 GiB, 20.68% gc time)
+
+
+  3.408951 seconds (878.37 k allocations: 4.065 GiB, 24.18% gc time)
+
+
+  3.326552 seconds (878.38 k allocations: 4.065 GiB, 20.78% gc time)
+
+
+  3.460516 seconds (878.38 k allocations: 4.065 GiB, 24.28% gc time)
+
+
+  3.353953 seconds (878.39 k allocations: 4.065 GiB, 20.56% gc time)
+
+
+  3.492749 seconds (878.40 k allocations: 4.065 GiB, 23.67% gc time)
+
+
+  3.330289 seconds (878.38 k allocations: 4.065 GiB, 20.74% gc time)
+
+
+  3.522080 seconds (878.35 k allocations: 4.065 GiB, 23.94% gc time)
+
+
+  3.327755 seconds (878.36 k allocations: 4.065 GiB, 20.52% gc time)
+
+
+  3.431023 seconds (878.38 k allocations: 4.065 GiB, 24.09% gc time)
+
+
+  3.372542 seconds (878.37 k allocations: 4.065 GiB, 20.53% gc time)
+
+
+Numero de qubits: 40 
+Threads (LinearAlgebra) :15
+Threads (Julia) :1
+
+
+  3.512897 seconds (901.87 k allocations: 4.271 GiB, 23.54% gc time)
+
+
+  3.599583 seconds (901.88 k allocations: 4.271 GiB, 23.12% gc time)
+
+
+  3.438261 seconds (901.87 k allocations: 4.271 GiB, 20.27% gc time)
+
+
+  3.671075 seconds (901.87 k allocations: 4.271 GiB, 22.49% gc time)
+
+
+  3.574747 seconds (901.85 k allocations: 4.271 GiB, 23.34% gc time)
+
+
+  3.587034 seconds (901.88 k allocations: 4.271 GiB, 23.20% gc time)
+
+
+  3.571503 seconds (901.87 k allocations: 4.271 GiB, 24.05% gc time)
+
+
+  3.366046 seconds (901.86 k allocations: 4.271 GiB, 20.57% gc time)
+
+
+  3.528762 seconds (901.86 k allocations: 4.271 GiB, 23.69% gc time)
+
+
+  3.594503 seconds (901.88 k allocations: 4.271 GiB, 23.76% gc time)
+
+
+  3.375700 seconds (901.86 k allocations: 4.271 GiB, 20.29% gc time)
+
+
+  3.590182 seconds (901.86 k allocations: 4.271 GiB, 23.10% gc time)
+
+
+  3.590196 seconds (901.87 k allocations: 4.271 GiB, 23.11% gc time)
+
+
+  3.549953 seconds (901.87 k allocations: 4.271 GiB, 23.96% gc time)
+
+
+  3.542112 seconds (901.87 k allocations: 4.271 GiB, 23.46% gc time)
+
+
+  3.419075 seconds (901.88 k allocations: 4.271 GiB, 20.24% gc time)
+
+
+  3.581377 seconds (901.88 k allocations: 4.271 GiB, 23.46% gc time)
+
+
+  3.397910 seconds (901.87 k allocations: 4.271 GiB, 20.31% gc time)
+
+
+  3.528747 seconds (901.87 k allocations: 4.271 GiB, 23.43% gc time)
+
+
+  3.520310 seconds (901.87 k allocations: 4.271 GiB, 23.63% gc time)
+
+
+  3.575064 seconds (901.86 k allocations: 4.271 GiB, 23.15% gc time)
+
+
+Numero de qubits: 41 
+Threads (LinearAlgebra) :15
+Threads (Julia) :1
+
+
+  3.572813 seconds (929.85 k allocations: 4.366 GiB, 23.05% gc time)
+
+
+  3.592627 seconds (929.84 k allocations: 4.366 GiB, 23.57% gc time)
+
+
+  3.599293 seconds (929.83 k allocations: 4.366 GiB, 23.31% gc time)
+
+
+  3.523151 seconds (929.83 k allocations: 4.366 GiB, 19.74% gc time)
+
+
+  3.621978 seconds (929.85 k allocations: 4.366 GiB, 23.58% gc time)
+
+
+  3.571303 seconds (929.86 k allocations: 4.366 GiB, 23.13% gc time)
+
+
+  3.573663 seconds (929.82 k allocations: 4.366 GiB, 23.30% gc time)
+
+
+  3.550559 seconds (929.84 k allocations: 4.366 GiB, 23.32% gc time)
+
+
+  3.563889 seconds (929.85 k allocations: 4.366 GiB, 23.13% gc time)
+
+
+  3.637343 seconds (929.83 k allocations: 4.366 GiB, 23.35% gc time)
+
+
+  3.441891 seconds (929.86 k allocations: 4.366 GiB, 19.67% gc time)
+
+
+  3.576532 seconds (929.85 k allocations: 4.366 GiB, 23.48% gc time)
+
+
+  3.569925 seconds (929.84 k allocations: 4.366 GiB, 23.20% gc time)
+
+
+  3.650275 seconds (929.86 k allocations: 4.366 GiB, 23.11% gc time)
+
+
+  3.584575 seconds (929.83 k allocations: 4.366 GiB, 23.13% gc time)
+
+
+  3.620309 seconds (929.85 k allocations: 4.366 GiB, 22.79% gc time)
+
+
+  3.628423 seconds (929.84 k allocations: 4.366 GiB, 22.89% gc time)
+
+
+  3.585920 seconds (929.84 k allocations: 4.366 GiB, 23.09% gc time)
+
+
+  3.558846 seconds (929.83 k allocations: 4.366 GiB, 23.49% gc time)
+
+
+  3.482117 seconds (929.83 k allocations: 4.366 GiB, 19.83% gc time)
+
+
+  3.730097 seconds (929.86 k allocations: 4.366 GiB, 22.55% gc time)
+
+
+Numero de qubits: 42 
+Threads (LinearAlgebra) :15
+Threads (Julia) :1
+
+
+  4.051118 seconds (955.02 k allocations: 4.603 GiB, 24.44% gc time)
+
+
+  3.630672 seconds (955.04 k allocations: 4.603 GiB, 18.73% gc time)
+
+
+  4.151708 seconds (955.01 k allocations: 4.603 GiB, 24.18% gc time)
+
+
+  3.613979 seconds (955.02 k allocations: 4.603 GiB, 18.73% gc time)
+
+
+  3.926991 seconds (955.03 k allocations: 4.603 GiB, 21.65% gc time)
+
+
+  4.189848 seconds (955.02 k allocations: 4.603 GiB, 24.23% gc time)
+
+
+  3.644079 seconds (955.03 k allocations: 4.603 GiB, 18.86% gc time)
+
+
+  4.023463 seconds (955.04 k allocations: 4.603 GiB, 24.41% gc time)
+
+
+  3.721467 seconds (955.02 k allocations: 4.603 GiB, 18.68% gc time)
+
+
+  4.041034 seconds (955.02 k allocations: 4.603 GiB, 24.61% gc time)
+
+
+  3.790982 seconds (955.01 k allocations: 4.603 GiB, 18.54% gc time)
+
+
+  3.820838 seconds (955.02 k allocations: 4.603 GiB, 22.06% gc time)
+
+
+  4.131072 seconds (955.01 k allocations: 4.603 GiB, 24.05% gc time)
+
+
+  3.642820 seconds (955.02 k allocations: 4.603 GiB, 19.02% gc time)
+
+
+  4.109822 seconds (955.03 k allocations: 4.603 GiB, 24.37% gc time)
+
+
+  3.642186 seconds (955.03 k allocations: 4.603 GiB, 19.00% gc time)
+
+
+  3.755439 seconds (955.04 k allocations: 4.603 GiB, 22.15% gc time)
+
+
+  4.112853 seconds (955.03 k allocations: 4.603 GiB, 24.52% gc time)
+
+
+  3.728615 seconds (955.02 k allocations: 4.603 GiB, 18.23% gc time)
+
+
+  4.085840 seconds (955.02 k allocations: 4.603 GiB, 24.36% gc time)
+
+
+  3.722020 seconds (955.02 k allocations: 4.603 GiB, 18.72% gc time)
+
+
+Numero de qubits: 43 
+Threads (LinearAlgebra) :15
+Threads (Julia) :1
+
+
+  4.077968 seconds (983.35 k allocations: 4.697 GiB, 24.27% gc time)
+
+
+  3.779602 seconds (983.33 k allocations: 4.697 GiB, 18.18% gc time)
+
+
+  4.194734 seconds (983.32 k allocations: 4.697 GiB, 23.80% gc time)
+
+
+  3.922483 seconds (983.32 k allocations: 4.697 GiB, 21.97% gc time)
+
+
+  3.726924 seconds (983.32 k allocations: 4.697 GiB, 18.45% gc time)
+
+
+  4.200140 seconds (983.33 k allocations: 4.697 GiB, 23.83% gc time)
+
+
+  3.893224 seconds (983.34 k allocations: 4.697 GiB, 21.99% gc time)
+
+
+  3.782027 seconds (983.33 k allocations: 4.697 GiB, 19.69% gc time)
+
+
+  4.175470 seconds (983.34 k allocations: 4.697 GiB, 23.62% gc time)
+
+
+  3.938712 seconds (983.33 k allocations: 4.697 GiB, 21.83% gc time)
+
+
+  3.884872 seconds (983.34 k allocations: 4.697 GiB, 22.44% gc time)
+
+
+  3.747042 seconds (983.36 k allocations: 4.697 GiB, 19.33% gc time)
+
+
+  4.205656 seconds (983.33 k allocations: 4.697 GiB, 23.64% gc time)
+
+
+  3.845208 seconds (983.35 k allocations: 4.697 GiB, 22.22% gc time)
+
+
+  3.753460 seconds (983.35 k allocations: 4.697 GiB, 19.13% gc time)
+
+
+  4.210336 seconds (983.34 k allocations: 4.697 GiB, 23.56% gc time)
+
+
+  3.903426 seconds (983.34 k allocations: 4.697 GiB, 21.88% gc time)
+
+
+  3.917176 seconds (983.34 k allocations: 4.697 GiB, 21.90% gc time)
+
+
+  3.913130 seconds (983.33 k allocations: 4.697 GiB, 22.04% gc time)
+
+
+  3.755001 seconds (983.32 k allocations: 4.697 GiB, 18.31% gc time)
+
+
+  4.233334 seconds (983.31 k allocations: 4.697 GiB, 24.12% gc time)
+
+
+Numero de qubits: 44 
+Threads (LinearAlgebra) :15
+Threads (Julia) :1
+
+
+  4.020062 seconds (1.01 M allocations: 4.904 GiB, 20.96% gc time)
+
+
+  4.046409 seconds (1.01 M allocations: 4.904 GiB, 20.94% gc time)
+
+
+  3.768023 seconds (1.01 M allocations: 4.904 GiB, 18.49% gc time)
+
+
+  4.316068 seconds (1.01 M allocations: 4.904 GiB, 23.33% gc time)
+
+
+  3.910033 seconds (1.01 M allocations: 4.904 GiB, 21.58% gc time)
+
+
+  4.100552 seconds (1.01 M allocations: 4.904 GiB, 24.09% gc time)
+
+
+  4.032941 seconds (1.01 M allocations: 4.904 GiB, 21.70% gc time)
+
+
+  4.003106 seconds (1.01 M allocations: 4.904 GiB, 21.51% gc time)
+
+
+  3.895627 seconds (1.01 M allocations: 4.904 GiB, 21.50% gc time)
+
+
+  4.108335 seconds (1.01 M allocations: 4.904 GiB, 24.20% gc time)
+
+
+  3.815301 seconds (1.01 M allocations: 4.904 GiB, 18.32% gc time)
+
+
+  4.248246 seconds (1.01 M allocations: 4.904 GiB, 23.45% gc time)
+
+
+  3.963385 seconds (1.01 M allocations: 4.904 GiB, 21.26% gc time)
+
+
+  4.101693 seconds (1.01 M allocations: 4.904 GiB, 24.33% gc time)
+
+
+  3.920158 seconds (1.01 M allocations: 4.904 GiB, 21.62% gc time)
+
+
+  3.971890 seconds (1.01 M allocations: 4.904 GiB, 21.30% gc time)
+
+
+  4.292262 seconds (1.01 M allocations: 4.904 GiB, 23.52% gc time)
+
+
+  3.942478 seconds (1.01 M allocations: 4.904 GiB, 21.21% gc time)
+
+
+  4.101078 seconds (1.01 M allocations: 4.904 GiB, 24.00% gc time)
+
+
+  3.921781 seconds (1.01 M allocations: 4.904 GiB, 22.07% gc time)
+
+
+  3.915222 seconds (1.01 M allocations: 4.904 GiB, 21.39% gc time)
+
+
+Numero de qubits: 45 
+Threads (LinearAlgebra) :15
+Threads (Julia) :1
+
+
+  4.212171 seconds (1.04 M allocations: 4.999 GiB, 23.73% gc time)
+
+
+  4.044082 seconds (1.04 M allocations: 4.999 GiB, 21.22% gc time)
+
+
+  4.009543 seconds (1.04 M allocations: 4.999 GiB, 20.91% gc time)
+
+
+  4.056014 seconds (1.04 M allocations: 4.999 GiB, 20.82% gc time)
+
+
+  4.053711 seconds (1.04 M allocations: 4.999 GiB, 20.90% gc time)
+
+
+  4.026828 seconds (1.04 M allocations: 4.999 GiB, 21.52% gc time)
+
+
+  4.029375 seconds (1.04 M allocations: 4.999 GiB, 21.35% gc time)
+
+
+  4.012963 seconds (1.04 M allocations: 4.999 GiB, 21.78% gc time)
+
+
+  4.357602 seconds (1.04 M allocations: 4.999 GiB, 23.13% gc time)
+
+
+  4.161766 seconds (1.04 M allocations: 4.999 GiB, 23.82% gc time)
+
+
+  3.992318 seconds (1.04 M allocations: 4.999 GiB, 21.38% gc time)
+
+
+  4.121533 seconds (1.04 M allocations: 4.999 GiB, 24.41% gc time)
+
+
+  4.021562 seconds (1.04 M allocations: 4.999 GiB, 21.47% gc time)
+
+
+  3.982170 seconds (1.04 M allocations: 4.999 GiB, 21.37% gc time)
+
+
+  4.160766 seconds (1.04 M allocations: 4.999 GiB, 24.27% gc time)
+
+
+  4.098904 seconds (1.04 M allocations: 4.999 GiB, 20.49% gc time)
+
+
+  4.002033 seconds (1.04 M allocations: 4.999 GiB, 21.08% gc time)
+
+
+  4.043776 seconds (1.04 M allocations: 4.999 GiB, 21.35% gc time)
+
+
+  3.966413 seconds (1.04 M allocations: 4.999 GiB, 21.64% gc time)
+
+
+  4.063437 seconds (1.04 M allocations: 4.999 GiB, 24.49% gc time)
+
+
+  3.954871 seconds (1.04 M allocations: 4.999 GiB, 21.67% gc time)
+
+
+Numero de qubits: 46 
+Threads (LinearAlgebra) :15
+Threads (Julia) :1
+
+
+  4.200758 seconds (1.06 M allocations: 5.235 GiB, 20.06% gc time)
+
+
+  4.231103 seconds (1.06 M allocations: 5.235 GiB, 20.49% gc time)
+
+
+  4.321338 seconds (1.06 M allocations: 5.235 GiB, 23.29% gc time)
+
+
+  4.231272 seconds (1.06 M allocations: 5.235 GiB, 20.47% gc time)
+
+
+  4.277721 seconds (1.06 M allocations: 5.235 GiB, 23.21% gc time)
+
+
+  4.206828 seconds (1.06 M allocations: 5.235 GiB, 21.13% gc time)
+
+
+  4.326927 seconds (1.06 M allocations: 5.235 GiB, 23.48% gc time)
+
+
+  4.156153 seconds (1.06 M allocations: 5.235 GiB, 20.43% gc time)
+
+
+  4.205421 seconds (1.06 M allocations: 5.235 GiB, 20.75% gc time)
+
+
+  4.551653 seconds (1.06 M allocations: 5.235 GiB, 22.13% gc time)
+
+
+  4.536404 seconds (1.06 M allocations: 5.235 GiB, 21.98% gc time)
+
+
+  4.413663 seconds (1.06 M allocations: 5.235 GiB, 22.70% gc time)
+
+
+  4.359723 seconds (1.06 M allocations: 5.235 GiB, 23.23% gc time)
+
+
+  4.217998 seconds (1.06 M allocations: 5.235 GiB, 20.56% gc time)
+
+
+  4.220602 seconds (1.06 M allocations: 5.235 GiB, 20.38% gc time)
+
+
+  4.329579 seconds (1.06 M allocations: 5.235 GiB, 23.09% gc time)
+
+
+  4.222798 seconds (1.06 M allocations: 5.235 GiB, 20.44% gc time)
+
+
+  4.387456 seconds (1.06 M allocations: 5.235 GiB, 22.72% gc time)
+
+
+  4.368200 seconds (1.06 M allocations: 5.235 GiB, 23.17% gc time)
+
+
+  4.261696 seconds (1.06 M allocations: 5.235 GiB, 20.37% gc time)
+
+
+  4.191847 seconds (1.06 M allocations: 5.235 GiB, 20.50% gc time)
+
+
+Numero de qubits: 47 
+Threads (LinearAlgebra) :15
+Threads (Julia) :1
+
+
+  4.386434 seconds (1.09 M allocations: 5.330 GiB, 22.76% gc time)
+
+
+  4.460730 seconds (1.09 M allocations: 5.330 GiB, 22.81% gc time)
+
+
+  4.448478 seconds (1.09 M allocations: 5.330 GiB, 22.37% gc time)
+
+
+  4.488791 seconds (1.09 M allocations: 5.330 GiB, 22.39% gc time)
+
+
+  4.272377 seconds (1.09 M allocations: 5.330 GiB, 20.58% gc time)
+
+
+  4.383927 seconds (1.09 M allocations: 5.330 GiB, 22.75% gc time)
+
+
+  4.403229 seconds (1.09 M allocations: 5.330 GiB, 22.57% gc time)
+
+
+  4.264925 seconds (1.09 M allocations: 5.330 GiB, 20.01% gc time)
+
+
+  4.363997 seconds (1.09 M allocations: 5.330 GiB, 22.88% gc time)
+
+
+  4.273950 seconds (1.09 M allocations: 5.330 GiB, 20.35% gc time)
+
+
+  4.408526 seconds (1.09 M allocations: 5.330 GiB, 22.79% gc time)
+
+
+  4.398226 seconds (1.09 M allocations: 5.330 GiB, 22.78% gc time)
+
+
+  4.260769 seconds (1.09 M allocations: 5.330 GiB, 20.19% gc time)
+
+
+  4.424758 seconds (1.09 M allocations: 5.330 GiB, 22.45% gc time)
+
+
+  4.320956 seconds (1.09 M allocations: 5.330 GiB, 19.72% gc time)
+
+
+  4.451755 seconds (1.09 M allocations: 5.330 GiB, 22.97% gc time)
+
+
+  4.315943 seconds (1.09 M allocations: 5.330 GiB, 19.79% gc time)
+
+
+  4.379882 seconds (1.09 M allocations: 5.330 GiB, 22.74% gc time)
+
+
+  4.311565 seconds (1.09 M allocations: 5.330 GiB, 19.81% gc time)
+
+
+  4.436968 seconds (1.09 M allocations: 5.330 GiB, 22.66% gc time)
+
+
+  4.318899 seconds (1.09 M allocations: 5.330 GiB, 20.54% gc time)
+
+
+Numero de qubits: 48 
+Threads (LinearAlgebra) :15
+Threads (Julia) :1
+
+
+  4.558397 seconds (1.12 M allocations: 5.536 GiB, 22.26% gc time)
+
+
+  4.554026 seconds (1.12 M allocations: 5.536 GiB, 22.00% gc time)
+
+
+  4.523026 seconds (1.12 M allocations: 5.536 GiB, 22.20% gc time)
+
+
+  4.562578 seconds (1.12 M allocations: 5.536 GiB, 22.05% gc time)
+
+
+  4.653509 seconds (1.12 M allocations: 5.536 GiB, 21.84% gc time)
+
+
+  4.591384 seconds (1.12 M allocations: 5.536 GiB, 22.00% gc time)
+
+
+  4.510835 seconds (1.12 M allocations: 5.536 GiB, 22.75% gc time)
+
+
+  4.345819 seconds (1.12 M allocations: 5.536 GiB, 19.95% gc time)
+
+
+  4.604230 seconds (1.12 M allocations: 5.536 GiB, 24.89% gc time)
+
+
+  4.367426 seconds (1.12 M allocations: 5.536 GiB, 20.19% gc time)
+
+
+  4.434103 seconds (1.12 M allocations: 5.536 GiB, 22.35% gc time)
+
+
+  4.448605 seconds (1.12 M allocations: 5.536 GiB, 22.57% gc time)
+
+
+  4.486374 seconds (1.12 M allocations: 5.536 GiB, 22.90% gc time)
+
+
+  4.334539 seconds (1.12 M allocations: 5.536 GiB, 19.60% gc time)
+
+
+  4.506856 seconds (1.12 M allocations: 5.536 GiB, 22.56% gc time)
+
+
+  4.488615 seconds (1.12 M allocations: 5.536 GiB, 22.34% gc time)
+
+
+  4.393149 seconds (1.12 M allocations: 5.536 GiB, 19.98% gc time)
+
+
+  4.496393 seconds (1.12 M allocations: 5.536 GiB, 22.33% gc time)
+
+
+  4.517085 seconds (1.12 M allocations: 5.536 GiB, 22.13% gc time)
+
+
+  4.504615 seconds (1.12 M allocations: 5.536 GiB, 22.09% gc time)
+
+
+  4.631542 seconds (1.12 M allocations: 5.536 GiB, 24.60% gc time)
+
+
+Numero de qubits: 49 
+Threads (LinearAlgebra) :15
+Threads (Julia) :1
+
+
+  4.428232 seconds (1.14 M allocations: 5.631 GiB, 20.15% gc time)
+
+
+  4.583631 seconds (1.14 M allocations: 5.631 GiB, 21.82% gc time)
+
+
+  4.556807 seconds (1.14 M allocations: 5.631 GiB, 22.04% gc time)
+
+
+  4.580492 seconds (1.14 M allocations: 5.631 GiB, 22.27% gc time)
+
+
+  4.559187 seconds (1.14 M allocations: 5.631 GiB, 21.94% gc time)
+
+
+  4.555108 seconds (1.14 M allocations: 5.631 GiB, 22.15% gc time)
+
+
+  4.557243 seconds (1.14 M allocations: 5.631 GiB, 22.30% gc time)
+
+
+  4.549803 seconds (1.14 M allocations: 5.631 GiB, 22.01% gc time)
+
+
+  4.555393 seconds (1.14 M allocations: 5.631 GiB, 21.96% gc time)
+
+
+  4.563504 seconds (1.14 M allocations: 5.631 GiB, 21.96% gc time)
+
+
+  4.562119 seconds (1.14 M allocations: 5.631 GiB, 21.91% gc time)
+
+
+  4.560884 seconds (1.14 M allocations: 5.631 GiB, 22.09% gc time)
+
+
+  4.559886 seconds (1.14 M allocations: 5.631 GiB, 21.94% gc time)
+
+
+  4.558557 seconds (1.14 M allocations: 5.631 GiB, 21.95% gc time)
+
+
+  4.587410 seconds (1.14 M allocations: 5.631 GiB, 22.02% gc time)
+
+
+  4.553169 seconds (1.14 M allocations: 5.631 GiB, 22.18% gc time)
+
+
+  4.545253 seconds (1.14 M allocations: 5.631 GiB, 22.08% gc time)
+
+
+  4.581166 seconds (1.14 M allocations: 5.631 GiB, 22.32% gc time)
+
+
+  4.575756 seconds (1.14 M allocations: 5.631 GiB, 21.96% gc time)
+
+
+  4.562712 seconds (1.14 M allocations: 5.631 GiB, 22.17% gc time)
+
+
+  4.548730 seconds (1.14 M allocations: 5.631 GiB, 22.21% gc time)
+
+
+Numero de qubits: 50 
+Threads (LinearAlgebra) :15
+Threads (Julia) :1
+
+
+  4.791926 seconds (1.17 M allocations: 5.868 GiB, 21.41% gc time)
+
+
+  4.903980 seconds (1.17 M allocations: 5.868 GiB, 23.54% gc time)
+
+
+  4.777686 seconds (1.17 M allocations: 5.868 GiB, 21.11% gc time)
+
+
+  4.728674 seconds (1.17 M allocations: 5.868 GiB, 21.22% gc time)
+
+
+  4.786145 seconds (1.17 M allocations: 5.868 GiB, 21.40% gc time)
+
+
+  4.750402 seconds (1.17 M allocations: 5.868 GiB, 21.28% gc time)
+
+
+  4.918019 seconds (1.17 M allocations: 5.868 GiB, 23.59% gc time)
+
+
+  4.779337 seconds (1.17 M allocations: 5.868 GiB, 21.04% gc time)
+
+
+  4.762087 seconds (1.17 M allocations: 5.868 GiB, 21.29% gc time)
+
+
+  4.798981 seconds (1.17 M allocations: 5.868 GiB, 21.41% gc time)
+
+
+  4.772476 seconds (1.17 M allocations: 5.868 GiB, 21.36% gc time)
+
+
+  4.916915 seconds (1.17 M allocations: 5.868 GiB, 23.55% gc time)
+
+
+  4.675027 seconds (1.17 M allocations: 5.868 GiB, 18.56% gc time)
+
+
+  4.892588 seconds (1.17 M allocations: 5.868 GiB, 23.52% gc time)
+
+
+  4.814658 seconds (1.17 M allocations: 5.868 GiB, 21.63% gc time)
+
+
+  4.957718 seconds (1.17 M allocations: 5.868 GiB, 23.60% gc time)
+
+
+  4.657146 seconds (1.17 M allocations: 5.868 GiB, 18.86% gc time)
+
+
+  4.927438 seconds (1.17 M allocations: 5.868 GiB, 23.50% gc time)
+
+
+  4.576413 seconds (1.17 M allocations: 5.868 GiB, 18.63% gc time)
+
+
+  4.940778 seconds (1.17 M allocations: 5.868 GiB, 23.41% gc time)
+
+
+  4.844540 seconds (1.17 M allocations: 5.868 GiB, 20.95% gc time)
+
+
+Numero de qubits: 51 
+Threads (LinearAlgebra) :15
+Threads (Julia) :1
+
+
+  4.984185 seconds (1.20 M allocations: 5.963 GiB, 23.55% gc time)
+
+
+  4.731185 seconds (1.20 M allocations: 5.963 GiB, 18.90% gc time)
+
+
+  4.992925 seconds (1.20 M allocations: 5.963 GiB, 23.28% gc time)
+
+
+  4.832627 seconds (1.20 M allocations: 5.963 GiB, 21.46% gc time)
+
+
+  4.854236 seconds (1.20 M allocations: 5.963 GiB, 21.23% gc time)
+
+
+  4.851603 seconds (1.20 M allocations: 5.963 GiB, 20.98% gc time)
+
+
+  5.000084 seconds (1.20 M allocations: 5.963 GiB, 23.30% gc time)
+
+
+  4.822787 seconds (1.20 M allocations: 5.963 GiB, 21.03% gc time)
+
+
+  4.977860 seconds (1.20 M allocations: 5.963 GiB, 23.45% gc time)
+
+
+  4.830948 seconds (1.20 M allocations: 5.963 GiB, 20.82% gc time)
+
+
+  4.854735 seconds (1.20 M allocations: 5.963 GiB, 21.15% gc time)
+
+
+  4.993608 seconds (1.20 M allocations: 5.963 GiB, 23.32% gc time)
+
+
+  4.825586 seconds (1.20 M allocations: 5.963 GiB, 21.09% gc time)
+
+
+  4.982558 seconds (1.20 M allocations: 5.963 GiB, 23.48% gc time)
+
+
+  4.819363 seconds (1.20 M allocations: 5.963 GiB, 20.87% gc time)
+
+
+  5.002980 seconds (1.20 M allocations: 5.963 GiB, 23.67% gc time)
+
+
+  4.887538 seconds (1.20 M allocations: 5.963 GiB, 21.25% gc time)
+
+
+  4.866338 seconds (1.20 M allocations: 5.963 GiB, 21.43% gc time)
+
+
+  5.009851 seconds (1.20 M allocations: 5.963 GiB, 23.45% gc time)
+
+
+  4.834066 seconds (1.20 M allocations: 5.963 GiB, 21.13% gc time)
+
+
+  4.965064 seconds (1.20 M allocations: 5.963 GiB, 23.30% gc time)
+
+
+Numero de qubits: 52 
+Threads (LinearAlgebra) :15
+Threads (Julia) :1
+
+
+  5.063175 seconds (1.23 M allocations: 6.170 GiB, 23.14% gc time)
+
+
+  4.765728 seconds (1.23 M allocations: 6.170 GiB, 18.72% gc time)
+
+
+  5.084855 seconds (1.23 M allocations: 6.170 GiB, 22.80% gc time)
+
+
+  5.077008 seconds (1.23 M allocations: 6.170 GiB, 22.95% gc time)
+
+
+  4.772187 seconds (1.23 M allocations: 6.170 GiB, 18.73% gc time)
+
+
+  5.109869 seconds (1.23 M allocations: 6.170 GiB, 23.26% gc time)
+
+
+  5.086925 seconds (1.23 M allocations: 6.170 GiB, 23.00% gc time)
+
+
+  4.941372 seconds (1.23 M allocations: 6.170 GiB, 21.05% gc time)
+
+
+  4.987927 seconds (1.23 M allocations: 6.170 GiB, 21.29% gc time)
+
+
+  4.954653 seconds (1.23 M allocations: 6.170 GiB, 21.21% gc time)
+
+
+  4.955217 seconds (1.23 M allocations: 6.170 GiB, 21.49% gc time)
+
+
+  4.947216 seconds (1.23 M allocations: 6.170 GiB, 21.26% gc time)
+
+
+  4.958579 seconds (1.23 M allocations: 6.170 GiB, 21.23% gc time)
+
+
+  4.962174 seconds (1.23 M allocations: 6.170 GiB, 21.22% gc time)
+
+
+  4.968403 seconds (1.23 M allocations: 6.170 GiB, 21.15% gc time)
+
+
+  4.979964 seconds (1.23 M allocations: 6.170 GiB, 21.19% gc time)
+
+
+  4.984897 seconds (1.23 M allocations: 6.170 GiB, 21.14% gc time)
+
+
+  4.985221 seconds (1.23 M allocations: 6.170 GiB, 21.06% gc time)
+
+
+  4.832973 seconds (1.23 M allocations: 6.170 GiB, 18.50% gc time)
+
+
+  5.100997 seconds (1.23 M allocations: 6.170 GiB, 23.25% gc time)
+
+
+  5.101429 seconds (1.23 M allocations: 6.170 GiB, 22.97% gc time)
+
+
+Numero de qubits: 53 
+Threads (LinearAlgebra) :15
+Threads (Julia) :1
+
+
+  5.036230 seconds (1.26 M allocations: 6.265 GiB, 21.38% gc time)
+
+
+  5.071839 seconds (1.26 M allocations: 6.265 GiB, 20.70% gc time)
+
+
+  5.052354 seconds (1.26 M allocations: 6.265 GiB, 20.79% gc time)
+
+
+  4.985342 seconds (1.26 M allocations: 6.265 GiB, 21.30% gc time)
+
+
+  4.972073 seconds (1.26 M allocations: 6.265 GiB, 21.05% gc time)
+
+
+  4.972583 seconds (1.26 M allocations: 6.265 GiB, 20.95% gc time)
+
+
+  5.021472 seconds (1.26 M allocations: 6.265 GiB, 20.28% gc time)
+
+
+  4.932530 seconds (1.26 M allocations: 6.265 GiB, 20.44% gc time)
+
+
+  4.965140 seconds (1.26 M allocations: 6.265 GiB, 20.57% gc time)
+
+
+  5.130805 seconds (1.26 M allocations: 6.265 GiB, 22.87% gc time)
+
+
+  5.132357 seconds (1.26 M allocations: 6.265 GiB, 22.75% gc time)
+
+
+  4.965883 seconds (1.26 M allocations: 6.265 GiB, 21.07% gc time)
+
+
+  5.114161 seconds (1.26 M allocations: 6.265 GiB, 22.94% gc time)
+
+
+  5.165080 seconds (1.26 M allocations: 6.265 GiB, 23.00% gc time)
+
+
+  4.985915 seconds (1.26 M allocations: 6.265 GiB, 21.02% gc time)
+
+
+  4.998645 seconds (1.26 M allocations: 6.265 GiB, 21.32% gc time)
+
+
+  4.910218 seconds (1.26 M allocations: 6.265 GiB, 18.30% gc time)
+
+
+  5.159925 seconds (1.26 M allocations: 6.265 GiB, 22.89% gc time)
+
+
+  5.119893 seconds (1.26 M allocations: 6.265 GiB, 22.61% gc time)
+
+
+  5.122607 seconds (1.26 M allocations: 6.265 GiB, 22.79% gc time)
+
+
+  5.124155 seconds (1.26 M allocations: 6.265 GiB, 23.04% gc time)
+
+
+Numero de qubits: 54 
+Threads (LinearAlgebra) :15
+Threads (Julia) :1
+
+
+  5.270665 seconds (1.28 M allocations: 6.502 GiB, 20.09% gc time)
+
+
+  5.329723 seconds (1.28 M allocations: 6.502 GiB, 22.49% gc time)
+
+
+  5.279732 seconds (1.28 M allocations: 6.502 GiB, 20.24% gc time)
+
+
+  5.224132 seconds (1.28 M allocations: 6.502 GiB, 19.54% gc time)
+
+
+  5.214918 seconds (1.28 M allocations: 6.502 GiB, 20.19% gc time)
+
+
+  5.510602 seconds (1.28 M allocations: 6.502 GiB, 24.19% gc time)
+
+
+  5.270060 seconds (1.28 M allocations: 6.502 GiB, 19.76% gc time)
+
+
+  5.246451 seconds (1.28 M allocations: 6.502 GiB, 19.46% gc time)
+
+
+  5.290533 seconds (1.28 M allocations: 6.502 GiB, 22.15% gc time)
+
+
+  5.192465 seconds (1.28 M allocations: 6.502 GiB, 20.29% gc time)
+
+
+  5.229809 seconds (1.28 M allocations: 6.502 GiB, 19.54% gc time)
+
+
+  5.241211 seconds (1.28 M allocations: 6.502 GiB, 20.20% gc time)
+
+
+  5.493210 seconds (1.28 M allocations: 6.502 GiB, 24.62% gc time)
+
+
+  5.183686 seconds (1.28 M allocations: 6.502 GiB, 20.42% gc time)
+
+
+  5.235453 seconds (1.28 M allocations: 6.502 GiB, 20.03% gc time)
+
+
+  5.137753 seconds (1.28 M allocations: 6.502 GiB, 20.50% gc time)
+
+
+  5.287840 seconds (1.28 M allocations: 6.502 GiB, 22.35% gc time)
+
+
+  5.514318 seconds (1.28 M allocations: 6.502 GiB, 24.38% gc time)
+
+
+  5.231200 seconds (1.28 M allocations: 6.502 GiB, 20.25% gc time)
+
+
+  5.177589 seconds (1.28 M allocations: 6.502 GiB, 20.15% gc time)
+
+
+  5.495359 seconds (1.28 M allocations: 6.502 GiB, 24.33% gc time)
+
+
+Numero de qubits: 55 
+Threads (LinearAlgebra) :15
+Threads (Julia) :1
+
+
+  5.333363 seconds (1.31 M allocations: 6.597 GiB, 20.00% gc time)
+
+
+  5.233633 seconds (1.31 M allocations: 6.597 GiB, 20.27% gc time)
+
+
+  5.515326 seconds (1.31 M allocations: 6.597 GiB, 24.05% gc time)
+
+
+  5.332946 seconds (1.31 M allocations: 6.597 GiB, 20.27% gc time)
+
+
+  5.200403 seconds (1.31 M allocations: 6.597 GiB, 19.94% gc time)
+
+
+  5.590720 seconds (1.31 M allocations: 6.597 GiB, 24.06% gc time)
+
+
+  5.329897 seconds (1.31 M allocations: 6.597 GiB, 20.02% gc time)
+
+
+  5.292356 seconds (1.31 M allocations: 6.597 GiB, 19.56% gc time)
+
+
+  5.342511 seconds (1.31 M allocations: 6.597 GiB, 21.98% gc time)
+
+
+  5.262470 seconds (1.31 M allocations: 6.597 GiB, 20.19% gc time)
+
+
+  5.550889 seconds (1.31 M allocations: 6.597 GiB, 23.96% gc time)
+
+
+  5.305995 seconds (1.31 M allocations: 6.597 GiB, 20.04% gc time)
+
+
+  5.197306 seconds (1.31 M allocations: 6.597 GiB, 19.97% gc time)
+
+
+  5.528423 seconds (1.31 M allocations: 6.597 GiB, 24.21% gc time)
+
+
+  5.285116 seconds (1.31 M allocations: 6.597 GiB, 20.06% gc time)
+
+
+  5.387823 seconds (1.31 M allocations: 6.597 GiB, 22.75% gc time)
+
+
+  5.307217 seconds (1.31 M allocations: 6.597 GiB, 20.05% gc time)
+
+
+  5.248497 seconds (1.31 M allocations: 6.597 GiB, 20.45% gc time)
+
+
+  5.529230 seconds (1.31 M allocations: 6.597 GiB, 24.03% gc time)
+
+
+  5.385234 seconds (1.31 M allocations: 6.597 GiB, 19.76% gc time)
+
+
+  5.367529 seconds (1.31 M allocations: 6.597 GiB, 21.87% gc time)
+
+
+Numero de qubits: 56 
+Threads (LinearAlgebra) :15
+Threads (Julia) :1
+
+
+  5.375351 seconds (1.34 M allocations: 6.803 GiB, 19.27% gc time)
+
+
+  5.661395 seconds (1.34 M allocations: 6.803 GiB, 23.41% gc time)
+
+
+  5.483939 seconds (1.34 M allocations: 6.803 GiB, 22.24% gc time)
+
+
+  5.359946 seconds (1.34 M allocations: 6.803 GiB, 19.87% gc time)
+
+
+  5.454464 seconds (1.34 M allocations: 6.803 GiB, 21.62% gc time)
+
+
+  5.368873 seconds (1.34 M allocations: 6.803 GiB, 19.35% gc time)
+
+
+  5.452978 seconds (1.34 M allocations: 6.803 GiB, 22.17% gc time)
+
+
+  5.549903 seconds (1.34 M allocations: 6.803 GiB, 21.60% gc time)
+
+
+  5.529395 seconds (1.34 M allocations: 6.803 GiB, 21.47% gc time)
+
+
+  5.536495 seconds (1.34 M allocations: 6.803 GiB, 22.27% gc time)
+
+
+  5.352508 seconds (1.34 M allocations: 6.803 GiB, 19.90% gc time)
+
+
+  5.487330 seconds (1.34 M allocations: 6.803 GiB, 21.81% gc time)
+
+
+  5.464393 seconds (1.34 M allocations: 6.803 GiB, 21.63% gc time)
+
+
+  5.481458 seconds (1.34 M allocations: 6.803 GiB, 22.13% gc time)
+
+
+  5.346830 seconds (1.34 M allocations: 6.803 GiB, 19.94% gc time)
+
+
+  5.464151 seconds (1.34 M allocations: 6.803 GiB, 21.52% gc time)
+
+
+  5.321908 seconds (1.34 M allocations: 6.803 GiB, 19.66% gc time)
+
+
+  5.672900 seconds (1.34 M allocations: 6.803 GiB, 23.86% gc time)
+
+
+  5.530887 seconds (1.34 M allocations: 6.803 GiB, 21.47% gc time)
+
+
+  5.482807 seconds (1.34 M allocations: 6.803 GiB, 22.12% gc time)
+
+
+  5.329404 seconds (1.34 M allocations: 6.803 GiB, 20.22% gc time)
+
+
+Numero de qubits: 57 
+Threads (LinearAlgebra) :15
+Threads (Julia) :1
+
+
+  5.645806 seconds (1.37 M allocations: 6.899 GiB, 23.71% gc time)
+
+
+  5.439599 seconds (1.37 M allocations: 6.899 GiB, 19.97% gc time)
+
+
+  5.524206 seconds (1.37 M allocations: 6.899 GiB, 21.52% gc time)
+
+
+  5.686564 seconds (1.37 M allocations: 6.899 GiB, 23.55% gc time)
+
+
+  5.406032 seconds (1.37 M allocations: 6.899 GiB, 19.73% gc time)
+
+
+  5.542186 seconds (1.37 M allocations: 6.899 GiB, 21.90% gc time)
+
+
+  5.514452 seconds (1.37 M allocations: 6.899 GiB, 21.85% gc time)
+
+
+  5.434747 seconds (1.37 M allocations: 6.899 GiB, 19.67% gc time)
+
+
+  5.501743 seconds (1.37 M allocations: 6.899 GiB, 21.51% gc time)
+
+
+  5.681840 seconds (1.37 M allocations: 6.899 GiB, 23.73% gc time)
+
+
+  5.508226 seconds (1.37 M allocations: 6.899 GiB, 19.60% gc time)
+
+
+  5.507962 seconds (1.37 M allocations: 6.899 GiB, 21.74% gc time)
+
+
+  5.526708 seconds (1.37 M allocations: 6.899 GiB, 21.79% gc time)
+
+
+  5.499158 seconds (1.37 M allocations: 6.899 GiB, 21.69% gc time)
+
+
+  5.539806 seconds (1.37 M allocations: 6.899 GiB, 21.64% gc time)
+
+
+  5.539739 seconds (1.37 M allocations: 6.899 GiB, 21.63% gc time)
+
+
+  5.551934 seconds (1.37 M allocations: 6.899 GiB, 21.72% gc time)
+
+
+  5.501534 seconds (1.37 M allocations: 6.899 GiB, 21.80% gc time)
+
+
+  5.511407 seconds (1.37 M allocations: 6.899 GiB, 21.66% gc time)
+
+
+  5.507682 seconds (1.37 M allocations: 6.899 GiB, 21.65% gc time)
+
+
+  5.534820 seconds (1.37 M allocations: 6.899 GiB, 21.93% gc time)
+
+
+Numero de qubits: 58 
+Threads (LinearAlgebra) :15
+Threads (Julia) :1
+
+
+  5.751072 seconds (1.40 M allocations: 7.136 GiB, 21.07% gc time)
+
+
+  5.909374 seconds (1.40 M allocations: 7.136 GiB, 22.93% gc time)
+
+
+  5.633711 seconds (1.40 M allocations: 7.136 GiB, 19.22% gc time)
+
+
+  5.779211 seconds (1.40 M allocations: 7.136 GiB, 20.70% gc time)
+
+
+  5.942001 seconds (1.40 M allocations: 7.136 GiB, 22.61% gc time)
+
+
+  5.735047 seconds (1.40 M allocations: 7.136 GiB, 21.03% gc time)
+
+
+  5.610400 seconds (1.40 M allocations: 7.136 GiB, 19.29% gc time)
+
+
+  5.921664 seconds (1.40 M allocations: 7.136 GiB, 22.64% gc time)
+
+
+  5.900811 seconds (1.40 M allocations: 7.136 GiB, 22.89% gc time)
+
+
+  5.633411 seconds (1.40 M allocations: 7.136 GiB, 19.23% gc time)
+
+
+  5.956444 seconds (1.40 M allocations: 7.136 GiB, 22.80% gc time)
+
+
+  5.935056 seconds (1.40 M allocations: 7.136 GiB, 22.77% gc time)
+
+
+  5.735180 seconds (1.40 M allocations: 7.136 GiB, 21.23% gc time)
+
+
+  5.618968 seconds (1.40 M allocations: 7.136 GiB, 18.94% gc time)
+
+
+  5.825635 seconds (1.40 M allocations: 7.136 GiB, 23.03% gc time)
+
+
+  5.630387 seconds (1.40 M allocations: 7.136 GiB, 18.99% gc time)
+
+
+  5.702151 seconds (1.40 M allocations: 7.136 GiB, 20.73% gc time)
+
+
+  5.854534 seconds (1.40 M allocations: 7.136 GiB, 22.67% gc time)
+
+
+  5.727904 seconds (1.40 M allocations: 7.136 GiB, 20.50% gc time)
+
+
+  5.709976 seconds (1.40 M allocations: 7.136 GiB, 20.70% gc time)
+
+
+  5.904200 seconds (1.40 M allocations: 7.136 GiB, 22.53% gc time)
+
+
+Numero de qubits: 59 
+Threads (LinearAlgebra) :15
+Threads (Julia) :1
+
+
+  5.787811 seconds (1.43 M allocations: 7.231 GiB, 20.99% gc time)
+
+
+  5.825708 seconds (1.43 M allocations: 7.231 GiB, 20.88% gc time)
+
+
+  6.000139 seconds (1.43 M allocations: 7.231 GiB, 22.54% gc time)
+
+
+  5.974592 seconds (1.43 M allocations: 7.231 GiB, 22.64% gc time)
+
+
+  5.792143 seconds (1.43 M allocations: 7.231 GiB, 20.88% gc time)
+
+
+  5.720272 seconds (1.43 M allocations: 7.231 GiB, 18.84% gc time)
+
+
+  5.888107 seconds (1.43 M allocations: 7.231 GiB, 22.87% gc time)
+
+
+  5.838282 seconds (1.43 M allocations: 7.231 GiB, 20.38% gc time)
+
+
+  5.673775 seconds (1.43 M allocations: 7.231 GiB, 18.80% gc time)
+
+
+  5.914724 seconds (1.43 M allocations: 7.231 GiB, 22.53% gc time)
+
+
+  5.645765 seconds (1.43 M allocations: 7.231 GiB, 18.92% gc time)
+
+
+  6.002184 seconds (1.43 M allocations: 7.231 GiB, 22.59% gc time)
+
+
+  6.057969 seconds (1.43 M allocations: 7.231 GiB, 22.14% gc time)
+
+
+  5.800690 seconds (1.43 M allocations: 7.231 GiB, 20.86% gc time)
+
+
+  5.987349 seconds (1.43 M allocations: 7.231 GiB, 22.47% gc time)
+
+
+  5.812892 seconds (1.43 M allocations: 7.231 GiB, 20.45% gc time)
+
+
+  5.840838 seconds (1.43 M allocations: 7.231 GiB, 20.77% gc time)
+
+
+  5.802044 seconds (1.43 M allocations: 7.231 GiB, 21.10% gc time)
+
+
+  5.773816 seconds (1.43 M allocations: 7.231 GiB, 20.46% gc time)
+
+
+  5.930742 seconds (1.43 M allocations: 7.231 GiB, 22.43% gc time)
+
+
+  5.837403 seconds (1.43 M allocations: 7.231 GiB, 20.22% gc time)
+
+
+Numero de qubits: 60 
+Threads (LinearAlgebra) :15
+Threads (Julia) :1
+
+
+  5.965696 seconds (1.46 M allocations: 7.438 GiB, 20.60% gc time)
+
+
+  5.833285 seconds (1.46 M allocations: 7.438 GiB, 20.62% gc time)
+
+
+  5.826142 seconds (1.46 M allocations: 7.438 GiB, 20.78% gc time)
+
+
+  5.937527 seconds (1.46 M allocations: 7.438 GiB, 22.37% gc time)
+
+
+  6.084322 seconds (1.46 M allocations: 7.438 GiB, 22.27% gc time)
+
+
+  5.941136 seconds (1.46 M allocations: 7.438 GiB, 20.81% gc time)
+
+
+  6.063181 seconds (1.46 M allocations: 7.438 GiB, 22.36% gc time)
+
+
+  5.903675 seconds (1.46 M allocations: 7.438 GiB, 20.38% gc time)
+
+
+  5.868867 seconds (1.46 M allocations: 7.438 GiB, 20.68% gc time)
+
+
+  5.856971 seconds (1.46 M allocations: 7.438 GiB, 20.34% gc time)
+
+
+  6.088883 seconds (1.46 M allocations: 7.438 GiB, 22.27% gc time)
+
+
+  6.057938 seconds (1.46 M allocations: 7.438 GiB, 22.12% gc time)
+
+
+  5.880102 seconds (1.46 M allocations: 7.438 GiB, 20.53% gc time)
+
+
+  6.104376 seconds (1.46 M allocations: 7.438 GiB, 22.41% gc time)
+
+
+  6.088300 seconds (1.46 M allocations: 7.438 GiB, 22.41% gc time)
+
+
+  6.061328 seconds (1.46 M allocations: 7.438 GiB, 22.12% gc time)
+
+
+  5.954914 seconds (1.46 M allocations: 7.438 GiB, 20.44% gc time)
+
+
+  6.058324 seconds (1.46 M allocations: 7.438 GiB, 22.12% gc time)
+
+
+  5.883557 seconds (1.46 M allocations: 7.438 GiB, 20.08% gc time)
+
+
+  6.081099 seconds (1.46 M allocations: 7.438 GiB, 22.27% gc time)
+
+
+  6.060822 seconds (1.46 M allocations: 7.438 GiB, 22.10% gc time)
+
+
