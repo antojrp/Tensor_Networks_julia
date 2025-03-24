@@ -185,7 +185,7 @@ let
   end
 
   #Number of Layers
-  L=12
+  L=14
   #Number of qubits starting
   Ni=20
   m=41

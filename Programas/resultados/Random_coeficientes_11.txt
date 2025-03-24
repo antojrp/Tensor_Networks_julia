@@ -36,3 +36,6 @@ Numero de qubits: 54
 Numero de qubits: 55 
 Numero de qubits: 56 
 Numero de qubits: 57 
+Numero de qubits: 58 
+Numero de qubits: 59 
+Numero de qubits: 60 
