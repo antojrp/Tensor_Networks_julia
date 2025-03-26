@@ -28,3 +28,5 @@ Numero de qubits: 46
 Numero de qubits: 47 
 Numero de qubits: 48 
 Numero de qubits: 49 
+Numero de qubits: 50 
+Numero de qubits: 51 
