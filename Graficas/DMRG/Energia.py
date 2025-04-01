@@ -46,7 +46,7 @@ def create_matrices(data):
     return energy_matrix, var_energy_matrix, np.array(final_energy), np.array(total_variance), dimensions, qubits
 
 
-file_path = "../../Programas/resultados/DMRG_energia_L100_D100_t15.txt"
+file_path = "../../Programas/resultados/DMRG_2_energia_L100_D100_t15.txt"
 data = parse_dmrg_file(file_path)
 energy_matrix, var_energy_matrix, final_energy, total_variance, dimensions, qubits = create_matrices(data)
 
@@ -63,10 +63,12 @@ plt.show()
 plt.figure(figsize=(8, 5))
 sweeps = np.arange(1, 11)
 for i, dim in enumerate(dimensions):
-    plt.plot(sweeps, energy_matrix[0, i, :], marker='o', linestyle='-', label=f'Dimensión {dim}')
+    plt.errorbar(sweeps, energy_matrix[0, i, :], var_energy_matrix[0, i, :]/np.sqrt(20), markersize=3, capsize=5, fmt='o', linestyle='-', label=f'D={dim}') 
+
 plt.xlabel('Sweep')
 plt.ylabel('Energía')
-plt.title('Energía en función de Sweep para diferentes Dimensiones')
-plt.legend()
+plt.title('Energy after every sweep (N=100)')
+plt.legend(ncols=2)
 plt.grid()
 plt.show()
+plt.savefig('DMRG_energy_sweep.pdf',format='pdf', bbox_inches='tight')

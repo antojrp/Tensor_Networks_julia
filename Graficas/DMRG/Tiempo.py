@@ -1,6 +1,14 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
+plt.rcParams.update({
+    'font.size': 18,       # Tamaño de fuente general
+    'axes.titlesize': 18,  # Tamaño del título de los ejes
+    'axes.labelsize': 18,  # Tamaño de las etiquetas de los ejes
+    'xtick.labelsize': 18, # Tamaño de las etiquetas del eje x
+    'ytick.labelsize': 18  # Tamaño de las etiquetas del eje y
+})
+
 def parse_dmrg_file(file_path):
     with open(file_path, 'r') as f:
         lines = f.readlines()
@@ -55,21 +63,25 @@ time_matrix, var_time_matrix, total_time, total_variance, dimensions, qubits = c
 
 
 plt.figure(figsize=(8, 5))
-plt.plot(dimensions, total_time, marker='o', linestyle='-', color='b', label='Tiempo Total')
+
+plt.errorbar(dimensions, total_time, total_variance/np.sqrt(20), markersize=3, capsize=5, fmt='o', linestyle='-') 
+
 plt.xlabel('D')
-plt.ylabel('Tiempo Total')
-plt.title('Tiempo Total en función de la Dimensión')
-plt.legend()
+plt.ylabel('Total time (s)')
+plt.title('Total time in terms of dimension (N=100)')
 plt.grid()
 plt.show()
+plt.savefig('DMRG0_total_time.pdf',format='pdf', bbox_inches='tight')
 
 plt.figure(figsize=(8, 5))
 sweeps = np.arange(1, 11)
 for i, dim in enumerate(dimensions):
-    plt.plot(sweeps, time_matrix[0, i, :], marker='o', linestyle='-', label=f'D={dim}')
+    plt.errorbar(sweeps, time_matrix[0, i, :], var_time_matrix[0, i, :]/np.sqrt(20), markersize=3, capsize=5, fmt='o', linestyle='-', label=f'D={dim}') 
+
 plt.xlabel('Sweep')
-plt.ylabel('Energía')
-plt.title('Energía en función de Sweep para diferentes Dimensiones')
+plt.ylabel('Time(s)')
+plt.title('Time in every sweep (N=100)')
 plt.legend(ncols=2)
 plt.grid()
 plt.show()
+plt.savefig('DMRG0_time_sweep.pdf',format='pdf', bbox_inches='tight')

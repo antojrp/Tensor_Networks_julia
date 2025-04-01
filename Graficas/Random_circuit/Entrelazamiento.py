@@ -73,7 +73,7 @@ for N in range(0,len(qubits),2):
     y=matrices['D'][:L,N]
     error=matrices['var(D)'][:L,N]
     
-    plt.errorbar(x, y, yerr=error, markersize=3, fmt='o',color=color[int(N/2)], capsize=5, linestyle='None', label='N='+str(N_ini+N))
+    plt.errorbar(x, y, yerr=error, markersize=3, fmt='o',color=color[int(N/2)], capsize=5, linestyle='-', label='N='+str(N_ini+N))
     
 plt.xlabel('Layer')
 plt.ylabel('D')

@@ -54,25 +54,25 @@ def generar_matrices_tiempo(file_path):
 
     return final_matrices, qubits
 
-tiempo_total=np.zeros(20)
-for i in range(1,21):
+tiempo_total=np.zeros(30)
+for i in range(1,31):
     file_path = '../../Programas/resultados/Random_tiempo_15_t'+str(i)+'.txt'
     matrices, qubits = generar_matrices_tiempo(file_path)
     tiempo_total[i-1]=sum(matrices['Time'][:,0])
 
 
-t=20
+t=30
 plt.figure()
 x=range(1,t+1)
 error=0
 
 plt.errorbar(x, tiempo_total, yerr=error, markersize=3, fmt='o',color=color[0], capsize=5, linestyle='None')    
-plt.xlabel('Layer')
+plt.xlabel('Threads')
 plt.ylabel('Time(s)')
-plt.title('Simulation time per layer')
+plt.title('Simulation time N=20, L=15')
 # Mostrar la leyenda
 #plt.legend()
 # Mostrar la gráfica
 plt.tight_layout()
 plt.show()
-#savefig('Comparation_2'+str(i)+'.pdf',format='pdf', bbox_inches='tight')
+plt.savefig('Threads.pdf',format='pdf', bbox_inches='tight')
