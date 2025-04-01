@@ -185,12 +185,12 @@ let
   end
 
   #Number of Layers
-  L=14
+  L=21
   #Number of qubits starting
   Ni=20
-  m=41
+  m=2
   #Number of simulations
-  nsim=11
+  nsim=21
 
   mkpath("resultados")
 
