@@ -1,5 +1,3 @@
-
-
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -13,16 +11,12 @@ plt.rcParams.update({
 })
 color=['#073a4b','#108ab1','#06d7a0','#ffd167','#f04770']
 
-# Función para procesar el archivo y generar matrices
-def generar_matrices_tiempo(file_path):
+# Función para procesar el archivo y generar matrices separadas por número de qubits
+def generar_matrices_por_qubits(file_path):
     with open(file_path, 'r') as f:
         lines = f.readlines()
 
-    matrices = {
-        'Time': [],
-        'var(Time)': []
-    }
-    qubits = []
+    datos_por_qubits = {}
     current_qubits = None
     data = []
 
@@ -30,11 +24,10 @@ def generar_matrices_tiempo(file_path):
         line = line.strip()
         if line.startswith('Numero de qubits:'):
             if current_qubits is not None:
-                # Convertir los datos actuales en DataFrame
-                df = pd.DataFrame(data, columns=['Layer', 'Time', 'var(Time)'])
-                for key in matrices:
-                    matrices[key].append(df[key].values)
-                qubits.append(current_qubits)
+                # Guardar los datos actuales en el diccionario
+                if current_qubits not in datos_por_qubits:
+                    datos_por_qubits[current_qubits] = []
+                datos_por_qubits[current_qubits].append(pd.DataFrame(data, columns=['Layer', 'Time', 'var(Time)']))
                 data = []
             current_qubits = int(line.split(':')[1].strip())
         elif line and not line.startswith('Layer') and not line.startswith('Total') and not line.startswith('Varianza'):
@@ -42,37 +35,32 @@ def generar_matrices_tiempo(file_path):
 
     # Agregar los últimos datos
     if current_qubits is not None:
-        df = pd.DataFrame(data, columns=['Layer', 'Time', 'var(Time)'])
-        for key in matrices:
-            matrices[key].append(df[key].values)
-        qubits.append(current_qubits)
+        if current_qubits not in datos_por_qubits:
+            datos_por_qubits[current_qubits] = []
+        datos_por_qubits[current_qubits].append(pd.DataFrame(data, columns=['Layer', 'Time', 'var(Time)']))
 
-    # Crear las matrices finales
-    final_matrices = {}
-    for key in matrices:
-        final_matrices[key] = np.column_stack(matrices[key])
+    return datos_por_qubits
 
-    return final_matrices, qubits
+# Procesar los archivos y graficar los resultados
+tiempo_total_por_qubits = {}
+for i in range(1, 31):
+    file_path = f'../../Programas/resultados/Random_tiempo_15_t{i}.txt'
+    datos_por_qubits = generar_matrices_por_qubits(file_path)
+    for qubits, dataframes in datos_por_qubits.items():
+        if qubits not in tiempo_total_por_qubits:
+            tiempo_total_por_qubits[qubits] = np.zeros(30)
+        for df in dataframes:
+            tiempo_total_por_qubits[qubits][i-1] += sum(df['Time'])
 
-tiempo_total=np.zeros(30)
-for i in range(1,31):
-    file_path = '../../Programas/resultados/Random_tiempo_15_t'+str(i)+'.txt'
-    matrices, qubits = generar_matrices_tiempo(file_path)
-    tiempo_total[i-1]=sum(matrices['Time'][:,0])
-
-
-t=30
-plt.figure()
-x=range(1,t+1)
-error=0
-
-plt.errorbar(x, tiempo_total, yerr=error, markersize=3, fmt='o',color=color[0], capsize=5, linestyle='None')    
-plt.xlabel('Threads')
-plt.ylabel('Time(s)')
-plt.title('Simulation time N=20, L=15')
-# Mostrar la leyenda
-#plt.legend()
-# Mostrar la gráfica
-plt.tight_layout()
-plt.show()
-plt.savefig('Threads.pdf',format='pdf', bbox_inches='tight')
+# Graficar los resultados
+t = 30
+x = range(1, t+1)
+for idx, (qubits, tiempos) in enumerate(tiempo_total_por_qubits.items()):
+    plt.figure()
+    plt.errorbar(x, tiempos, yerr=0, markersize=3, fmt='o', color=color[idx % len(color)], capsize=5, linestyle='None')
+    plt.xlabel('Threads')
+    plt.ylabel('Time(s)')
+    plt.title(f'Simulation time for {qubits} qubits, L=15')
+    plt.tight_layout()
+    plt.savefig(f'Threads_{qubits}_qubits.pdf', format='pdf', bbox_inches='tight')
+    plt.show()

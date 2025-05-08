@@ -1,0 +1,2 @@
+/var/spool/slurmd/job4400537/slurm_script: línea 8: 250848 Killed                  OMP_NUM_THREADS=15 /home/ajrp/julia-1.11.1/bin/julia -t 1 --heap-size-hint=45G Random_circuit.jl
+slurmstepd: error: Detected 1 oom_kill event in StepId=4400537.batch. Some of the step tasks have been OOM Killed.
