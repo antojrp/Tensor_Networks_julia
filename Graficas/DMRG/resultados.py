@@ -1,19 +1,19 @@
 import matplotlib.pyplot as plt
 import numpy as np
-from scipy.special import ellipe  # Para la integral elíptica completa de segunda especie
+from scipy.special import ellipe  # Integral elíptica completa de segunda especie
 
-# Especificar los valores de N que deseas leer
-N_values = [50,100]
+# Valores de N
+N_values = [20]
 
-# Inicializar listas para almacenar datos
+# Inicializar contenedor de datos
 all_data = {}
 
 for N in N_values:
-    file = "resultados/DMRG_L"+str(N)+".txt"
+    file = f"resultados/DMRG_L{N}.txt"
     
     try:
         data = np.loadtxt(file, skiprows=1)
-        gamma, E, varE, T, varT, S, varS  = data.T
+        gamma, E, varE, T, varT, S, varS, dimension, vardimension = data.T
         
         all_data[N] = {
             "gamma": gamma,
@@ -22,48 +22,47 @@ for N in N_values:
             "T": T,
             "varT": varT,
             "S": S,
-            "varS": varS
+            "varS": varS,
+            "dimension": dimension,
+            "vardimension": vardimension
         }
     except FileNotFoundError:
         print(f"Archivo no encontrado: {file}")
 
-# Crear la gráfica del tiempo
-plt.figure(figsize=(10, 6))
+# Crear la gráfica de energía con eje adicional para la dimensión
 for N, data in all_data.items():
-    plt.errorbar(data["gamma"], data["T"], yerr=np.sqrt(data["varT"]), label=f"N={N}", capsize=3)
-plt.xlabel("Gamma")
-plt.ylabel("Tiempo (T)")
-plt.title("Tiempo vs Gamma con Varianza como Error")
-plt.legend()
-plt.grid()
-plt.show()
+    fig, ax1 = plt.subplots(figsize=(10, 6))
 
-plt.figure(figsize=(10, 6))
-for N, data in all_data.items():
-    plt.errorbar(data["gamma"], data["S"], yerr=np.sqrt(data["varS"]), label=f"N={N}", capsize=3)
-plt.xlabel("Gamma")
-plt.ylabel("Entropia (T)")
-plt.title("Entropia vs Gamma con Varianza como Error")
-plt.legend()
-plt.grid()
-plt.show()
+    # Eje principal: energía por sitio vs gamma
+    ax1.errorbar(
+        data["gamma"],
+        -data["E"] / N,
+        yerr=np.sqrt(data["varE"]) / N,
+        label=f"DMRG N={N}",
+        capsize=3
+    )
+    ax1.set_xlabel("Gamma")
+    ax1.set_ylabel("Energía por sitio (-E/N)")
+    ax1.grid()
 
-# Crear la gráfica de la energía con solución analítica
-plt.figure(figsize=(10, 6))
-for N, data in all_data.items():
-    plt.errorbar(data["gamma"], -data["E"]/N, yerr=np.sqrt(data["varE"])/N, label=f"DMRG N={N}", capsize=3)
+    # Solución analítica
+    gamma_vals = data["gamma"]
+    h_vals = 1 / (2 * gamma_vals)  # h = J/(2Γ), con J=1
+    k_vals = 4 * h_vals / (1 + h_vals)**2
+    E_analytic = -( gamma_vals / np.pi) * (1 + h_vals) * ellipe(k_vals)
+    ax1.plot(gamma_vals, -E_analytic, '--', color='black', label="Solución analítica (Pfeuty)", zorder=5)
 
+    # Eje secundario: dimensión en la parte superior
+    ax2 = ax1.twiny()
 
-# Solución analítica
-gamma_vals = data["gamma"]
-h_vals = 1 / (2 * gamma_vals)  # h = J/(2Γ), con J=1
-k_vals = 4 * h_vals / (1 + h_vals)**2
-E_analytic = -( gamma_vals / np.pi) * (1 + h_vals) * ellipe(k_vals)
+    # Emparejar la escala del eje superior con el eje inferior
+    ax2.set_xlim(ax1.get_xlim())
+    ax2.set_xticks(data["gamma"])
+    ax2.set_xticklabels([f"{d:.1f}" for d in data["dimension"]], rotation=45)
+    ax2.set_xlabel("D")
 
-plt.plot(gamma_vals, -E_analytic, '--', color='black', label="Solución analítica (Pfeuty)", zorder=5)
-plt.xlabel("Gamma")
-plt.ylabel("Energía por sitio (-E/N)")
-plt.title("Energía vs Gamma con solución analítica")
-plt.legend()
-plt.grid()
-plt.show()
+    ax1.set_title("Energía vs Gamma con solución analítica y dimensión efectiva")
+    ax1.legend(loc="best")
+
+    plt.tight_layout()
+    plt.show()

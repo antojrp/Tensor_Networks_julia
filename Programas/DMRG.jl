@@ -20,24 +20,39 @@ let
     return SvN
   end
 
+  function schmidt(state,N)
+    # suma=0
+    max=0
+    for i in 1:N-1
+      let
+        if max < dim(inds(state[i])[end])
+          max=dim(inds(state[i])[end])
+        end
+      end
+    end
+    # return suma/(N-1)
+    return max
+  end
+
 
   ITensors.disable_warn_order() 
-  N=100
+  N=50
   nsim=10
   nsweeps=10
   nm=21
   J=1
-  dim=2^5
+  p=5
+  maxdim=2^p
 
   cutoff = [1E-15]
 
-  io1 = open("resultados/DMRG_L$(N).txt","w")
-  write(io1,"Gamma, E, varE, T, varT \n")
+  io1 = open("resultados/DMRG_L$(N)_$(p).txt","w")
+  write(io1,"Gamma, E, varE, T, varT, dimension, vardimension \n")
   close(io1)
 
   for gamma in range(0, stop=2, length=nm)
 
-    io1 = open("resultados/DMRG_L$(N).txt","a")
+    io1 = open("resultados/DMRG_L$(N)_$(p).txt","a")
     print("Numero de qubits: $N \n")
     print("Dimension max: $dim \n")
     print("Threads (LinearAlgebra) :$(BLAS.get_num_threads())\n")
@@ -65,29 +80,36 @@ let
     varE=0
     entropym=0
     varentropy=0
+    dimension=0
+    vardimension=0
 
     for k in 1:nsim
-      psi = random_mps(sites;linkdims=dim)
+      psi = random_mps(sites;linkdims=2^4)
       #print(inner(psi',H,psi))
       t=@elapsed for i in 1:nsweeps
-        energy,psi = dmrg(H,psi;nsweeps=1,maxdim=dim,cutoff)
+        energy,psi = dmrg(H,psi;nsweeps=1,maxdim=maxdim,cutoff)
       end
       s = entropy(psi, round(Int, N/2))
+      d=schmidt(psi,N)
       tm=tm+t
       Em=Em+energy
       entropym=entropym+s
+      dimension=dimension+d
       vart=vart+t^2
       varE=varE+energy^2
+      vardimension=vardimension+d^2
       varentropy=varentropy+(s)^2
     end
     Em /= nsim
     tm /= nsim
+    dimension /= nsim
     entropym /= nsim
     varE = varE/nsim - Em^2
     vart = vart/nsim - tm^2
     varentropy = varentropy/nsim - entropym^2
+    vardimension = vardimension/nsim - dimension^2
 
-    write(io1,"$gamma $Em $varE $tm $vart $entropym $varentropy\n")
+    write(io1,"$gamma $Em $varE $tm $vart $entropym $varentropy $dimension $vardimension\n")
     close(io1)
   end
 end
