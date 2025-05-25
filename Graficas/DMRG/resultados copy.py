@@ -3,7 +3,7 @@ import numpy as np
 from scipy.special import ellipe  # Integral elíptica completa de segunda especie
 
 # Valores de N
-N_values = [2, 3, 4, 5, 6]
+N_values = [2, 3, 4, 5, 6, 7, 8, 9, 10]
 
 # Inicializar contenedor de datos
 all_data = {}

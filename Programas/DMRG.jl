@@ -47,7 +47,7 @@ let
   cutoff = [1E-15]
 
   io1 = open("resultados/DMRG_L$(N)_10.txt","w")
-  write(io1,"Gamma, E, varE, T, varT, dimension, vardimension \n")
+  write(io1,"Gamma, E, varE, T, varT, S, varS, dimension, vardimension \n")
   close(io1)
 
   for gamma in range(0, stop=2, length=nm)
