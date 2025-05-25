@@ -39,20 +39,20 @@ let
   N=50
   nsim=20
   nsweeps=10
-  nm=21
+  nm=41
   J=1
-  p=8
+  p=10
   maxdim=2^p
 
   cutoff = [1E-15]
 
-  io1 = open("resultados/DMRG_L$(N)_8.txt","w")
+  io1 = open("resultados/DMRG_L$(N)_10.txt","w")
   write(io1,"Gamma, E, varE, T, varT, dimension, vardimension \n")
   close(io1)
 
   for gamma in range(0, stop=2, length=nm)
 
-    io1 = open("resultados/DMRG_L$(N)_8.txt","a")
+    io1 = open("resultados/DMRG_L$(N)_10.txt","a")
     print("Numero de qubits: $N \n")
     print("Dimension max: $maxdim \n")
     print("p= $p \n")
