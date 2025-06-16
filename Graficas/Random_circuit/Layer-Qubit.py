@@ -163,5 +163,6 @@ plt.text(69,14.2,'Estimation from \n    linear fit')
 plt.tight_layout()
 
 # Mostrar el mapa de calor
-plt.show()
 plt.savefig('Layer-Qubit.pdf',format='pdf', bbox_inches='tight')
+plt.show()
+

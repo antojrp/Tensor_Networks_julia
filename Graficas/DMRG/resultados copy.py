@@ -3,14 +3,14 @@ import numpy as np
 from scipy.special import ellipe  # Integral elíptica completa de segunda especie
 
 # Valores de N
-N_values = [2, 3, 4, 5, 6, 7, 8, 9, 10]
+N_values = [50,51]
 
 # Inicializar contenedor de datos
 all_data = {}
 
 # Cargar datos desde archivos
 for N in N_values:
-    file = f"resultados/DMRG_L50_{N}.txt"
+    file = f"resultados/DMRG_L{N}.txt"
     
     try:
         data = np.loadtxt(file, skiprows=1)
@@ -53,7 +53,7 @@ plt.figure(figsize=(10, 6))
 for N, data in all_data.items():
     plt.errorbar(
         data["gamma"],
-        -data["E"]/50,
+        -data["E"]/N,
         yerr=np.sqrt(data["varE"]),
         label=f"N={N}",
         capsize=3
@@ -93,23 +93,4 @@ plt.legend(title="Tamaño N")
 plt.tight_layout()
 plt.show()
 
-# --- Gráfica de error relativo de energía ---
-plt.figure(figsize=(10, 6))
-for N, data in all_data.items():
-    gamma_vals = data["gamma"]
-    h_vals = 1 / (2 * gamma_vals)
-    k_vals = 4 * h_vals / (1 + h_vals)**2
-    E_analytic = -(gamma_vals / np.pi) * (1 + h_vals) * ellipe(k_vals)
 
-    error_relativo = np.abs(-data["E"]/50 - (-E_analytic)) / np.abs(E_analytic)
-    
-    plt.plot(gamma_vals, error_relativo, label=f"N={N}")
-
-plt.xlabel("Gamma")
-plt.ylabel("Error relativo de la energía")
-plt.title("Error relativo vs Gamma (Energía DMRG vs Pfeuty)")
-plt.yscale("log")  # Escala logarítmica para ver mejor las diferencias pequeñas
-plt.grid(True, which="both")
-plt.legend(title="Tamaño N")
-plt.tight_layout()
-plt.show()

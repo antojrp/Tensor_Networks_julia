@@ -68,35 +68,57 @@ for L in range(L_min, L_max + 1):
                 q_index = qubit - q_min
                 matriz_tiempos[L_index, q_index] = time
 
-# --- Gráfica: Tiempo vs Qubits con líneas ajustadas ---
-plt.figure(figsize=(15, 6))
-for L in range(L_min, L_max_grafica + 1):
+# --- Gráfica: Tiempo vs Qubits con líneas ajustadas (dos paneles con escalas y independientes) ---
+fig, axes = plt.subplots(1, 2, figsize=(18, 6))  # Sin sharey
+
+# Subgráfico 1: L = 5, 6, 7, 8
+for L in range(5, 9):
     L_index = L - L_min
     qubits = np.arange(q_min, q_max)
     tiempos = matriz_tiempos[L_index, :q_max - q_min]
 
-    plt.plot(qubits, tiempos, 'o', label=f'L={L}')
+    axes[0].plot(qubits, tiempos, 'o', label=f'L={L}', zorder=10)
     if pendiente[L_index] > 0:
         ajuste = pendiente[L_index] * qubits + interceptos[L_index]
-        plt.plot(qubits, ajuste, '--', color='grey')
+        axes[0].plot(qubits, ajuste, '--', color='grey')
 
-plt.xlabel('Número de qubits')
-plt.ylabel('Tiempo (s)')
-plt.title('Tiempo de simulación vs Número de qubits')
-plt.grid()
-plt.legend()
+axes[0].set_xlabel('Number of qubits')
+axes[0].set_ylabel('Time (s)')
+axes[0].grid()
+axes[0].legend()
+
+# Subgráfico 2: L = 9, 10, 11
+for L in range(9, 12):
+    L_index = L - L_min
+    qubits = np.arange(q_min, q_max)
+    tiempos = matriz_tiempos[L_index, :q_max - q_min]
+
+    axes[1].plot(qubits, tiempos, 'o', label=f'L={L}', zorder=10)
+    if pendiente[L_index] > 0:
+        ajuste = pendiente[L_index] * qubits + interceptos[L_index]
+        axes[1].plot(qubits, ajuste, '--', color='grey')
+
+axes[1].set_xlabel('Number of qubits')
+axes[1].set_ylabel('Time (s)')
+axes[1].grid()
+axes[1].legend()
+
+fig.suptitle('Time vs Number of qubits', fontsize=18)
+plt.tight_layout(rect=[0, 0, 1, 0.95])
+plt.savefig('Time-Qubit.pdf', bbox_inches='tight')
 plt.show()
+
 
 # --- Gráfica: Pendiente vs L ---
 plt.figure(figsize=(15, 6))
 L_vals_plot = np.arange(L_min, L_max_grafica + 1)
 pendiente_plot = pendiente[:L_max_grafica + 1 - L_min]
-plt.plot(L_vals_plot, pendiente_plot, 'o-', color='blue', label='Pendiente')
-plt.xlabel('Número de capas L')
-plt.ylabel('Pendiente')
-plt.title('Pendiente del ajuste lineal vs Número de capas L')
+plt.plot(L_vals_plot, pendiente_plot, 'o-', color='blue')
+plt.xlabel('Layers')
+plt.ylabel('Slope')
+plt.title('Slope vs Layers')
 plt.grid()
-plt.legend()
+plt.savefig('Slopes.pdf', bbox_inches='tight')
 plt.show()
 
 # --- Ajuste: log2(pendiente) = a * L + b ---
@@ -112,11 +134,12 @@ print(f"  R^2 = {r_value**2:.4f}")
 
 # Gráfica del ajuste logarítmico
 plt.figure(figsize=(10, 6))
-plt.plot(L_vals_fit, log2_pend, 'o', label='Datos')
-plt.plot(L_vals_fit, a * L_vals_fit + b, '-', label=f'Ajuste: {a:.2f}·L + {b:.2f}')
-plt.xlabel('Número de capas L')
-plt.ylabel('log₂(Pendiente)')
-plt.title('Ajuste logarítmico de la pendiente vs L')
+plt.plot(L_vals_fit, log2_pend, 'o', label='Data')
+plt.plot(L_vals_fit, a * L_vals_fit + b, '-', label=f'Linear regresion: {a:.2f}·L + {b:.2f}')
+plt.xlabel('Layer')
+plt.ylabel('log₂(Slope)')
+plt.title('Linear regression of the slope in logarithmic scale')
 plt.grid()
 plt.legend()
+plt.savefig('log(slope).pdf', bbox_inches='tight')
 plt.show()

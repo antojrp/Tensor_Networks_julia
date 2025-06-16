@@ -103,7 +103,7 @@ surf = ax.plot_surface(Q, L, submatriz_tiempos, cmap='viridis', norm=norm, edgec
 ax.set_xlabel('Number of Qubits')
 ax.set_ylabel('Layers (L)')
 ax.set_zlabel('Time (s)')
-ax.set_title('3D View: Time vs Qubits vs Layers')
+ax.set_title('Time as a Function of Qubits and Layers')
 
 cbar = fig.colorbar(surf, ax=ax, shrink=0.5, aspect=10)
 cbar.set_label('Time (s)')
@@ -115,4 +115,5 @@ cbar.set_ticks(tick_vals)
 cbar.set_ticklabels([f"{v:.0f} s" if v < 60 else f"{int(v/60)} min" for v in tick_vals])
 
 plt.tight_layout()
+plt.savefig('Time-Qubit-3D.pdf', bbox_inches='tight')
 plt.show()
