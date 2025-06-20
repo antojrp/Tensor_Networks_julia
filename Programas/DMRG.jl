@@ -36,7 +36,7 @@ let
 
 
   ITensors.disable_warn_order() 
-  N=2000
+  N=5000
   nsim=20
   nsweeps=10
   nm=41
