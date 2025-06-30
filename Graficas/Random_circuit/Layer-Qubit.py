@@ -4,13 +4,7 @@ import matplotlib.colors as mcolors
 from scipy import stats
 import matplotlib.patches as mpatches
 
-plt.rcParams.update({
-    'font.size': 16,       # Tamaño de fuente general
-    'axes.titlesize': 16,  # Tamaño del título de los ejes
-    'axes.labelsize': 16,  # Tamaño de las etiquetas de los ejes
-    'xtick.labelsize': 16, # Tamaño de las etiquetas del eje x
-    'ytick.labelsize': 16  # Tamaño de las etiquetas del eje y
-})
+plt.rcParams.update({'font.size': 19})
 
 # Definir los valores de L mínimo, L máximo, q mínimo y q máximo
 L_min = 5  # Cambia según necesites
@@ -153,12 +147,12 @@ plt.vlines(60,L_min-0.5,L_max+0.5,linestyles="--", color='grey', linewidth=2)
 # Etiquetas de los ejes
 plt.xlabel("Number of Qubits")
 plt.ylabel("Layers")
-plt.title(f"Time required to update the MPS representation after applying the quantum circuit")
+#plt.title("Time required to update the MPS representation\nafter applying the quantum circuit")
 plt.legend()
 gray_patch = mpatches.Patch(color='#e8e8e8', label='>10 min')
 plt.legend(handles=[gray_patch] + plt.gca().get_legend_handles_labels()[0])
 plt.text(36,14.8,'Simulation')
-plt.text(69,14.2,'Estimation from \n    linear fit')
+plt.text(67,14.2,'Estimation from \n    linear fit')
 # Ajustar la disposición para que los elementos no se solapen
 plt.tight_layout()
 

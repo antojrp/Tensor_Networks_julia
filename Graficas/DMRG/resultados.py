@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 from scipy.special import ellipe  # Integral elíptica completa de segunda especie
 
-plt.rcParams.update({'font.size': 16})
+plt.rcParams.update({'font.size': 15})
 
 # Valores de N
 N_values = [20]
@@ -40,7 +40,7 @@ for N, data in all_data.items():
     h_vals = 1 / (2 * gamma_vals)  # h = J/(2Γ), con J=1
     k_vals = 4 * h_vals / (1 + h_vals)**2
     E_analytic = -( gamma_vals / np.pi) * (1 + h_vals) * ellipe(k_vals)
-    ax1.plot(gamma_vals, -E_analytic, '--', color='black', label="Analytic (Pfeuty)", zorder=5)
+    ax1.plot(gamma_vals, -E_analytic, '--', color='black', label="Analytic result", zorder=5)
 
     # Eje principal: energía por sitio vs gamma
     ax1.errorbar(
@@ -72,3 +72,23 @@ for N, data in all_data.items():
     plt.tight_layout()
     plt.savefig(f"graficas/DMRG_L{N}.pdf")
     plt.show()
+
+#grafica de la entropia
+plt.rcParams.update({'font.size': 18})
+fig, ax = plt.subplots(figsize=(10, 6))
+for N, data in all_data.items():
+    ax.errorbar(
+        data["gamma"],
+        data["S"],
+        yerr=np.sqrt(data["varS"]) / np.sqrt(40),
+        label=f"N={N}",
+        capsize=3
+    )
+ax.set_xlabel("$\\Gamma$")
+ax.set_ylabel("S$_{VN}$")
+ax.set_title("Von Neumann Entropy vs Gamma")
+ax.grid()
+ax.legend(ncols=1)
+plt.tight_layout()
+plt.savefig("graficas/DMRG_SVN_20.pdf")
+plt.show()

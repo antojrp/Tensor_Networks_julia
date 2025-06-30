@@ -100,10 +100,10 @@ ax = fig.add_subplot(111, projection='3d')
 
 surf = ax.plot_surface(Q, L, submatriz_tiempos, cmap='viridis', norm=norm, edgecolor='none')
 
-ax.set_xlabel('Number of Qubits')
+ax.set_xlabel('Number of qubits')
 ax.set_ylabel('Layers (L)')
 ax.set_zlabel('Time (s)')
-ax.set_title('Time as a Function of Qubits and Layers')
+ax.set_title('Time as a function of qubits and Layers')
 
 cbar = fig.colorbar(surf, ax=ax, shrink=0.5, aspect=10)
 cbar.set_label('Time (s)')

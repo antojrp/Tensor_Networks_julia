@@ -12,11 +12,11 @@ from mpl_toolkits.axes_grid1.inset_locator import inset_axes, mark_inset
 from scipy.optimize import curve_fit
 
 plt.rcParams.update({
-    'font.size': 18,       # Tamaño de fuente general
-    'axes.titlesize': 18,  # Tamaño del título de los ejes
-    'axes.labelsize': 18,  # Tamaño de las etiquetas de los ejes
-    'xtick.labelsize': 18, # Tamaño de las etiquetas del eje x
-    'ytick.labelsize': 18  # Tamaño de las etiquetas del eje y
+    'font.size': 19,       # Tamaño de fuente general
+    'axes.titlesize': 19,  # Tamaño del título de los ejes
+    'axes.labelsize': 19,  # Tamaño de las etiquetas de los ejes
+    'xtick.labelsize': 19, # Tamaño de las etiquetas del eje x
+    'ytick.labelsize': 19  # Tamaño de las etiquetas del eje y
 })
 color=['#073a4b','#108ab1','#06d7a0','#ffd167','#f04770']
 
@@ -106,18 +106,25 @@ print(chi)
 p_values = np.linspace(0.000001, 1.05*b, 1000)
 omega_values = [omega_s(p, N_A, N_B, a, b) for p in p_values]
 
-
+plt.rcParams.update({
+    'font.size': 24,
+    'axes.titlesize': 24,
+    'axes.labelsize': 24,
+    'xtick.labelsize': 24,
+    'ytick.labelsize': 24
+})
 # Graficar la distribución de probabilidad
-fig, ax = plt.subplots(figsize=(8, 5))
+fig, ax = plt.subplots(figsize=(8, 6))
 
 # Gráfica principal
 ax.bar(bins[:-1], counts, width=np.diff(bins), edgecolor='black', alpha=0.7)
 ax.errorbar(bins[:-1], counts, yerr=varianza/np.sqrt(nsim), fmt='none', color='black', capsize=5)
 ax.plot(p_values, omega_values, label=r'$\omega_s(p)$', color='b')
+ax.set_xticks([0, 0.001, 0.002, 0.003, 0.004])
 ax.set_xlabel("")
 ax.set_ylabel("")
 ax.set_ylim(top=3500)
-ax.set_title("Probability distribution of squared \n schmidt Coefficients N="+str(N))
+ax.set_title("Probability distribution of squared \n Schmidt coefficients N="+str(N))
 
 # Gráfica de zoom dentro de la principal
 axins = inset_axes(ax, width="40%", height="40%", loc="center")  # Tamaño y posición
@@ -128,13 +135,14 @@ axins.plot(p_values, omega_values, label=r'$\omega_s(p)$', color='b')
 
 # Definir los límites del zoom
 x_min, x_max = 0.00022, 0.00078  # Ajusta según lo que quieras ver
-y_min, y_max = 300, 700
+y_min, y_max = 300, 900
 axins.set_xlim(x_min, x_max)
 axins.set_ylim(y_min, y_max)
 axins.set_xticks([])
 axins.set_yticks([])
 # Conectar el recuadro de zoom con la gráfica principal
 mark_inset(ax, axins, loc1=2, loc2=4, fc="none", ec="0.5")
+plt.tight_layout()
 #fig.savefig('Coefficients_distribution_'+str(N)+'.pdf',format='pdf', bbox_inches='tight')
 plt.show()
 

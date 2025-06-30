@@ -58,7 +58,7 @@ def generar_matrices_tiempo(file_path):
     
     return final_matrices, qubits, np.array(total_times), np.array(total_variances)
 
-L=10
+L=15
 
 # Ruta del archivo de texto
 file_path = '../../Programas/resultados/Random_tiempo_'+str(L)+'.txt'
@@ -68,38 +68,41 @@ matrices, qubits, total_times, total_variances = generar_matrices_tiempo(file_pa
 
 
 N_ini=20
-
-# for N in range(len(qubits[:2])):
-#     plt.figure()
-#     x=range(1,L+1)
-#     y=matrices['Time'][:,N]
-#     error=matrices['var(Time)'][:,N]/np.sqrt(20)
-    
-#     plt.errorbar(x, y, yerr=error, markersize=3, fmt='o', color=color[N % len(color)], capsize=5, linestyle='None', label='N='+str(N_ini+N))    
-#     plt.xlabel('Layer')
-#     plt.ylabel('Time(s)')
-#     plt.title('Simulation time per layer N='+str(N+N_ini)+' qubits')
-#     plt.tight_layout()
-#     plt.show()
-#     plt.savefig('Random_circuit_N_'+str(N+N_ini)+'_L_'+str(L)+'.pdf',format='pdf', bbox_inches='tight')
-
-
-
 plt.rcParams.update({
-    'font.size': 14,       # Tamaño de fuente general
-    'axes.titlesize': 14,  # Tamaño del título de los ejes
-    'axes.labelsize': 14,  # Tamaño de las etiquetas de los ejes
-    'xtick.labelsize': 14, # Tamaño de las etiquetas del eje x
-    'ytick.labelsize': 14  # Tamaño de las etiquetas del eje y
+    'font.size': 16,       # Tamaño de fuente general
+    'axes.titlesize': 16,  # Tamaño del título de los ejes
+    'axes.labelsize': 16,  # Tamaño de las etiquetas de los ejes
+    'xtick.labelsize': 16, # Tamaño de las etiquetas del eje x
+    'ytick.labelsize': 16  # Tamaño de las etiquetas del eje y
 })
+for N in range(len(qubits[:2])):
+     plt.figure()
+     x=range(1,L+1)
+     y=matrices['Time'][:,N]
+     error=matrices['var(Time)'][:,N]/np.sqrt(20)
+    
+     plt.errorbar(x, y, yerr=error, markersize=5, fmt='o', color=color[N % len(color)], capsize=0, linestyle='None', label='N='+str(N_ini+N))    
+     plt.xlabel('Layer')
+     plt.ylabel('Time(s)')
+     plt.xticks(ticks=range(2, L+1, 2))
+     plt.title('Simulation time per layer N='+str(N+N_ini)+' qubits')
+     plt.tight_layout()
+     plt.savefig('Random_circuit_N_'+str(N+N_ini)+'_L_'+str(L)+'.pdf',format='pdf', bbox_inches='tight')
+     plt.show()
 
-plt.figure()
-plt.errorbar(qubits, total_times, yerr=total_variances/np.sqrt(20), markersize=3, fmt='o', color=color[0], capsize=5, linestyle='None')
-plt.plot(qubits, total_times, linestyle='--', color='grey') 
+
+
+
+
+
+'''plt.figure()
+plt.plot(qubits, total_times/60, linestyle='--', color='grey') 
+plt.plot(qubits, total_times/60, markersize=5, marker='o', color=color[0], linestyle='None')
 plt.xlabel('N qubits')
-plt.ylabel('Time(s)') 
+plt.ylabel('Time(min)') 
 plt.title('Total time of a random circuit with '+str(L)+' layers') 
 plt.tight_layout()
-plt.show()
 plt.savefig('Random_circuit_L_'+str(L)+'.pdf',format='pdf', bbox_inches='tight')
+plt.show()'''
+
 

@@ -41,7 +41,7 @@ cbar = plt.colorbar(label='Percentaje of memory used ')
 
 # Cambiar el formato de los valores de la barra de color a número normal (no científico)
 def fmt(x, pos):
-    return f'{x:.3f}'.rstrip('0').rstrip('.')  # Puedes ajustar los decimales según prefieras
+    return f'{100*x:.1f}%'  # Puedes ajustar los decimales según prefieras
 
 cbar.ax.yaxis.set_major_formatter(FuncFormatter(fmt))
 
@@ -67,5 +67,5 @@ plt.legend()
 
 # Mostrar el gráfico
 plt.tight_layout()
-plt.show()
 plt.savefig('Tamaño.pdf',format='pdf', bbox_inches='tight')
+plt.show()

@@ -31,7 +31,7 @@ x_vals = np.array(x_vals)
 S_max = np.array(S_max)
 
 # Ajuste lineal
-popt, pcov = curve_fit(fit_func, x_vals[2:7], S_max[2:7])
+popt, pcov = curve_fit(fit_func, x_vals[2:8], S_max[2:8])
 a, b = popt
 c = 6 * a  # carga central
 
@@ -45,11 +45,11 @@ print(f"Carga central estimada: c = {c:.4f} ± {c_err:.4f}")
 
 # Gráfico
 plt.figure(figsize=(8,6))
-plt.plot(x_vals, S_max, 'o', label='Simulation Data')
-plt.plot(x_vals, fit_func(x_vals, *popt), '-', label=f'Linear regression (c ≈ {c:.3f} ± {c_err:.3f})')
+plt.plot(x_vals, S_max, 'o', color='#108ab1', label='Simulation Data')
+plt.plot(x_vals, fit_func(x_vals, *popt), '--', color='grey', label=f'Linear regression of slope c/6 \n (c ≈ {c:.3f} ± {(c_err+0.019):.3f})')
 plt.xlabel(r'$\log(N)$')
-plt.ylabel('Entanglement Entropy')
-plt.title('Entanglement Entropy vs log(N)')
+plt.ylabel('Entanglement entropy')
+plt.title('Entanglement entropy vs log(N)')
 plt.legend()
 plt.grid(True)
 plt.tight_layout()
