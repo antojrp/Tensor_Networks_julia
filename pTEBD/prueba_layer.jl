@@ -10,7 +10,7 @@ let
     include("random_circuit.jl")
     using .random_circuits
 
-    N=15
+    N=5
     i=siteinds("Qubit", N)
     phi=random_mps(i; linkdims=6)
     Gammas, Deltas = vidal_form(phi, i)

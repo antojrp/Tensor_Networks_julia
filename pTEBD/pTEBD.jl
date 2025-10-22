@@ -71,14 +71,23 @@ end
 function apply_layer_parallel!(Gammas::Vector{ITensor}, Deltas::Vector{ITensor}, layer::Vector{ITensor}, sites::Vector{Index{Int64}})
     N = length(Gammas)
     @assert length(sites) == N
+    affected_sites_all = [[i for i in 1:N if any(ind -> ind in inds(U), [sites[i]])] for U in layer]
+    Deltas_inv = Vector{ITensor}(undef, N)
+    for i in 1:N-1
+            Deltas_inv[i] = diag_itensor(
+                [1 / Deltas[i][k, k] for k in 1:dim(inds(Deltas[i])[1])],
+                inds(Deltas[i])
+            )
+    end
 
     @threads for j in 1:length(layer)
         #println("Aplicando puerta ", j, " en thread ", threadid())
         U = layer[j]
-        inds_U = inds(U)
+        #inds_U = inds(U)
 
         # Determinamos los sitios afectados comparando con los índices del MPS
-        affected_sites = [i for i in 1:N if any(ind -> ind in inds_U, [sites[i]])]
+        #affected_sites = [i for i in 1:N if any(ind -> ind in inds_U, [sites[i]])]
+        affected_sites = affected_sites_all[j]
 
         if length(affected_sites) == 1
             i = affected_sites[1]
@@ -86,8 +95,10 @@ function apply_layer_parallel!(Gammas::Vector{ITensor}, Deltas::Vector{ITensor},
         elseif length(affected_sites) == 2
             i, ip1 = affected_sites
 
-            Λ_left = i > 1 ? Deltas[i-1] : ITensor(1.0)
-            Λ_right = i < N-1 ? Deltas[i+1] : ITensor(1.0)
+            Λ_left     = i > 1   ? Deltas[i-1]     : ITensor(1.0)
+            Λ_right    = i < N-1 ? Deltas[i+1]     : ITensor(1.0)
+            Λ_left_inv  = i > 1   ? Deltas_inv[i-1] : ITensor(1.0)
+            Λ_right_inv = i < N-1 ? Deltas_inv[i+1] : ITensor(1.0)
 
 
             # Construimos el tensor local Ψ_i,i+1
@@ -107,17 +118,17 @@ function apply_layer_parallel!(Gammas::Vector{ITensor}, Deltas::Vector{ITensor},
             end 
 
             # Actualizamos tensores
-            if length(inds(Λ_left)) == 0
-                Λ_left_inv = ITensor(1.0)
-            else
-                Λ_left_inv  = diag_itensor([1/Λ_left[i,i] for i in 1:dim(inds(Λ_left)[1])], inds(Λ_left))
-            end
+            #if length(inds(Λ_left)) == 0
+            #    Λ_left_inv = ITensor(1.0)
+            #else
+            #    Λ_left_inv  = diag_itensor([1/Λ_left[i,i] for i in 1:dim(inds(Λ_left)[1])], inds(Λ_left))
+            #end
 
-            if length(inds(Λ_right)) == 0
-                Λ_right_inv = ITensor(1.0)
-            else
-                Λ_right_inv  = diag_itensor([1/Λ_right[i,i] for i in 1:dim(inds(Λ_right)[1])], inds(Λ_right))
-            end
+            #if length(inds(Λ_right)) == 0
+            #    Λ_right_inv = ITensor(1.0)
+            #else
+            #    Λ_right_inv  = diag_itensor([1/Λ_right[i,i] for i in 1:dim(inds(Λ_right)[1])], inds(Λ_right))
+            #end
 
             Gammas[i]   = noprime(Unew * Λ_left_inv)
             Deltas[i]   = S
