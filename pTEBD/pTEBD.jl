@@ -142,10 +142,37 @@ function apply_layer_parallel!(Gammas::Vector{ITensor}, Deltas::Vector{ITensor},
 end
 
 function apply_circuit!(Gammas::Vector{ITensor}, Deltas::Vector{ITensor}, circuit::Vector{Any}, sites::Vector{Index{Int64}})
-    for layer in circuit
-        #println("Aplicando capa del circuito...")
+    N=length(Gammas)
+    for (layer_idx, layer) in enumerate(circuit)
         apply_layer_parallel!(Gammas, Deltas, layer, sites)
+        if layer_idx % 2 == 0  # Only for even layers
+            S2= renyi2(Deltas[Int(floor(N/2))])
+            link_dim = max_link_dimension(Deltas)
+            println("Capa ", layer_idx, " - Entropía Rényi-2 bipartición central: ", S2," Dimensión del enlace: ", link_dim)
+        end
     end
+end
+
+function renyi2(Delta::ITensor)
+    # Convertimos el ITensor a vector de valores singulares
+    sv_vector = vec(diag(Delta))  # asumimos que es diagonal
+       
+    # Entropía de Rényi-2
+    S2 = -log2(sum(abs2.(sv_vector).^2))    
+    return S2
+end
+
+function max_link_dimension(singular_values::Vector{ITensor})
+    max_dim = 0
+    for sv_tensor in singular_values
+        # Convertimos a vector para obtener la longitud
+        sv_vector = vec(diag(sv_tensor))
+        link_dim = length(sv_vector)
+        if link_dim > max_dim
+            max_dim = link_dim
+        end
+    end
+    return max_dim
 end
 
 

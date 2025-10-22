@@ -9,7 +9,7 @@ let
     using .pTEBD
     include("random_circuit.jl")
     using .random_circuits
-    BLAS.set_num_threads(1)
+    #BLAS.set_num_threads(1)
     println("Threads activos: ", nthreads())
     println("Threads LinearAlgebra activos: ", BLAS.get_num_threads())
     N=40
