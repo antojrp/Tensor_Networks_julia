@@ -3,7 +3,7 @@ using ITensors
 using ITensorMPS
 using .Threads
 
-Num=33
+Num=2
 m=1
 i=siteinds("Qubit",2)
 phi=random_mps(ComplexF64,i) 
