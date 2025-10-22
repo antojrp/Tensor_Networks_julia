@@ -9,8 +9,11 @@ let
     using .pTEBD
     include("random_circuit.jl")
     using .random_circuits
+    BLAS.set_num_threads(6)
+    println("Threads activos: ", nthreads())
+    println("Threads LinearAlgebra activos: ", BLAS.get_num_threads())
     N=40
-    L=10
+    L=9
     i=siteinds("Qubit", N)
     phi=MPS(i,"0")
     Gammas, Deltas = vidal_form(phi, i)
