@@ -1,4 +1,4 @@
-module pTEBD
+module pTEBD2
 
 # Export functions
 export vidal_form, mps_from_vidal, apply_layer_parallel!, apply_circuit!
@@ -14,8 +14,8 @@ function vidal_form(mps::MPS, sites::Vector{Index{Int64}})
     N = length(mps)
     @assert length(sites) == N "Debe haber un site index para cada tensor del MPS"
 
-    Gammas = []
-    Deltas = []
+    Gammas = ITensor[]
+    Deltas = ITensor[]
     ψ = deepcopy(mps)
 
     # Ortonormalizamos desde la izquierda
@@ -27,17 +27,17 @@ function vidal_form(mps::MPS, sites::Vector{Index{Int64}})
     U, S, V = svd(A, s; cutoff=1e-12)
     push!(Gammas, U)
     push!(Deltas, S)
-    ψ[2] = V*ψ[2]
+    ψ[2] *= V
 
     # Iteramos desde i = 2 hasta N-1
     for i in 2:N-1
         A = ψ[i]
         s = sites[i]
-        link_left = inds(A)[1]
-        U, S, V = svd(A, (link_left,s); cutoff=1e-12)     
+        link_left = inds(A)[3]
+        U, S, V = svd(A, (s, link_left); cutoff=1e-12)
         push!(Gammas, U)
         push!(Deltas, S)
-        ψ[i+1] = V*ψ[i+1]
+        ψ[i+1] *= V
     end
 
     # Último Gamma
@@ -46,7 +46,7 @@ function vidal_form(mps::MPS, sites::Vector{Index{Int64}})
     return Gammas, Deltas
 end
 
-function mps_from_vidal(Gammas::Vector{Any}, Deltas::Vector{Any}, sites::Vector{Index{Int}})
+function mps_from_vidal(Gammas::Vector{ITensor}, Deltas::Vector{ITensor}, sites::Vector{Index{Int}})
     N = length(Gammas)
     @assert length(Deltas) == N - 1 "Debe haber N-1 tensores Delta para N Gammas"
     @assert length(sites) == N "El número de sitios debe coincidir con el número de Gammas"
@@ -70,7 +70,7 @@ function mps_from_vidal(Gammas::Vector{Any}, Deltas::Vector{Any}, sites::Vector{
     return psi
 end
 
-function apply_layer_parallel!(Gammas::Vector{Any}, Deltas::Vector{Any}, layer::Vector{ITensor}, sites::Vector{Index{Int64}})
+function apply_layer_parallel!(Gammas::Vector{ITensor}, Deltas::Vector{ITensor}, layer::Vector{ITensor}, sites::Vector{Index{Int64}})
     N = length(Gammas)
     @assert length(sites) == N
     affected_sites_all = [[i for i in 1:N if !isempty(commoninds(U, sites[i]))] for U in layer]
@@ -81,16 +81,15 @@ function apply_layer_parallel!(Gammas::Vector{Any}, Deltas::Vector{Any}, layer::
         for i in 1:N-1
             Deltas_inv[i] = diag_itensor(
                 [1 / Deltas[i][k, k] for k in 1:dim(inds(Deltas[i])[1])],
-                reverse(inds(Deltas[i]))
+                inds(Deltas[i])
             )
         end
     end
 
     @timeit to "Apply layer" begin
-    for j in 1:length(layer)
+    @threads for j in 1:length(layer)
         #println("Aplicando puerta ", j, " en thread ", threadid())
         U = layer[j]
-        #println("Índices de la puerta U: ", inds(U))
         affected_sites = affected_sites_all[j]
 
         if length(affected_sites) == 1
@@ -110,30 +109,18 @@ function apply_layer_parallel!(Gammas::Vector{Any}, Deltas::Vector{Any}, layer::
 
             # Construimos el tensor local Ψ_i,i+1
             Ψ = @timeit to "Ψ construction" Λ_left * Gammas[i] * Deltas[i] * Gammas[i+1] * Λ_right
-            #println("Indices Λ_left: ", inds(Λ_left))
-            #println("Indices Gammas[", i, "]: ", inds(Gammas[i]))
-            #println("Indices Deltas[", i, "]: ", inds(Deltas[i]))
-            #println("Indices Gammas[", ip1, "]: ", inds(Gammas[ip1]))
-            #println("Indices Λ_right: ", inds(Λ_right))
-            #println("Indices Ψ antes de aplicar puerta: ", inds(Ψ))
 
             # Aplicamos la puerta
-            Ψ′ = @timeit to "Aplicar puerta"   Ψ * U
-            #println("Indices Ψ después de aplicar puerta: ", inds(Ψ′))
+            Ψ′ = @timeit to "Aplicar puerta" Ψ * U
             # Hacemos SVD para volver a forma canónica
             s1 = prime(sites[i])  # índice físico del sitio i
              Unew, S, Vnew = @timeit to "SVD" begin
             if i == 1
                 svd(Ψ′, s1; cutoff = 1e-12)
             else
-                svd(Ψ′, (inds(Ψ′)[1],s1); cutoff = 1e-12)
+                svd(Ψ′, (s1, inds(Ψ′)[1]); cutoff = 1e-12)
             end
             end
-            @timeit to "Permutar" Vnew = permute(Vnew, reverse(inds(Vnew))...) 
-            #println("Indices Unew: ", inds(Unew))
-            #println("Indices S: ", inds(S))
-            #println("Indices Vnew: ", inds(Vnew))
-
 
             # Actualizamos tensores
             #if length(inds(Λ_left)) == 0
@@ -149,15 +136,9 @@ function apply_layer_parallel!(Gammas::Vector{Any}, Deltas::Vector{Any}, layer::
             #end
 
             @timeit to "Update tensors" begin
-
-                Gammas[i]   = noprime(Λ_left_inv* Unew)
-                #println("Λ_left_inv", inds(Λ_left_inv))
-                #println("Updated Gammas[", i, "] indices: ", inds(Gammas[i]))
+                Gammas[i]   = noprime(Unew * Λ_left_inv)
                 Deltas[i]   = S
-                #println("Updated Deltas[", i, "] indices: ", inds(Deltas[i]))
-                Gammas[i+1] = noprime( Vnew * Λ_right_inv)
-                #println("Λ_right_inv", inds(Λ_right_inv))
-                #println("Updated Gammas[", i+1, "] indices: ", inds(Gammas[i+1]))
+                Gammas[i+1] = noprime(Vnew * Λ_right_inv)
             end
 
             #println("Puerta aplicada entre sitios ", i, " y ", ip1)
@@ -175,7 +156,7 @@ function apply_layer_parallel!(Gammas::Vector{Any}, Deltas::Vector{Any}, layer::
     reset_timer!(to)
 end
 
-function apply_circuit!(Gammas::Vector{Any}, Deltas::Vector{Any}, circuit::Vector{Any}, sites::Vector{Index{Int64}})
+function apply_circuit!(Gammas::Vector{ITensor}, Deltas::Vector{ITensor}, circuit::Vector{Any}, sites::Vector{Index{Int64}})
     N=length(Gammas)
     for (layer_idx, layer) in enumerate(circuit)
         apply_layer_parallel!(Gammas, Deltas, layer, sites)
@@ -196,7 +177,7 @@ function renyi2(Delta::ITensor)
     return S2
 end
 
-function max_link_dimension(singular_values::Vector{Any})
+function max_link_dimension(singular_values::Vector{ITensor})
     max_dim = 0
     for sv_tensor in singular_values
         # Convertimos a vector para obtener la longitud

@@ -49,7 +49,7 @@ using .Threads
 
   #Create 2-qubit gate given index i,j
   function random_2gate(i,j)
-    gate = op("fSim",i,j)
+    gate = op("fSim",j,i)
     return gate
   end
 
