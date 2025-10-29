@@ -7,8 +7,6 @@ using LinearAlgebra
 using ITensors
 using ITensorMPS
 using .Threads
-using TimerOutputs
-const to = TimerOutput()
 
 function vidal_form(mps::MPS, sites::Vector{Index{Int64}})
     N = length(mps)
@@ -76,30 +74,29 @@ function apply_layer_parallel!(Gammas::Vector{Any}, Deltas::Vector{Any}, layer::
     affected_sites_all = [[i for i in 1:N if !isempty(commoninds(U, sites[i]))] for U in layer]
     Deltas_inv = Vector{ITensor}(undef, N)
 
-    @timeit to "Compute inverses" begin
-        Deltas_inv = Vector{ITensor}(undef, N)
-        for i in 1:N-1
-            Deltas_inv[i] = diag_itensor(
-                [1 / Deltas[i][k, k] for k in 1:dim(inds(Deltas[i])[1])],
-                reverse(inds(Deltas[i]))
-            )
-        end
+
+    Deltas_inv = Vector{ITensor}(undef, N)
+    for i in 1:N-1
+        Deltas_inv[i] = diag_itensor(
+            [1 / Deltas[i][k, k] for k in 1:dim(inds(Deltas[i])[1])],
+            reverse(inds(Deltas[i]))
+        )
     end
 
-    @timeit to "Apply layer" begin
     for j in 1:length(layer)
-        #println("Aplicando puerta ", j, " en thread ", threadid())
+
         U = layer[j]
-        #println("Índices de la puerta U: ", inds(U))
+
         affected_sites = affected_sites_all[j]
 
         if length(affected_sites) == 1
-            @timeit to "1-qubit gate" begin
-                    i = affected_sites[1]
-                    Gammas[i] = noprime(Gammas[i]*U)
-            end
+            i = affected_sites[1]
+            Gammas[i] = noprime(Gammas[i]*U)
+            if i != N
+                Gammas[i] = permute(Gammas[i], inds(Gammas[i])[1:end-2]..., inds(Gammas[i])[end], inds(Gammas[i])[end-1])
+            end    
+
         elseif length(affected_sites) == 2
-            @timeit to "2-qubit gate" begin
             i, ip1 = affected_sites
 
             Λ_left     = i > 1   ? Deltas[i-1]     : ITensor(1.0)
@@ -109,83 +106,63 @@ function apply_layer_parallel!(Gammas::Vector{Any}, Deltas::Vector{Any}, layer::
 
 
             # Construimos el tensor local Ψ_i,i+1
-            Ψ = @timeit to "Ψ construction" Λ_left * Gammas[i] * Deltas[i] * Gammas[i+1] * Λ_right
-            #println("Indices Λ_left: ", inds(Λ_left))
-            #println("Indices Gammas[", i, "]: ", inds(Gammas[i]))
-            #println("Indices Deltas[", i, "]: ", inds(Deltas[i]))
-            #println("Indices Gammas[", ip1, "]: ", inds(Gammas[ip1]))
-            #println("Indices Λ_right: ", inds(Λ_right))
-            #println("Indices Ψ antes de aplicar puerta: ", inds(Ψ))
+            Ψ = Λ_left * Gammas[i] * Deltas[i] * Gammas[i+1] * Λ_right
 
             # Aplicamos la puerta
-            Ψ′ = @timeit to "Aplicar puerta"   Ψ * U
-            #println("Indices Ψ después de aplicar puerta: ", inds(Ψ′))
+            Ψ′ = Ψ * U
+
             # Hacemos SVD para volver a forma canónica
             s1 = prime(sites[i])  # índice físico del sitio i
-             Unew, S, Vnew = @timeit to "SVD" begin
+             Unew, S, Vnew = 
             if i == 1
                 svd(Ψ′, s1; cutoff = 1e-12)
             else
                 svd(Ψ′, (inds(Ψ′)[1],s1); cutoff = 1e-12)
             end
-            end
-            @timeit to "Permutar" Vnew = permute(Vnew, reverse(inds(Vnew))...) 
-            #println("Indices Unew: ", inds(Unew))
-            #println("Indices S: ", inds(S))
-            #println("Indices Vnew: ", inds(Vnew))
+            Vnew = permute(Vnew, reverse(inds(Vnew))...) 
 
-
-            # Actualizamos tensores
-            #if length(inds(Λ_left)) == 0
-            #    Λ_left_inv = ITensor(1.0)
-            #else
-            #    Λ_left_inv  = diag_itensor([1/Λ_left[i,i] for i in 1:dim(inds(Λ_left)[1])], inds(Λ_left))
-            #end
-
-            #if length(inds(Λ_right)) == 0
-            #    Λ_right_inv = ITensor(1.0)
-            #else
-            #    Λ_right_inv  = diag_itensor([1/Λ_right[i,i] for i in 1:dim(inds(Λ_right)[1])], inds(Λ_right))
-            #end
-
-            @timeit to "Update tensors" begin
-
-                Gammas[i]   = noprime(Λ_left_inv* Unew)
-                #println("Λ_left_inv", inds(Λ_left_inv))
-                #println("Updated Gammas[", i, "] indices: ", inds(Gammas[i]))
-                Deltas[i]   = S
-                #println("Updated Deltas[", i, "] indices: ", inds(Deltas[i]))
-                Gammas[i+1] = noprime( Vnew * Λ_right_inv)
-                #println("Λ_right_inv", inds(Λ_right_inv))
-                #println("Updated Gammas[", i+1, "] indices: ", inds(Gammas[i+1]))
-            end
-
-            #println("Puerta aplicada entre sitios ", i, " y ", ip1)
-        end
+            Gammas[i] = noprime(Λ_left_inv* Unew)
+            Deltas[i]   = S
+            Gammas[i+1] = noprime( Vnew * Λ_right_inv)
         else
             error("Puerta actúa sobre más de 2 sitios, no soportado")
         end
     end
-    end
-    println("\n───────────────────────────────────────────────────────────────")
-    println("📊  Reporte de tiempos para capa")
-    show(to; allocations=true, linechars=:unicode)
-    println("───────────────────────────────────────────────────────────────\n")
 
-    reset_timer!(to)
 end
 
-function apply_circuit!(Gammas::Vector{Any}, Deltas::Vector{Any}, circuit::Vector{Any}, sites::Vector{Index{Int64}})
-    N=length(Gammas)
+
+function apply_circuit!(Gammas::Vector{Any}, Deltas::Vector{Any}, circuit::Vector{Any}, sites::Vector{Index{Int64}}; compute_stats::Bool = false)
+
+    N = length(Gammas)
+    # Solo preparamos almacenamiento si se piden las estadísticas
+    if compute_stats
+        Ds = Float64[]
+        Renyis = Float64[]
+    end
+
+    times_per_layer = Float64[]
+
     for (layer_idx, layer) in enumerate(circuit)
-        apply_layer_parallel!(Gammas, Deltas, layer, sites)
-        if layer_idx % 2 == 0  # Only for even layers
-            S2= renyi2(Deltas[Int(floor(N/2))])
+        t=@elapsed apply_layer_parallel!(Gammas, Deltas, layer, sites)
+        push!(times_per_layer, t)
+
+        if compute_stats && layer_idx % 2 == 0
             link_dim = max_link_dimension(Deltas)
-            println("Capa ", layer_idx, " - Entropía Rényi-2 bipartición central: ", S2," Dimensión del enlace: ", link_dim)
+            S2 = renyi2(Deltas[Int(floor(N/2))])
+            push!(Ds, link_dim)
+            push!(Renyis, S2)
         end
     end
+
+    if compute_stats
+        return times_per_layer, Ds, Renyis
+    else
+        return times_per_layer
+    end
 end
+
+
 
 function renyi2(Delta::ITensor)
     # Convertimos el ITensor a vector de valores singulares

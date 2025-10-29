@@ -9,31 +9,19 @@ let
     using .pTEBD
     include("random_circuit.jl")
     using .random_circuits
-    BLAS.set_num_threads(6)
+    BLAS.set_num_threads(1)
     println("Threads activos: ", nthreads())
     println("Threads LinearAlgebra activos: ", BLAS.get_num_threads())
     N=40
     L=10
+    num_runs = 10
     i=siteinds("Qubit", N)
     phi=MPS(i,"0")
     Gammas, Deltas = vidal_form(phi, i)
-
     circuit=random_circuit(i,N,L)
     @time apply_circuit!(Gammas, Deltas, circuit, i)
-    Gammas, Deltas = vidal_form(phi, i)
-    @time apply_circuit!(Gammas, Deltas, circuit, i)
-    Gammas, Deltas = vidal_form(phi, i)
-    @time apply_circuit!(Gammas, Deltas, circuit, i)
-    
 
-    phi=MPS(i,"0")
-    @time for layer in circuit
-        phi=apply(layer,phi)
-    end
-    phi=MPS(i,"0")
-    @time for layer in circuit
-        phi=apply(layer,phi)
-    end
+
     phi=MPS(i,"0")
     @time for layer in circuit
         phi=apply(layer,phi)

@@ -1,4 +1,4 @@
-module pTEBD2
+module pTEBD
 
 # Export functions
 export vidal_form, mps_from_vidal, apply_layer_parallel!, apply_circuit!
