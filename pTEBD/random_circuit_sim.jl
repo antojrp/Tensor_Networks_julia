@@ -10,15 +10,15 @@ let
     using .pTEBD
     include("random_circuit.jl")
     using .random_circuits
-    BLAS.set_num_threads(6)
+    #BLAS.set_num_threads(1)
     println("Threads activos: ", nthreads())
     println("Threads LinearAlgebra activos: ", BLAS.get_num_threads())
 
-    N=20
-    L=15
+    N=40
+    L=12
     num_runs = 10
-    compute_stats=true
-    coeficientes=true
+    compute_stats=false
+    coeficientes=false
 
     if coeficientes
         io= open("resultados/coeficientes_$(L).txt", "w")
@@ -31,7 +31,7 @@ let
         close(io)
     end
 
-    io= open("resultados/tiempos_$(L).txt", "w")
+    io= open("resultados/tiempos_$(L)_t_$(nthreads())_$(BLAS.get_num_threads()).txt", "w")
     close(io)
 
     sites=siteinds("Qubit", N)
@@ -87,7 +87,7 @@ let
         close(io)
     end
 
-    io_time = open("resultados/tiempos_$(L).txt", "a")
+    io_time = open("resultados/tiempos_$(L)_t_$(nthreads())_$(BLAS.get_num_threads()).txt", "a")
     write(io_time, "Número de qubits: $(length(Gammas))\n")
     write(io_time, "Layer\tTime\tvar(Time)\n")
 

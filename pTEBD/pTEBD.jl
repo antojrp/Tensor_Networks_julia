@@ -83,7 +83,7 @@ function apply_layer_parallel!(Gammas::Vector{Any}, Deltas::Vector{Any}, layer::
         )
     end
 
-    for j in 1:length(layer)
+    @threads for j in 1:length(layer)
 
         U = layer[j]
 
