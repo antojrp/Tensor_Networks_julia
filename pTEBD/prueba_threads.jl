@@ -5,14 +5,14 @@ using Random
 using .Threads
 
 let 
-    include("pTEBD.jl")
+    include("pTEBD(debug).jl")
     using .pTEBD
     include("random_circuit.jl")
     using .random_circuits
-    #BLAS.set_num_threads(1)
+    BLAS.set_num_threads(1)
     println("Threads activos: ", nthreads())
     println("Threads LinearAlgebra activos: ", BLAS.get_num_threads())
-    N=40
+    N=50
     L=10
     i=siteinds("Qubit", N)
     phi=MPS(i,"0")

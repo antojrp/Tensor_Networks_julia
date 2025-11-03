@@ -87,7 +87,7 @@ function apply_layer_parallel!(Gammas::Vector{ITensor}, Deltas::Vector{ITensor},
     end
 
     @timeit to "Apply layer" begin
-    @threads for j in 1:length(layer)
+    for j in 1:length(layer)
         #println("Aplicando puerta ", j, " en thread ", threadid())
         U = layer[j]
         affected_sites = affected_sites_all[j]
