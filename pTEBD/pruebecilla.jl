@@ -3,22 +3,17 @@ using ITensors
 using ITensorMPS
 using Random
 using Base.Threads
-using BenchmarkTools
+#using BenchmarkTools
 
 let
-    include("pTEBD(debug).jl")
-    using .pTEBD
-    include("random_circuit.jl")
-    using .random_circuits
-
     # Configurar hilos
     BLAS.set_num_threads(1)
     println("Threads Julia activos: ", nthreads())
     println("Threads BLAS activos: ", BLAS.get_num_threads())
 
     # Parámetros del experimento
-    N = 15                          # número de sitios fijos
-    L_vals = [8, 9, 10, 11, 12, 13] # distintos tamaños locales (2^L dimensión)
+    N = 22                          # número de sitios fijos
+    L_vals = [8, 9, 10, 11, 12] # distintos tamaños locales (2^L dimensión)
 
     println("\n──────────────────────────────────────────────────────────────")
     println("⚙️  Test de escalado paralelo ITensor (multiplicaciones)")
