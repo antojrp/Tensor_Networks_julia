@@ -1,8 +1,8 @@
 #!/bin/bash
  
-#SBATCH -c 21
+#SBATCH -c 30
 #SBATCH -p GPGPU
 #SBATCH --mem=100GB
 #SBATCH -t 72:00:00 
 
-OMP_NUM_THREADS=1 /home/ajrp/julia-1.11.1/bin/julia -t 10 pruebecilla.jl
+OMP_NUM_THREADS=5 /home/ajrp/julia-1.11.1/bin/julia -t 5 pruebecilla.jl

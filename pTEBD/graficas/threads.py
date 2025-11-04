@@ -6,7 +6,7 @@ from scipy.interpolate import griddata
 from mpl_toolkits.mplot3d import Axes3D
 
 # Carpeta con tus resultados
-carpeta = r'../resultados/'
+carpeta = r'../resultados/t_40'
 
 # Capas a representar
 capas_objetivo = [10, 11, 12]
