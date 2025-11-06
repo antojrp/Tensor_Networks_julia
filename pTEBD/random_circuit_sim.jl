@@ -14,8 +14,8 @@ let
     println("Threads activos: ", nthreads())
     println("Threads LinearAlgebra activos: ", BLAS.get_num_threads())
 
-    N=40
-    L=12
+    N=80
+    L=10
     num_runs = 10
     compute_stats=false
     coeficientes=false
