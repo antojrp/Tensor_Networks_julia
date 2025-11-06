@@ -6,10 +6,10 @@ from scipy.interpolate import griddata
 from mpl_toolkits.mplot3d import Axes3D
 
 # Carpeta con tus resultados
-carpeta = r'../resultados/t_40'
+carpeta = r'../resultados/t_80'
 
 # Capas a representar
-capas_objetivo = [10, 11, 12]
+capas_objetivo = [10]
 
 # Patrón del nombre de archivo
 patron = re.compile(r"tiempos_(\d+)_t_(\d+)_(\d+)\.txt")
