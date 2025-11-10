@@ -1,7 +1,7 @@
 module pTEBD
 
 # Export functions
-export vidal_form, mps_from_vidal, apply_layer_parallel!, apply_circuit!
+export vidal_form, mps_from_vidal, apply_layer_parallel!, apply_circuit!, block_circuit, renyi2, max_link_dimension
 
 using LinearAlgebra
 using ITensors

@@ -19,6 +19,6 @@ let
     phi=apply(layer,phi)
     phi_reconstructed = mps_from_vidal(Gammas, Deltas, i)
     @assert abs(inner(phi,phi_reconstructed))^2 - 1 < 0.00001 "El circuito fallo"
-    println("El circuito fue exitoso", abs(inner(phi,phi_reconstructed))^2)
+    println("El circuito fue exitoso ", abs(inner(phi,phi_reconstructed))^2)
 
 end

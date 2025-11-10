@@ -66,42 +66,48 @@ using .Threads
   #Create a layer of 2-qubit random gate given the number ob qubits (N) and a array of index i1, m {1,2} is the qubit in which begins to apply the gates
   function layer2(N,i1,m)
     l=ITensor[]
-    #if m==2
-    #  gate=delta(i1[1],i1[1]')
-    #  push!(l,gate)
-    #end
+    if m==2
+      gate=delta(i1[1],i1[1]')
+      push!(l,gate)
+    end
     for j in m:2:N-1
       gate=random_2gate(i1[j],i1[j+1])
       push!(l,gate)
     end
-    #if m==2
-    #  if N%2==0
-    #    gate=delta(i1[N],i1[N]')
-    #    push!(l,gate)
-    #  end
-    #end
-    #if m==1
-    #  if N%2==1
-    #    gate=delta(i1[N],i1[N]')
-    #    push!(l,gate)
-    #  end
-    #end
+    if m==2
+      if N%2==0
+        gate=delta(i1[N],i1[N]')
+        push!(l,gate)
+      end
+    end
+    if m==1
+      if N%2==1
+        gate=delta(i1[N],i1[N]')
+        push!(l,gate)
+      end
+    end
     return l
   end
 
   #Creates a random circuit of L layers, each layer is composed by a 1-qubit layer and 2-qubit layer.
-  function random_circuit(i1,N,L)
+  function random_circuit(i1,N,L;reduced=false)
     circuit=[]
     random=rand(0:2,N)
     for i in 1:L
       layer=layer1(N,i1,random)
       push!(circuit,layer)
-      #i2=i1'
-      i2=i1
+      if reduced
+        i2=i1'
+      else
+        i2=i1
+      end
       layer=layer2(N,i2,2-(i%2))
       push!(circuit,layer)
-      #i1=i2'
-      i1=i2
+      if reduced
+        i1=i2'
+      else  
+        i1=i2
+      end
     end
     return circuit
   end
