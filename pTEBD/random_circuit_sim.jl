@@ -14,8 +14,8 @@ let
     println("Threads activos: ", nthreads())
     println("Threads LinearAlgebra activos: ", BLAS.get_num_threads())
 
-    N=80
-    L=10
+    N=40
+    L=11
     num_runs = 10
     compute_stats=false
     coeficientes=false
@@ -86,7 +86,7 @@ let
         end
         close(io)
     end
-
+    @show times[2*L]
     io_time = open("resultados/tiempos_$(L)_t_$(nthreads())_$(BLAS.get_num_threads()).txt", "a")
     write(io_time, "Número de qubits: $(length(Gammas))\n")
     write(io_time, "Layer\tTime\tvar(Time)\n")
@@ -97,8 +97,21 @@ let
         write(io_time, "$l  $meanT  $varT\n")
     end
 
-    total_time = sum(mean.(times))
-    varianza_total = mean(var.(times))
+    num_layers = length(times)
+    
+    # construimos vector con tiempo total por cada run (suma sobre capas)
+    total_per_run = zeros(Float64, num_runs)
+    for r in 1:num_runs
+        s = 0.0
+        for l in 1:num_layers
+            s += times[l][r]
+        end
+        total_per_run[r] = s
+    end
+
+    # estadísticas del tiempo total por corrida
+    total_time = mean(total_per_run)
+    varianza_total  = var(total_per_run)
     write(io_time, "Total= $total_time\n")
     write(io_time, "Varianza= $varianza_total\n")
     close(io_time)
