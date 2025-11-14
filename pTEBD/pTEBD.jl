@@ -10,7 +10,7 @@ using .Threads
 
 function vidal_form(mps::MPS, sites::Vector{Index{Int64}})
     N = length(mps)
-    @assert length(sites) == N "Debe haber un site index para cada tensor del MPS"
+    @assert length(sites) == N "Debe haber un site index para cada tensor del MPS. N: $N, sites: $(length(sites))"
 
     Gammas = []
     Deltas = []
@@ -145,6 +145,7 @@ function apply_circuit!(Gammas::Vector{Any}, Deltas::Vector{Any}, circuit::Vecto
 
     for (layer_idx, layer) in enumerate(circuit)
         t=@elapsed apply_layer_parallel!(Gammas, Deltas, layer, sites)
+        @show Gammas, Deltas
         push!(times_per_layer, t)
 
         if compute_stats && layer_idx % 2 == 0

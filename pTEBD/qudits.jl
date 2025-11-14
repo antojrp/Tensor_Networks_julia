@@ -1,7 +1,7 @@
 module qudits
 
 # Export functions
-export block_circuit
+export block_circuit, qubit_to_qudit
 
 using LinearAlgebra
 using ITensors
@@ -53,10 +53,8 @@ function block_circuit(circuit, sites, blockv, blockh)
     end
     circuit = filter(layer -> !isempty(layer), circuit)
     for (l, layer) in enumerate(circuit)
-        println("Capa $l:")
         for U in layer
             for k in 1:2*(l-1)
-                print(k)
                 prime!(U,-1)
             end
         end
@@ -68,33 +66,49 @@ end
 function qubit_to_qudit(circuit, qubit_sites, qudit_sites, blockv, blockh)
 
     circuit = block_circuit(circuit, qubit_sites, blockv, blockh)
-
-    all_sites = vcat(qubit_sites, qudit_sites)
     N = length(qubit_sites)
 
     # Crear combiners por bloques verticales
     combiners = ITensor[]
+    deltas = ITensor[]
     v = 1
+    contador = 1
     while v <= N
         vmax = min(v + blockv - 1, N)
-        C = combiner(all_sites[v:vmax]...)
+        C = combiner(qubit_sites[v:vmax]...)
+        kr = delta(inds(C)[1], qudit_sites[contador])
         push!(combiners, C)
+        push!(deltas, kr)
         v = vmax + 1
+        contador += 1
     end
 
     # Aplicar combiners a las puertas que afecten a cada bloque
     for i in 1:length(circuit)
     layer = circuit[i]
-    for j in 1:length(layer)
-        U = layer[j]
-        for C in combiners
-            if !isempty(commoninds(inds(U), inds(C)))
-                U = U * C
+        for j in 1:length(layer)
+            U = layer[j]
+            for (delta, C) in zip(deltas, combiners)
+                if !isempty(commoninds(inds(U), inds(C)))
+                    U = U * C * delta
+                    C_aux = C
+                    delta_aux = delta
+                    for _ in 1:blockh
+                        C_aux = prime(C_aux)
+                        delta_aux = prime(delta_aux)
+                    end
+                    U = U * C_aux * delta_aux
+
+                end
             end
+            for (i, ind) in enumerate(inds(U))
+                if iseven(i)
+                    replaceind!(U, ind, setprime(ind, 1))
+                end
+            end
+            circuit[i][j] = U 
         end
-        circuit[i][j] = U  # <-- aquí reasignas al tensor original
     end
-end
 
     return circuit
 end
