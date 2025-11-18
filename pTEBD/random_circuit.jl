@@ -96,18 +96,13 @@ using .Threads
     for i in 1:L
       layer=layer1(N,i1,random)
       push!(circuit,layer)
-      if reduced
-        i2=i1'
-      else
-        i2=i1
-      end
+
+      i2 = reduced ? i1' : i1
+
       layer=layer2(N,i2,2-(i%2))
       push!(circuit,layer)
-      if reduced
-        i1=i2'
-      else  
-        i1=i2
-      end
+      
+      i1 = reduced ? i2' : i2
     end
     return circuit
   end

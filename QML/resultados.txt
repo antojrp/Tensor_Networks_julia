@@ -1,0 +1,6 @@
+450/119
+
+L= 0 over 10 runs:
+Mean D: 1.0  Variance: 0.0
+Mean Renyi2s: -0.0  Variance: 0.0
+Mean accuracy: 0.6235294117647061  Variance: 0.001283650715188035
