@@ -1,9 +1,6 @@
 module QKernelFunctions
 
-# Export functions
-
 export load_data_and_samples, compute_train_kernel, split_train_test, compute_test_kernel, compute_all_states
-
 
 using LinearAlgebra
 using ITensors
@@ -110,18 +107,37 @@ function compute_train_kernel(states::Vector{MPS}, train_idx::AbstractVector{Int
     return K_train
 end
 
-function split_train_test(y::AbstractVector, nsamples::Int, n_train_samples::Int, n_test_samples::Int)
+function split_train_test(y::AbstractVector, k_folds::Int)
+    # Devuelve un vector de folds,
+    # cada folds[f] es un Vector{Int} con los índices de test de ese fold,
+    # estratificados por clase.
 
-    idx = randperm(nsamples)
+    # Asumo etiquetas 1.0 y -1.0 en y
+    pos_idx = findall(==(1.0), y)
+    neg_idx = findall(==(-1.0), y)
 
-    train_idx = idx[1:n_train_samples]
-    test_idx  = idx[n_train_samples+1 : n_train_samples + n_test_samples]
+    # Barajamos cada clase por separado
+    Random.shuffle!(pos_idx)
+    Random.shuffle!(neg_idx)
 
-    y_train_int = Int.(y[train_idx])
-    y_test_int  = Int.(y[test_idx])
+    # Inicializamos los folds vacíos
+    folds = [Int[] for _ in 1:k_folds]
 
-    return train_idx, test_idx, y_train_int, y_test_int
+    # Reparto round-robin de los positivos
+    for (i, idx) in enumerate(pos_idx)
+        fold_id = mod1(i, k_folds)   # 1,2,...,k,1,2,...
+        push!(folds[fold_id], idx)
+    end
+
+    # Reparto round-robin de los negativos
+    for (i, idx) in enumerate(neg_idx)
+        fold_id = mod1(i, k_folds)
+        push!(folds[fold_id], idx)
+    end
+
+    return folds
 end
+
 
 function compute_test_kernel(states::Vector{MPS}, train_idx::AbstractVector{Int}, test_idx::AbstractVector{Int})
 

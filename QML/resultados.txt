@@ -1,6 +1,17 @@
-450/119
+L = 1, k_folds = 5, n_runs = 5
+Memoria: 10.145248413085938 MB
+Mean D:        2.0
+Var  D:        0.0
+Mean Renyi2:   0.5181853822490811
+Var  Renyi2:   3.199540957285209e-9
+Mean accuracy: 0.923758368603309
+Variance of accuracy: 0.000971063534415497
 
-L= 0 over 10 runs:
-Mean D: 1.0  Variance: 0.0
-Mean Renyi2s: -0.0  Variance: 0.0
-Mean accuracy: 0.6235294117647061  Variance: 0.001283650715188035
+L = 2, k_folds = 5, n_runs = 5
+Memoria: 13.062484741210938 MB
+Mean D:        4.0
+Var  D:        0.0
+Mean Renyi2:   0.5181853822490975
+Var  Renyi2:   3.199540957292398e-9
+Mean accuracy: 0.9222562524047712
+Variance of accuracy: 0.00082936295730005

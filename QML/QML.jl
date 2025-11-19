@@ -24,12 +24,12 @@ let
 
     # 2) PARÁMETROS DE LA SIMULACIÓN
 
-    n_train_samples = 450
-    n_test_samples  = nsamples - n_train_samples
     N = nfeatures
-    L = 6
+    L = 2
     compute_stats = true
-    n_runs = 10
+
+    k_folds = 5         
+    n_runs  = 5
 
     accuracies = Float64[]
 
@@ -69,36 +69,62 @@ let
         println("\n================ RUN $run ================")
 
         # Split usando solo índices y etiquetas
-        train_idx, test_idx, y_train_int, y_test_int =
-            split_train_test(y, nsamples, n_train_samples, n_test_samples)
+        folds = split_train_test(y, k_folds)
+        accuracies_folds = Float64[] 
 
+        for f in 1:k_folds
+            println("\n---------- FOLD $f / $k_folds ----------")
 
-        K_train = compute_train_kernel(states, train_idx)
-        println("Kernel train calculado: ", size(K_train))
+            # Índices de test para este fold
+            test_idx = folds[f]
 
-        model = svmtrain(K_train, y_train_int; kernel = Kernel.Precomputed)
-        println("SVM entrenado.")
+            # Índices de train: todos los demás folds concatenados
+            train_idx = vcat((folds[i] for i in 1:k_folds if i != f)...)
 
+            y_train_int = Int.(y[train_idx])
+            y_test_int  = Int.(y[test_idx])
 
-        K_test = compute_test_kernel(states, train_idx, test_idx)
-        println("Kernel test calculado: ", size(K_test))
+            n_train_samples = length(train_idx)
+            n_test_samples  = length(test_idx)
 
-        y_pred, _ = svmpredict(model, K_test)
+            println("Train size = $n_train_samples, Test size = $n_test_samples")
 
+            # KERNEL TRAIN
+            K_train = compute_train_kernel(states, train_idx)
+            println("Kernel train calculado: ", size(K_train))
 
-        acc = sum(y_pred .== y_test_int) / n_test_samples
-        push!(accuracies, acc)
-        println("Accuracy test = ", acc)
+            # ENTRENAR SVM
+            model = svmtrain(K_train, y_train_int; kernel = Kernel.Precomputed)
+            println("SVM entrenado.")
 
-        println("Train: #1 = ", sum(y_train_int .== 1), "  #-1 = ", sum(y_train_int .== -1))
-        println("Test:  #1 = ", sum(y_test_int .== 1),  "  #-1 = ", sum(y_test_int .== -1))
+            # KERNEL TEST
+            K_test = compute_test_kernel(states, train_idx, test_idx)
+            println("Kernel test calculado: ", size(K_test))
+
+            # PREDICCIÓN
+            y_pred, _ = svmpredict(model, K_test)
+
+            # ACCURACY DEL FOLD
+            acc_fold = sum(y_pred .== y_test_int) / n_test_samples
+            push!(accuracies, acc_fold)
+            push!(accuracies_folds, acc_fold)
+            println("Accuracy test (fold $f) = ", acc_fold)
+
+            println("Train: #1 = ", sum(y_train_int .== 1),  "  #-1 = ", sum(y_train_int .== -1))
+            println("Test:  #1 = ", sum(y_test_int  .== 1),  "  #-1 = ", sum(y_test_int  .== -1))
+        end
+
+        # Accuracy media de este run (sobre los k folds)
+        acc_run = mean(accuracies_folds)
+        println("\nAccuracy media del RUN $run (sobre $k_folds folds) = ", acc_run)
     end
 
-
+    # 5) RESUMEN FINAL SOBRE TODOS LOS RUNS
     println("\n********** RESUMEN FINAL SVM **********")
-    println("L = $L sobre $n_runs runs")
+    println("L = $L, k_folds = $k_folds, n_runs = $n_runs")
 
     mean_accuracy = mean(accuracies)
     var_accuracy  = var(accuracies)
-    println("Mean accuracy: ", mean_accuracy, "   Variance: ", var_accuracy)
+    println("Mean accuracy (media sobre runs): ", mean_accuracy)
+    println("Variance of accuracy (entre runs): ", var_accuracy)
 end
