@@ -1,3 +1,4 @@
+bond = pi/2
 L = 1, k_folds = 5, n_runs = 5
 Memoria: 10.145248413085938 MB
 Mean D:        2.0
@@ -15,3 +16,216 @@ Mean Renyi2:   0.5181853822490975
 Var  Renyi2:   3.199540957292398e-9
 Mean accuracy: 0.9222562524047712
 Variance of accuracy: 0.00082936295730005
+
+L = 3, k_folds = 5, n_runs = 5
+Memoria: 23.897933959960938 MB
+Mean D:        8.0
+Var  D:        0.0
+Mean Renyi2:   0.9080262699657726
+Var  Renyi2:   0.0001429208862145167
+Mean accuracy: 0.9209696036937284
+Variance of accuracy: 0.0005628752053539402
+
+L = 4, k_folds = 5, n_runs = 5
+Memoria: 63.90574645996094 MB
+Mean D:        16.0
+Var  D:        0.0
+Mean Renyi2:   0.9080262699657888
+Var  Renyi2:   0.00014292088621450913
+Mean accuracy: 0.9223424393997693
+Variance of accuracy: 0.00066080786095697
+
+L = 5, k_folds = 5, n_runs = 5
+Memoria: 210.60105895996094 MB
+Mean D:        32.0
+Var  D:        0.0
+Mean Renyi2:   1.3111530148139958
+Var  Renyi2:   0.0036617670972898778
+Mean accuracy: 0.9230688726433243
+Variance of accuracy: 0.00047161543323037984
+
+bond=pi
+L = 1, k_folds = 5, n_runs = 5
+Memoria: 10.145248413085938 MB
+Mean D:        2.0
+Var  D:        0.0
+Mean Renyi2:   0.518185383589301
+Var  Renyi2:   1.2797779914490375e-8
+Mean accuracy: 0.9230627164293956
+Variance of accuracy: 0.00057313556190133
+
+L = 2, k_folds = 5, n_runs = 5
+Memoria: 13.062484741210938 MB
+Mean D:        4.0
+Var  D:        0.0
+Mean Renyi2:   0.5181853835893176
+Var  Renyi2:   1.2797779914626814e-8
+Mean accuracy: 0.9239707579838398
+Variance of accuracy: 0.0008195385770802126
+
+L = 3, k_folds = 5, n_runs = 5
+Memoria: 23.897933959960938 MB
+Mean D:        8.0
+Var  D:        0.0
+Mean Renyi2:   0.9085660353825074
+Var  Renyi2:   0.0010035238048187786
+Mean accuracy: 0.924764909580608
+Variance of accuracy: 0.0007110787917117516
+
+L = 4, k_folds = 5, n_runs = 5
+Memoria: 63.90574645996094 MB
+Mean D:        16.0
+Var  D:        0.0
+Mean Renyi2:   0.908566035382523
+Var  Renyi2:   0.0010035238048187775
+Mean accuracy: 0.9276213928434014
+Variance of accuracy: 0.0003365517750510586
+
+L = 5, k_folds = 5, n_runs = 5
+Memoria: 210.60105895996094 MB
+Mean D:        32.0
+Var  D:        0.0
+Mean Renyi2:   1.3014702317682882
+Var  Renyi2:   0.011007071379372327
+Mean accuracy: 0.934310119276645
+Variance of accuracy: 0.0007830735896833473
+
+bond=2*pi
+L = 1, k_folds = 5, n_runs = 5
+Memoria: 10.145248413085938 MB
+Mean D:        2.0
+Var  D:        0.0
+Mean Renyi2:   0.5181853889562618
+Var  Renyi2:   5.118803850052506e-8
+Mean accuracy: 0.9349195844555598
+Variance of accuracy: 0.0006417250584682903
+
+L = 2, k_folds = 5, n_runs = 5
+Memoria: 13.062484741210938 MB
+Mean D:        4.0
+Var  D:        0.0
+Mean Renyi2:   0.5181853889562779
+Var  Renyi2:   5.118803850038193e-8
+Mean accuracy: 0.9391919969218931
+Variance of accuracy: 0.0004433661332139915
+
+L = 3, k_folds = 5, n_runs = 5
+Memoria: 23.897933959960938 MB
+Mean D:        8.0
+Var  D:        0.0
+Mean Renyi2:   0.9136848885510122
+Var  Renyi2:   0.0010578945451180748
+Mean accuracy: 0.9382470180838783
+Variance of accuracy: 0.0005518184374836997
+
+L = 4, k_folds = 5, n_runs = 5
+Memoria: 63.90574645996094 MB
+Mean D:        16.0
+Var  D:        0.0
+Mean Renyi2:   0.9136848885510285
+Var  Renyi2:   0.0010578945451180874
+Mean accuracy: 0.9374651789149674
+Variance of accuracy: 0.00028518870257367114
+
+L = 5, k_folds = 5, n_runs = 5
+Memoria: 210.60105895996094 MB
+Mean D:        32.0
+Var  D:        0.0
+Mean Renyi2:   1.2856228706549842
+Var  Renyi2:   0.015387517238378756
+Mean accuracy: 0.9378253174297808
+Variance of accuracy: 0.0005320356489159839
+
+bond=3*pi
+
+L = 1, k_folds = 5, n_runs = 5
+Memoria: 10.145248413085938 MB
+Mean D:        2.0
+Var  D:        0.0
+Mean Renyi2:   0.5181853979139088
+Var  Renyi2:   1.1516612453151159e-7
+Mean accuracy: 0.9328387841477492
+Variance of accuracy: 0.0002411081540374031
+
+L = 2, k_folds = 5, n_runs = 5
+Memoria: 13.062484741210938 MB
+Mean D:        4.0
+Var  D:        0.0
+Mean Renyi2:   0.5181853979139249
+Var  Renyi2:   1.1516612453173747e-7
+Mean accuracy: 0.93849634474798
+Variance of accuracy: 0.00030297476811924824
+
+L = 3, k_folds = 5, n_runs = 5
+Memoria: 23.897933959960938 MB
+Mean D:        8.0
+Var  D:        0.0
+Mean Renyi2:   0.9122591887463868
+Var  Renyi2:   0.0030485880797148503
+Mean accuracy: 0.9314536360138512
+Variance of accuracy: 0.0005987930066333563
+
+L = 4, k_folds = 5, n_runs = 5
+Memoria: 63.90574645996094 MB
+Mean D:        16.0
+Var  D:        0.0
+Mean Renyi2:   0.9122591887464023
+Var  Renyi2:   0.0030485880797147913
+Mean accuracy: 0.9300623316660251
+Variance of accuracy: 0.0005346926233158713
+
+L = 5, k_folds = 5, n_runs = 5
+Memoria: 210.60105895996094 MB
+Mean D:        32.0
+Var  D:        0.0
+Mean Renyi2:   1.2595245393089107
+Var  Renyi2:   0.01789375627343348
+Mean accuracy: 0.9353228164678723
+Variance of accuracy: 0.0002766373724407282
+
+bond=4*pi
+L = 1, k_folds = 5, n_runs = 5
+Memoria: 10.145248413085938 MB
+Mean D:        2.0
+Var  D:        0.0
+Mean Renyi2:   0.5181854104726316
+Var  Renyi2:   2.0472734751107773e-7
+Mean accuracy: 0.9339992304732593
+Variance of accuracy: 0.0005639942711364361
+
+L = 2, k_folds = 5, n_runs = 5
+Memoria: 13.062484741210938 MB
+Mean D:        4.0
+Var  D:        0.0
+Mean Renyi2:   0.5181854104726474
+Var  Renyi2:   2.0472734751104173e-7
+Mean accuracy: 0.9391858407079645
+Variance of accuracy: 0.0002824684842677085
+
+L = 3, k_folds = 5, n_runs = 5
+Memoria: 23.897933959960938 MB
+Mean D:        8.0
+Var  D:        0.0
+Mean Renyi2:   0.9044141528173046
+Var  Renyi2:   0.006000747341611962
+Mean accuracy: 0.9311242785686802
+Variance of accuracy: 0.0005026999709786664
+
+L = 4, k_folds = 5, n_runs = 5
+Memoria: 63.90574645996094 MB
+Mean D:        16.0
+Var  D:        0.0
+Mean Renyi2:   0.9044141528173208
+Var  Renyi2:   0.0060007473416120805
+Mean accuracy: 0.9310750288572527
+Variance of accuracy: 0.0005671924902006738
+
+L = 5, k_folds = 5, n_runs = 5
+Memoria: 210.60105895996094 MB
+Mean D:        32.0
+Var  D:        0.0
+Mean Renyi2:   1.2218931741496661
+Var  Renyi2:   0.022562174744073606
+Mean accuracy: 0.9307148903424394
+Variance of accuracy: 0.0003605148792194868
+

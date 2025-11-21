@@ -15,7 +15,7 @@ let
     include("QKernelFunctions.jl")
     using .QKernelFunctions
 
-    bond = pi/2
+    bond = 2*pi
 
     y, samples, nsamples, nfeatures = load_data_and_samples("data.csv"; bond = bond)
 
@@ -25,7 +25,7 @@ let
     # 2) PARÁMETROS DE LA SIMULACIÓN
 
     N = nfeatures
-    L = 2
+    L = 8
     compute_stats = true
 
     k_folds = 5         

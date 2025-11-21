@@ -93,5 +93,32 @@ function ZZfeaturemap_linear(i1, N, L, x, reduced=false)
     end
 end
 
+function layerX(N, i1, x)
+    l = ITensor[]
+    for j in 1:N
+        θ = x[j]
+        push!(l, op("Rx", i1[j]; θ = θ))
+    end
+    return l
+end
+
+function IsingFeaturemap_linear(i1, N, L, x; reduced=false)
+    circuit = Any[]
+    for r in 1:L
+        # Hadamards
+        push!(circuit, layerH(N, i1))
+
+        # Rx con datos
+        push!(circuit, layerX(N, i1, x))
+
+        # ZZ igual que en tu ZZfeaturemap_linear
+        i2 = reduced ? i1' : i1
+        m = 2 - (r % 2)
+        push!(circuit, entanglement_linear(N, i2, x, m))
+        i1 = reduced ? i2' : i2
+    end
+    return circuit
+end
+
 
 end
