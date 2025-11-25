@@ -1,7 +1,7 @@
 module Featuremaps
 
 # Export functions
-export Zfeaturemap, ZZfeaturemap_linear
+export Zfeaturemap, ZZfeaturemap_linear, IsingFeaturemap_linear
 
 using LinearAlgebra
 using ITensors

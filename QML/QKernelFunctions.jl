@@ -1,6 +1,6 @@
 module QKernelFunctions
 
-export load_data_and_samples, compute_train_kernel, split_train_test, compute_test_kernel, compute_all_states
+export load_data_and_samples, compute_train_kernel, split_train_test, compute_test_kernel, compute_all_states, ground_state_ising, schmidt, entropy
 
 using LinearAlgebra
 using ITensors
@@ -159,22 +159,35 @@ function compute_test_kernel(states::Vector{MPS}, train_idx::AbstractVector{Int}
 end
 
 
-function compute_all_states(samples, N::Int, L::Int; compute_stats::Bool=false)
+function compute_all_states(samples, init_state::MPS, L::Int; featuremap::Symbol = :ZZ, compute_stats::Bool = false)
     nsamples = length(samples)
-    sites = siteinds("Qubit", N)
+
+    # Sacamos sites y N del estado inicial
+    sites = siteinds(init_state)
+    N = length(sites)
 
     states = Vector{MPS}(undef, nsamples)
 
-    Ds = compute_stats ? Vector{Float64}(undef, nsamples) : Float64[]
+    Ds     = compute_stats ? Vector{Float64}(undef, nsamples) : Float64[]
     Renyis = compute_stats ? Vector{Float64}(undef, nsamples) : Float64[]
 
     for i in 1:nsamples
         println("Computing state for sample $i / $nsamples")
         x_i = samples[i]
 
-        circuit_i = ZZfeaturemap_linear(sites, N, L, x_i, false)
-        ψ_i = productMPS(sites, "0")
+        # Elegir feature map
+        circuit_i = if featuremap === :ZZ
+            ZZfeaturemap_linear(sites, N, L, x_i)
+        elseif featuremap === :ising
+            IsingFeaturemap_linear(sites, N, L, x_i)
+        else
+            error("Feature map desconocido: $featuremap. Usa :Z, :ZZ o :ising, o añade tu caso.")
+        end
 
+        # Copia del estado inicial para este sample
+        ψ_i = deepcopy(init_state)
+
+        # Aplicar el circuito
         for layer in circuit_i
             for gate in layer
                 ψ_i = apply(gate, ψ_i)
@@ -184,7 +197,7 @@ function compute_all_states(samples, N::Int, L::Int; compute_stats::Bool=false)
         states[i] = ψ_i
 
         if compute_stats
-            Ds[i] = schmidt(ψ_i, N)
+            Ds[i]     = schmidt(ψ_i, N)
             Renyis[i] = entropy(ψ_i, Int(floor(N/2)))
         end
     end
@@ -194,6 +207,40 @@ function compute_all_states(samples, N::Int, L::Int; compute_stats::Bool=false)
     else
         return states
     end
+end
+
+function ground_state_ising(sites, gamma; nsweeps::Int = 10, maxdim::Int = 32, cutoff::Float64 = 1e-10, J::Float64 = 1.0, periodic::Bool = true)
+
+    N = length(sites)
+
+    # Construimos el OpSum del Hamiltoniano de Ising
+    os = OpSum()
+
+    # Término de acoplo Sz_j Sz_{j+1}
+    for j in 1:N-1
+        os += -J, "Sz", j, "Sz", j+1
+    end
+
+    # Opción de condiciones periódicas
+    if periodic && N > 2
+        os += -J, "Sz", N, "Sz", 1
+    end
+
+    # Término de campo transversal -gamma * Σ Sx_j
+    for j in 1:N
+        os += -gamma, "Sx", j
+    end
+
+    # MPO del Hamiltoniano
+    H = MPO(os, sites)
+
+    # Estado inicial para DMRG (aleatorio pero razonable)
+    psi0 = random_mps(sites; linkdims = min(4, maxdim))
+
+    # Ejecutar DMRG
+    energy, psi = dmrg(H, psi0; nsweeps = nsweeps, maxdim = maxdim, cutoff = cutoff)
+
+    return psi
 end
 
 

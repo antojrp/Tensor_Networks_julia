@@ -136,6 +136,24 @@ Var  Renyi2:   0.015387517238378756
 Mean accuracy: 0.9378253174297808
 Variance of accuracy: 0.0005320356489159839
 
+L = 6, k_folds = 5, n_runs = 5
+Memoria: 744.0385589599609 MB
+Mean D (sobre los 569 estados):        64.0
+Var  D (sobre los 569 estados):        0.0
+Mean Renyi2 (sobre los 569 estados):   1.2856228706550006
+Var  Renyi2 (sobre los 569 estados):   0.01538751723837878
+Mean accuracy (media sobre runs): 0.9378068487879951
+Variance of accuracy (entre runs): 0.0005065754959571224
+
+L = 7, k_folds = 5, n_runs = 5
+Memoria: 2664.413558959961 MB
+Mean D (sobre los 569 estados):        128.0
+Var  D (sobre los 569 estados):        0.0
+Mean Renyi2 (sobre los 569 estados):   1.580073337895807
+Var  Renyi2 (sobre los 569 estados):   0.04477425986742486
+Mean accuracy (media sobre runs): 0.9374097729896116
+Variance of accuracy (entre runs): 0.0002884303475409571
+
 bond=3*pi
 
 L = 1, k_folds = 5, n_runs = 5
