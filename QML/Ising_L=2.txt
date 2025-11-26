@@ -1,0 +1,99 @@
+γ = 0
+Entropía de von Neumann del estado fundamental del Ising (N=30, γ=0): S = -0.0  D = 1
+Memoria: 13.062484741210938 MB
+Mean D (sobre los 569 estados):        4.0
+Var  D (sobre los 569 estados):        0.0
+Mean Renyi2 (sobre los 569 estados):   0.5181853889562732
+Var  Renyi2 (sobre los 569 estados):   5.118803850045756e-8
+L = 2, k_folds = 5, n_runs = 5
+Mean accuracy (media sobre runs): 0.9385332820315504
+Variance of accuracy (entre runs): 0.0004618612648001523
+
+γ = 0.1
+Entropía de von Neumann del estado fundamental del Ising (N=30, γ=0.1): S = 1.8780793043288468e-5  D = 2
+Memoria: 23.342269897460938 MB
+Mean D (sobre los 569 estados):        8.0
+Var  D (sobre los 569 estados):        0.0
+Mean Renyi2 (sobre los 569 estados):   0.5057796131878742
+Var  Renyi2 (sobre los 569 estados):   4.824164526918393e-8
+L = 2, k_folds = 5, n_runs = 5
+Mean accuracy (media sobre runs): 0.940607926125433
+Variance of accuracy (entre runs): 0.00037468115887746633
+
+γ = 0.2
+Entropía de von Neumann del estado fundamental del Ising (N=30, γ=0.2): S = 0.00034252114105696714  D = 3
+Memoria: 40.29002380371094 MB
+Mean D (sobre los 569 estados):        12.0
+Var  D (sobre los 569 estados):        0.0
+Mean Renyi2 (sobre los 569 estados):   0.4692967760220539
+Var  Renyi2 (sobre los 569 estados):   4.015455766738542e-8
+L = 2, k_folds = 5, n_runs = 5
+Mean accuracy (media sobre runs): 0.9399184301654483
+Variance of accuracy (entre runs): 0.0003303927976560674
+
+γ = 0.3
+Entropía de von Neumann del estado fundamental del Ising (N=30, γ=0.3): S = 0.0022402382138734926  D = 5
+Memoria: 90.02195739746094 MB
+Mean D (sobre los 569 estados):        20.0
+Var  D (sobre los 569 estados):        0.0
+Mean Renyi2 (sobre los 569 estados):   0.41076919194623995
+Var  Renyi2 (sobre los 569 estados):   2.8831361599888206e-8
+L = 2, k_folds = 5, n_runs = 5
+Mean accuracy (media sobre runs): 0.9385332820315508
+Variance of accuracy (entre runs): 0.0004355313502203842
+
+γ = 0.4
+Entropía de von Neumann del estado fundamental del Ising (N=30, γ=0.4): S = 0.023421980066409945  D = 24
+Memoria: 1287.200180053711 MB
+Mean D (sobre los 569 estados):        96.0
+Var  D (sobre los 569 estados):        0.0
+Mean Renyi2 (sobre los 569 estados):   0.34553466745875533
+Var  Renyi2 (sobre los 569 estados):   1.6437500196037313e-8
+L = 2, k_folds = 5, n_runs = 5
+Mean accuracy (media sobre runs): 0.9353289726818006
+Variance of accuracy (entre runs): 0.0004391597423324044
+
+γ = 0.5
+Entropía de von Neumann del estado fundamental del Ising (N=30, γ=0.5): S = 0.9441472234424507  D = 32
+Memoria: 2402.140121459961 MB
+Mean D (sobre los 569 estados):        128.0
+Var  D (sobre los 569 estados):        0.0
+Mean Renyi2 (sobre los 569 estados):   1.0675717994984741
+Var  Renyi2 (sobre los 569 estados):   2.1870908294939358e-9
+L = 2, k_folds = 5, n_runs = 5
+Mean accuracy (media sobre runs): 0.9367510580992691
+Variance of accuracy (entre runs): 0.0005117436324178904
+
+γ = 0.6
+Entropía de von Neumann del estado fundamental del Ising (N=30, γ=0.6): S = 0.3976279979769967  D = 32
+Memoria: 2111.527816772461 MB
+Mean D (sobre los 569 estados):        128.0
+Var  D (sobre los 569 estados):        0.0
+Mean Renyi2 (sobre los 569 estados):   0.41963603351448825
+Var  Renyi2 (sobre los 569 estados):   6.478339388572163e-11
+L = 2, k_folds = 5, n_runs = 5
+Mean accuracy (media sobre runs): 0.9416698730280878
+Variance of accuracy (entre runs): 0.0003033797738823101
+
+γ = 0.7
+Entropía de von Neumann del estado fundamental del Ising (N=30, γ=0.7): S = 0.24602815597849698  D = 24
+Memoria: 1324.429672241211 MB
+Mean D (sobre los 569 estados):        96.0
+Var  D (sobre los 569 estados):        0.0
+Mean Renyi2 (sobre los 569 estados):   0.2557272553375843
+Var  Renyi2 (sobre los 569 estados):   1.2475499877798125e-11
+L = 2, k_folds = 5, n_runs = 5
+Mean accuracy (media sobre runs): 0.9410111581377453
+Variance of accuracy (entre runs): 0.0003851364779904939
+
+γ = 0.8
+Entropía de von Neumann del estado fundamental del Ising (N=30, γ=0.8): S = 0.1730979902880906  D = 14
+Memoria: 539.2763519287109 MB
+Mean D (sobre los 569 estados):        56.0
+Var  D (sobre los 569 estados):        0.0
+Mean Renyi2 (sobre los 569 estados):   0.17826695983329657
+Var  Renyi2 (sobre los 569 estados):   3.5321962975009586e-12
+Accuracy media del RUN 5 (sobre 5 folds) = 0.9384840323201231
+L = 2, k_folds = 5, n_runs = 5
+Mean accuracy (media sobre runs): 0.9399368988072336
+Variance of accuracy (entre runs): 0.00029546003403110394

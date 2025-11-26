@@ -25,7 +25,8 @@ let
     # 2) PARÁMETROS DE LA SIMULACIÓN
 
     N = nfeatures
-    L = 2
+    L = 5
+
     compute_stats = true
     featuremap = :ising           # :ZZ, :ising
 
@@ -38,7 +39,7 @@ let
     # 3) PRECOMPUTAR TODOS LOS ESTADOS UNA ÚNICA VEZ
     states = nothing
 
-    gamma_ising   = 0.25       # el valor de γ que quieras
+    gamma_ising   = 0.3      # el valor de γ que quieras
     println("Calculando estado fundamental del modelo de Ising para γ = $gamma_ising ...")
     nsweeps_dmrg  = 10        # nº de sweeps de DMRG
     maxdim_dmrg   = 32        # dimensión máxima del enlace
@@ -50,7 +51,7 @@ let
 
     cut = fld(N, 2)
     S = QKernelFunctions.entropy(ψ0, cut)
-    D = schmidt(ψ0, cut)
+    D = schmidt(ψ0, N)
     println("Entropía de von Neumann del estado fundamental del Ising (N=$N, γ=$gamma_ising): S = $S  D = $D")
     if compute_stats
         Ds_all = nothing
