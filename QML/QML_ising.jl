@@ -15,12 +15,9 @@ let
     include("QKernelFunctions.jl")
     using .QKernelFunctions
 
-    bond = 0.5
+    bond = 2*pi
 
-    #y, samples, nsamples, nfeatures = load_data_and_samples("breast_cancer.csv"; label_col = 2, feature_cols = collect(3:32), pos_label = "B", neg_label = "M", bond = bond)
-    y, samples, nsamples, nfeatures = load_data_and_samples("ionosphere.csv"; label_col = 35, feature_cols = Int[], pos_label = "g", neg_label = "b", bond = bond)
-
-
+    y, samples, nsamples, nfeatures = load_data_and_samples("breast_cancer.csv"; label_col = 2, feature_cols = collect(3:32), pos_label = "B", neg_label = "M", bond = 2*pi)
 
     println("Datos cargados: $nsamples muestras, $nfeatures características.")
 
@@ -28,10 +25,10 @@ let
     # 2) PARÁMETROS DE LA SIMULACIÓN
 
     N = nfeatures
-    L = 6
+    L = 1
 
     compute_stats = true
-    featuremap = :ZZ          # :ZZ, :ising
+    featuremap = :ising           # :ZZ, :ising
 
     k_folds = 5         
     n_runs  = 5
@@ -42,8 +39,17 @@ let
     # 3) PRECOMPUTAR TODOS LOS ESTADOS UNA ÚNICA VEZ
     states = nothing
 
+    gamma_ising   = 0.3      # el valor de γ que quieras
+    println("Calculando estado fundamental del modelo de Ising para γ = $gamma_ising ...")
+    nsweeps_dmrg  = 10        # nº de sweeps de DMRG
+    maxdim_dmrg   = 32        # dimensión máxima del enlace
     sites = siteinds("Qubit", N)
-    ψ0 = MPS(sites, "0")
+    # Estado fundamental del modelo de Ising
+    ψ0 = ground_state_ising(sites, gamma_ising; nsweeps = nsweeps_dmrg, maxdim = maxdim_dmrg)
+    cut = fld(N, 2)
+    S = QKernelFunctions.entropy(ψ0, cut)
+    D = schmidt(ψ0, N)
+    println("Entropía de von Neumann del estado fundamental del Ising (N=$N, γ=$gamma_ising): S = $S  D = $D")
 
 
     if compute_stats

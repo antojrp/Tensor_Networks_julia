@@ -40,45 +40,81 @@ function entropy(psi,b)
     return -log2(SvN)
 end
 
-function load_data_and_samples(filename::AbstractString; bond = pi/2)
+using CSV
+using Statistics
+
+function load_data_and_samples(filename::AbstractString; label_col::Int, feature_cols::Vector{Int} = Int[], pos_label = nothing, neg_label = nothing, bond = pi/2)
     # Cargar datos
     data = CSV.File(filename; header = true, silencewarnings = true)
     n = length(data)
+    n == 0 && error("El fichero $filename no tiene filas")
 
-    # Contar número real de features (ignorando las 2 primeras columnas)
-    vals_first = collect(first(data))
-    vals_features_first = vals_first[3:end]
-    vals_features_first = filter(!ismissing, vals_features_first)
-    p = length(vals_features_first)
+    # Número de columnas total (miramos la primera fila)
+    first_row = collect(first(data))
+    ncols = length(first_row)
 
-    # Matriz X (n × p) y vector y
+    # Si no se especifican feature_cols, usamos todas menos label_col
+    if isempty(feature_cols)
+        cols = collect(1:ncols)
+        feature_cols = [c for c in cols if c != label_col]
+    end
+
+    p = length(feature_cols)
+
     X = Array{Float64}(undef, n, p)
     y = Vector{Float64}(undef, n)
 
     for (i, row) in enumerate(data)
         vals = collect(row)
 
-        # Etiqueta: B → 1.0, M → -1.0
-        diag = String(vals[2])
-        y[i] = diag == "B" ? 1.0 : -1.0
+        # Etiqueta
+        lab_val = vals[label_col]
 
-        # Features desde la 3ª columna
-        vals_features = filter(!ismissing, vals[3:end])
-        X[i, :] = Float64.(vals_features)
+        if pos_label !== nothing && neg_label !== nothing
+            if lab_val == pos_label
+                y[i] = 1.0
+            elseif lab_val == neg_label
+                y[i] = -1.0
+            else
+                error("Etiqueta desconocida en fila $i: $lab_val (esperaba $pos_label o $neg_label)")
+            end
+        else
+            if lab_val === missing
+                error("Etiqueta missing en fila $i")
+            end
+            y[i] = Float64(lab_val)
+        end
+
+        # Features
+        for (k, j) in enumerate(feature_cols)
+            v = vals[j]
+            if v === missing
+                error("Hay un missing en fila $i columna $j, ahora mismo no lo estoy tratando")
+            end
+            X[i, k] = Float64(v)
+        end
     end
 
-    # Normalización
+    # Normalización como hacías antes
+    #mu = mean(X, dims = 1)
+    #X_norm = X .- mu
+
+    #max_abs = maximum(abs.(X_norm))
+    #X_scaled = bond .* X_norm ./ max_abs
+
     mu = mean(X, dims = 1)
-    X_norm = X .- mu
+    X_centered = X .- mu
 
-    max_abs = maximum(abs.(X_norm))
-    X_scaled = (bond) .* X_norm ./ max_abs
+    max_abs_per_feature = maximum(abs.(X_centered), dims = 1)
+    safe_scale = map(x -> x == 0 ? 1 : x, max_abs_per_feature)
 
-    # Convertimos cada fila en un vector
+    X_scaled = bond .* (X_centered ./ safe_scale)
+
     samples = [vec(X_scaled[i, :]) for i in 1:n]
 
     return y, samples, n, p
 end
+
 
 function compute_train_kernel(states::Vector{MPS}, train_idx::AbstractVector{Int})
 
