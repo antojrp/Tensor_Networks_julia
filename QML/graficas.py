@@ -5,8 +5,9 @@ import numpy as np
 # Configuración
 # ============================
 
-filename = "resultados_sonar_ZZ.txt"
+filename = "./results/Sonar_2.dat"
 
+num_runs = 25
 # Diccionarios anidados
 accuracy = {}
 accuracy_var = {}
@@ -43,7 +44,7 @@ with open(filename, "r", encoding="utf-8") as f:
         elif s.startswith("Variance of accuracy:"):
             val = float(s.split(":")[1])
             accuracy_var[current_bond][current_L] = val
-
+           
         elif s.startswith("Mean Renyi2:"):
             val = float(s.split(":")[1])
             renyi2[current_bond][current_L] = val
@@ -70,7 +71,7 @@ plt.figure(figsize=(7, 5))
 
 for b in bonds:
     ys = np.array([accuracy[b][L] for L in Ls])
-    err = np.sqrt(np.array([accuracy_var[b][L] for L in Ls]))
+    err = np.sqrt(np.array([accuracy_var[b][L] for L in Ls]))/num_runs
     plt.errorbar(Ls, ys, yerr=err, marker="o", capsize=4, label=f"bond = {b}")
 
 plt.xlabel("L")
@@ -90,7 +91,7 @@ plt.figure(figsize=(7, 5))
 for L in Ls:
     xs = np.array(bonds)
     ys = np.array([accuracy[b][L] for b in bonds])
-    err = np.sqrt(np.array([accuracy_var[b][L] for b in bonds]))
+    err = np.sqrt(np.array([accuracy_var[b][L] for b in bonds]))/num_runs
     plt.errorbar(xs, ys, yerr=err, marker="o", capsize=4, label=f"L = {L}")
 
 plt.xlabel("bond")
@@ -109,7 +110,7 @@ plt.figure(figsize=(7, 5))
 
 for b in bonds:
     ys = np.array([renyi2[b][L] for L in Ls])
-    err = np.sqrt(np.array([renyi2_var[b][L] for L in Ls]))
+    err = np.sqrt(np.array([renyi2_var[b][L] for L in Ls]))/num_runs
     plt.errorbar(Ls, ys, yerr=err, marker="o", capsize=4, label=f"bond = {b}")
 
 plt.xlabel("L")
