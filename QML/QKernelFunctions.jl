@@ -208,7 +208,7 @@ function compute_all_states(samples, init_state::MPS, L::Int; featuremap::Symbol
     Renyis = compute_stats ? Vector{Float64}(undef, nsamples) : Float64[]
 
     for i in 1:nsamples
-        println("Computing state for sample $i / $nsamples")
+        #println("Computing state for sample $i / $nsamples")
         x_i = samples[i]
 
         # Elegir feature map
