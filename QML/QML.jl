@@ -14,12 +14,12 @@ let
     # 1) CARGA DE DATOS Y PREPROCESADO
     include("QKernelFunctions.jl")
     using .QKernelFunctions
-    featuremap = :ZZ          # :ZZ, :ising
-    println("Dataset: Breast_cancer. Featuremap: ", featuremap)
+    featuremap = :ising          # :ZZ, :ising
+    println("Dataset: Sonar. Featuremap: ", featuremap)
 
-    bond_ini= 0.02
-    bond_fin= 0.1
-    bond_step=0.02
+    bond_ini= 0.1
+    bond_fin= 0.5
+    bond_step=0.1
 
     L_ini=2
     L_fin=5
@@ -29,9 +29,9 @@ let
 
         println("\nBond: ", bond)
 
-        y, samples, nsamples, nfeatures = load_data_and_samples("breast_cancer.csv"; label_col = 2, feature_cols = collect(3:32), pos_label = "B", neg_label = "M", bond = bond)
+        #y, samples, nsamples, nfeatures = load_data_and_samples("breast_cancer.csv"; label_col = 2, feature_cols = collect(3:32), pos_label = "B", neg_label = "M", bond = bond)
         #y, samples, nsamples, nfeatures = load_data_and_samples("ionosphere.csv"; label_col = 35, feature_cols = Int[], pos_label = "g", neg_label = "b", bond = bond)
-        #y, samples, nsamples, nfeatures = load_data_and_samples("sonar.csv"; label_col = 61, feature_cols = Int[], pos_label = "M", neg_label = "R", bond = bond)
+        y, samples, nsamples, nfeatures = load_data_and_samples("sonar.csv"; label_col = 61, feature_cols = Int[], pos_label = "M", neg_label = "R", bond = bond)
 
 
 

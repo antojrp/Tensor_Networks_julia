@@ -76,7 +76,7 @@ for b in bonds:
 
 plt.xlabel("L")
 plt.ylabel("Mean accuracy")
-plt.title("Accuracy vs L (con varianza)")
+plt.title("Accuracy vs L")
 plt.legend()
 plt.grid(True)
 plt.tight_layout()
@@ -96,7 +96,7 @@ for L in Ls:
 
 plt.xlabel("bond")
 plt.ylabel("Mean accuracy")
-plt.title("Accuracy vs bond (con varianza)")
+plt.title("Accuracy vs bond")
 plt.legend()
 plt.grid(True)
 plt.tight_layout()
@@ -115,7 +115,7 @@ for b in bonds:
 
 plt.xlabel("L")
 plt.ylabel("Mean Renyi2")
-plt.title("Renyi2 vs L (con varianza)")
+plt.title("Renyi2 vs L")
 plt.legend()
 plt.grid(True)
 plt.tight_layout()
