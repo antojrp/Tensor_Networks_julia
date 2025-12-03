@@ -17,13 +17,13 @@ let
     featuremap = :ising          # :ZZ, :ising
     println("Dataset: Sonar. Featuremap: ", featuremap)
 
-    bond_ini= 0.1
-    bond_fin= 0.5
-    bond_step=0.1
+    bond_ini = 0.1
+    bond_fin = 0.1
+    bond_step = 0.1
 
-    L_ini=2
-    L_fin=5
-    L_step=1
+    L_ini = 2
+    L_fin = 5
+    L_step = 1
 
     for bond in bond_ini:bond_step:bond_fin
 
@@ -34,107 +34,104 @@ let
         y, samples, nsamples, nfeatures = load_data_and_samples("sonar.csv"; label_col = 61, feature_cols = Int[], pos_label = "M", neg_label = "R", bond = bond)
 
 
-
         #println("Datos cargados: $nsamples muestras, $nfeatures características.")
-
-
-        # 2) PARÁMETROS DE LA SIMULACIÓN
-
-
-
 
         # 3) PRECOMPUTAR TODOS LOS ESTADOS UNA ÚNICA VEZ
         for L in L_ini:L_step:L_fin
             println("\nL = $L")
+            for k in 1:L 
+                D=2^k
+                println("\n Max dim = $D")
 
-            N = nfeatures
-            compute_stats = true
-
-
-            k_folds = 5         
-            n_runs  = 5
-
-            accuracies = Float64[]
-            states = nothing
-
-            sites = siteinds("Qubit", N)
-            ψ0 = MPS(sites, "0")
+                N = nfeatures
+                compute_stats = true
 
 
-            if compute_stats
-                Ds_all = nothing
-                Renyis_all = nothing
-                states, Ds_all, Renyis_all = compute_all_states(samples, ψ0, L; featuremap = featuremap, compute_stats = true)
-            else
-                states = compute_all_states(samples, ψ0, L;featuremap = featuremap, compute_stats = false)
-            end
+                k_folds = 5         
+                n_runs  = 5
 
-            #println("Estados precomputados para las $nsamples muestras.")
-            println("Memoria: ", Base.summarysize(states) / 1024^2, " MB")
+                accuracies = Float64[]
+                states = nothing
 
-            if compute_stats
-                mean_D      = mean(Ds_all)
-                var_D       = var(Ds_all)
-                mean_Renyi  = mean(Renyis_all)
-                var_Renyi   = var(Renyis_all)
-
-                #println("\n********** ESTADÍSTICAS GLOBALES DE ENTANGLEMENT **********")
-                println("Mean D: ", mean_D)
-                println("Var  D: ", var_D)
-                println("Mean Renyi2: ", mean_Renyi)
-                println("Var  Renyi2: ", var_Renyi)
-            end
+                sites = siteinds("Qubit", N)
+                ψ0 = MPS(sites, "0")
 
 
-            # 4) MÚLTIPLES RUNS CON DIFFERENTES SPLITS TRAIN/TEST
+                if compute_stats
+                    Ds_all = nothing
+                    Renyis_all = nothing
+                    states, Ds_all, Renyis_all = compute_all_states(samples, ψ0, L; featuremap = featuremap, compute_stats = true, D = D)
+                else
+                    states = compute_all_states(samples, ψ0, L;featuremap = featuremap, compute_stats = false, D = D)
+                end
 
-            for run in 1:n_runs
-                #println("\n================ RUN $run ================")
+                #println("Estados precomputados para las $nsamples muestras.")
+                println("Memoria: ", Base.summarysize(states) / 1024^2, " MB")
 
-                # Split usando solo índices y etiquetas
-                folds = split_train_test(y, k_folds)
-                accuracies_folds = Float64[] 
+                if compute_stats
+                    mean_D      = mean(Ds_all)
+                    var_D       = var(Ds_all)
+                    mean_Renyi  = mean(Renyis_all)
+                    var_Renyi   = var(Renyis_all)
 
-                for f in 1:k_folds
-                    #println("\n---------- FOLD $f / $k_folds ----------")
+                    #println("\n********** ESTADÍSTICAS GLOBALES DE ENTANGLEMENT **********")
+                    println("Mean D: ", mean_D)
+                    println("Var  D: ", var_D)
+                    println("Mean Renyi2: ", mean_Renyi)
+                    println("Var  Renyi2: ", var_Renyi)
+                end
 
-                    # Índices de test para este fold
-                    test_idx = folds[f]
 
-                    # Índices de train: todos los demás folds concatenados
-                    train_idx = vcat((folds[i] for i in 1:k_folds if i != f)...)
+                # 4) MÚLTIPLES RUNS CON DIFFERENTES SPLITS TRAIN/TEST
 
-                    y_train_int = Int.(y[train_idx])
-                    y_test_int  = Int.(y[test_idx])
+                for run in 1:n_runs
+                    #println("\n================ RUN $run ================")
 
-                    n_train_samples = length(train_idx)
-                    n_test_samples  = length(test_idx)
+                    # Split usando solo índices y etiquetas
+                    folds = split_train_test(y, k_folds)
+                    accuracies_folds = Float64[] 
 
-                    #println("Train size = $n_train_samples, Test size = $n_test_samples")
+                    for f in 1:k_folds
+                        #println("\n---------- FOLD $f / $k_folds ----------")
 
-                    # KERNEL TRAIN
-                    K_train = compute_train_kernel(states, train_idx)
-                    #println("Kernel train calculado: ", size(K_train))
+                        # Índices de test para este fold
+                        test_idx = folds[f]
 
-                    # ENTRENAR SVM
-                    model = svmtrain(K_train, y_train_int; kernel = Kernel.Precomputed)
-                    #println("SVM entrenado.")
+                        # Índices de train: todos los demás folds concatenados
+                        train_idx = vcat((folds[i] for i in 1:k_folds if i != f)...)
 
-                    # KERNEL TEST
-                    K_test = compute_test_kernel(states, train_idx, test_idx)
-                    #println("Kernel test calculado: ", size(K_test))
+                        y_train_int = Int.(y[train_idx])
+                        y_test_int  = Int.(y[test_idx])
 
-                    # PREDICCIÓN
-                    y_pred, _ = svmpredict(model, K_test)
+                        n_train_samples = length(train_idx)
+                        n_test_samples  = length(test_idx)
 
-                    # ACCURACY DEL FOLD
-                    acc_fold = sum(y_pred .== y_test_int) / n_test_samples
-                    push!(accuracies, acc_fold)
-                    push!(accuracies_folds, acc_fold)
-                    #println("Accuracy test (fold $f) = ", acc_fold)
+                        #println("Train size = $n_train_samples, Test size = $n_test_samples")
 
-                    #println("Train: #1 = ", sum(y_train_int .== 1),  "  #-1 = ", sum(y_train_int .== -1))
-                    #println("Test:  #1 = ", sum(y_test_int  .== 1),  "  #-1 = ", sum(y_test_int  .== -1))
+                        # KERNEL TRAIN
+                        K_train = compute_train_kernel(states, train_idx)
+                        #println("Kernel train calculado: ", size(K_train))
+
+                        # ENTRENAR SVM
+                        model = svmtrain(K_train, y_train_int; kernel = Kernel.Precomputed)
+                        #println("SVM entrenado.")
+
+                        # KERNEL TEST
+                        K_test = compute_test_kernel(states, train_idx, test_idx)
+                        #println("Kernel test calculado: ", size(K_test))
+
+                        # PREDICCIÓN
+                        y_pred, _ = svmpredict(model, K_test)
+
+                        # ACCURACY DEL FOLD
+                        acc_fold = sum(y_pred .== y_test_int) / n_test_samples
+                        push!(accuracies, acc_fold)
+                        push!(accuracies_folds, acc_fold)
+                        #println("Accuracy test (fold $f) = ", acc_fold)
+
+                        #println("Train: #1 = ", sum(y_train_int .== 1),  "  #-1 = ", sum(y_train_int .== -1))
+                        #println("Test:  #1 = ", sum(y_test_int  .== 1),  "  #-1 = ", sum(y_test_int  .== -1))
+                    end
                 end
 
                 # Accuracy media de este run (sobre los k folds)

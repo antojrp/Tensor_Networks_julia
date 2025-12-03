@@ -195,7 +195,7 @@ function compute_test_kernel(states::Vector{MPS}, train_idx::AbstractVector{Int}
 end
 
 
-function compute_all_states(samples, init_state::MPS, L::Int; featuremap::Symbol = :ZZ, compute_stats::Bool = false)
+function compute_all_states(samples, init_state::MPS, L::Int; featuremap::Symbol = :ZZ, compute_stats::Bool =false , D::Union{Nothing,Int} = nothing) 
     nsamples = length(samples)
 
     # Sacamos sites y N del estado inicial
@@ -226,7 +226,11 @@ function compute_all_states(samples, init_state::MPS, L::Int; featuremap::Symbol
         # Aplicar el circuito
         for layer in circuit_i
             for gate in layer
-                ψ_i = apply(gate, ψ_i)
+                if D === nothing
+                    ψ_i = apply(gate, ψ_i)
+                else
+                    ψ_i = apply(gate, ψ_i; maxdim = D)
+                end
             end
         end
 

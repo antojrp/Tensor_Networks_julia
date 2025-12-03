@@ -5,7 +5,7 @@ import numpy as np
 # Configuración
 # ============================
 
-filename = "./results/Sonar_2.dat"
+filename = "./results/ising/Breast_cancer_1.dat"
 
 num_runs = 25
 # Diccionarios anidados
