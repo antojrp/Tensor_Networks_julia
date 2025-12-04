@@ -1,0 +1,41 @@
+Dataset: Sonar. Featuremap: ZZ
+
+Bond: 0.1
+
+L = 4
+
+Max dim = 2
+Memoria: 8.166519165039062 MB
+Mean D: 2.0
+Var  D: 0.0
+Mean Renyi2: 3.3765721657888363
+Var  Renyi2: 2.1282868868968086
+Mean accuracy: 0.7843902439024392
+Variance of accuracy: 0.004218649843900594
+
+Max dim = 4
+Memoria: 12.462173461914062 MB
+Mean D: 4.0
+Var  D: 0.0
+Mean Renyi2: 0.5649535084448165
+Var  Renyi2: 0.23241960016016083
+Mean accuracy: 0.8926602382302896
+Variance of accuracy: 0.002473730782764172
+
+Max dim = 8
+Memoria: 29.038345336914062 MB
+Mean D: 8.0
+Var  D: 0.0
+Mean Renyi2: 0.5649535084448278
+Var  Renyi2: 0.23241960016015914
+Mean accuracy: 0.8842881452070334
+Variance of accuracy: 0.0024529983193749528
+
+Max dim = 16
+Memoria: 50.87037658691406 MB
+Mean D: 16.0
+Var  D: 0.0
+Mean Renyi2: 0.5649535084448325
+Var  Renyi2: 0.23241960016015978
+Mean accuracy: 0.8929325014180375
+Variance of accuracy: 0.0018000490535317328

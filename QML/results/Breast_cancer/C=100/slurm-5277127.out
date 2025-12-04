@@ -1,0 +1,41 @@
+Dataset: Breast_cancer. Featuremap: ZZ
+
+Bond: 0.2
+
+L = 4
+
+Max dim = 2
+Memoria: 11.117660522460938 MB
+Mean D: 2.0
+Var  D: 0.0
+Mean Renyi2: 2.305369257124061
+Var  Renyi2: 2.5044180967891174
+Mean accuracy: 0.947278183916891
+Variance of accuracy: 0.0003543185160697798
+
+Max dim = 4
+Memoria: 16.674301147460938 MB
+Mean D: 4.0
+Var  D: 0.0
+Mean Renyi2: 0.8986861535174239
+Var  Renyi2: 0.0747369434873446
+Mean accuracy: 0.9553397460561753
+Variance of accuracy: 0.00016276516016780742
+
+Max dim = 8
+Memoria: 37.23387145996094 MB
+Mean D: 8.0
+Var  D: 0.0
+Mean Renyi2: 0.8986861535174279
+Var  Renyi2: 0.07473694348734414
+Mean accuracy: 0.9571342824163138
+Variance of accuracy: 0.00016626124144885954
+
+Max dim = 16
+Memoria: 63.90574645996094 MB
+Mean D: 16.0
+Var  D: 0.0
+Mean Renyi2: 0.8986861535174295
+Var  Renyi2: 0.0747369434873436
+Mean accuracy: 0.95148903424394
+Variance of accuracy: 0.00025397836787987253

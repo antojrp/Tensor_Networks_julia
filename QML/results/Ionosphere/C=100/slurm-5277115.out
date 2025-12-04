@@ -1,0 +1,41 @@
+Dataset: Ionosphere. Featuremap: ZZ
+
+Bond: 0.2
+
+L = 4
+
+Max dim = 2
+Memoria: 7.767906188964844 MB
+Mean D: 2.0
+Var  D: 0.0
+Mean Renyi2: 1.9532931936871867
+Var  Renyi2: 4.040098294384584
+Mean accuracy: 0.8685933572449186
+Variance of accuracy: 0.0015005465567321109
+
+Max dim = 4
+Memoria: 11.698570251464844 MB
+Mean D: 4.0
+Var  D: 0.0
+Mean Renyi2: 0.6941242901384949
+Var  Renyi2: 0.22331546591916265
+Mean accuracy: 0.9217252500510308
+Variance of accuracy: 0.0005788414130308305
+
+Max dim = 8
+Memoria: 26.395835876464844 MB
+Mean D: 8.0
+Var  D: 0.0
+Mean Renyi2: 0.6941242901385006
+Var  Renyi2: 0.22331546591915993
+Mean accuracy: 0.9262959787711779
+Variance of accuracy: 0.0006410695344723539
+
+Max dim = 16
+Memoria: 45.536460876464844 MB
+Mean D: 16.0
+Var  D: 0.0
+Mean Renyi2: 0.6941242901385061
+Var  Renyi2: 0.22331546591915835
+Mean accuracy: 0.9228506109118477
+Variance of accuracy: 0.0009609628686593308

@@ -11,11 +11,13 @@ using LIBSVM
 using Random
 using DelimitedFiles
 
+
 include("Featuremaps.jl")
 using .Featuremaps
 
+
 function schmidt(state,N)
-    # suma=0
+    #Calculate the maximum Schmidt rank of a state
     max=0
     for i in 1:N-1
       let
@@ -24,11 +26,11 @@ function schmidt(state,N)
         end
       end
     end
-    # return suma/(N-1)
     return max
 end
 
 function entropy(psi,b)
+    #Calculate the Renyi-2 entropy at bond b
     psi = orthogonalize(psi, b)
     U,S,V = svd(psi[b], (linkinds(psi, b-1)..., siteinds(psi, b)...))
     SvN = 0.0
@@ -40,20 +42,19 @@ function entropy(psi,b)
     return -log2(SvN)
 end
 
-using CSV
-using Statistics
+
 
 function load_data_and_samples(filename::AbstractString; label_col::Int, feature_cols::Vector{Int} = Int[], pos_label = nothing, neg_label = nothing, bond = pi/2)
-    # Cargar datos
+    # Loads data from a CSV file.
     data = CSV.File(filename; header = true, silencewarnings = true)
     n = length(data)
     n == 0 && error("El fichero $filename no tiene filas")
 
-    # Número de columnas total (miramos la primera fila)
+
     first_row = collect(first(data))
     ncols = length(first_row)
 
-    # Si no se especifican feature_cols, usamos todas menos label_col
+    # If feature_cols is empty, use all columns except label_col
     if isempty(feature_cols)
         cols = collect(1:ncols)
         feature_cols = [c for c in cols if c != label_col]
@@ -95,12 +96,7 @@ function load_data_and_samples(filename::AbstractString; label_col::Int, feature
         end
     end
 
-    # Normalización como hacías antes
-    #mu = mean(X, dims = 1)
-    #X_norm = X .- mu
-
-    #max_abs = maximum(abs.(X_norm))
-    #X_scaled = bond .* X_norm ./ max_abs
+    # Scale features to [-bond, bond]
 
     mu = mean(X, dims = 1)
     X_centered = X .- mu
@@ -117,7 +113,7 @@ end
 
 
 function compute_train_kernel(states::Vector{MPS}, train_idx::AbstractVector{Int})
-
+    # Compute the training kernel matrix using the provided MPS states and training indices.
     n_train = length(train_idx)
     K_train = Matrix{Float64}(undef, n_train, n_train)
 
@@ -144,28 +140,25 @@ function compute_train_kernel(states::Vector{MPS}, train_idx::AbstractVector{Int
 end
 
 function split_train_test(y::AbstractVector, k_folds::Int)
-    # Devuelve un vector de folds,
-    # cada folds[f] es un Vector{Int} con los índices de test de ese fold,
-    # estratificados por clase.
+    # Returns a vector of k_folds vectors, each containing the indices for that fold.
+    # Stratified K-Fold
 
-    # Asumo etiquetas 1.0 y -1.0 en y
     pos_idx = findall(==(1.0), y)
     neg_idx = findall(==(-1.0), y)
 
-    # Barajamos cada clase por separado
+    # Shuffle indices
     Random.shuffle!(pos_idx)
     Random.shuffle!(neg_idx)
 
-    # Inicializamos los folds vacíos
+
     folds = [Int[] for _ in 1:k_folds]
 
-    # Reparto round-robin de los positivos
     for (i, idx) in enumerate(pos_idx)
-        fold_id = mod1(i, k_folds)   # 1,2,...,k,1,2,...
+        fold_id = mod1(i, k_folds)  
         push!(folds[fold_id], idx)
     end
 
-    # Reparto round-robin de los negativos
+
     for (i, idx) in enumerate(neg_idx)
         fold_id = mod1(i, k_folds)
         push!(folds[fold_id], idx)
@@ -176,7 +169,7 @@ end
 
 
 function compute_test_kernel(states::Vector{MPS}, train_idx::AbstractVector{Int}, test_idx::AbstractVector{Int})
-
+    # Compute the test kernel matrix using the provided MPS states, training indices, and testing indices.
     n_train = length(train_idx)
     n_test  = length(test_idx)
 
@@ -196,9 +189,10 @@ end
 
 
 function compute_all_states(samples, init_state::MPS, L::Int; featuremap::Symbol = :ZZ, compute_stats::Bool =false , D::Union{Nothing,Int} = nothing) 
+    # Computes the MPS states for all samples using the specified feature map and initial state.
     nsamples = length(samples)
 
-    # Sacamos sites y N del estado inicial
+
     sites = siteinds(init_state)
     N = length(sites)
 
@@ -208,10 +202,9 @@ function compute_all_states(samples, init_state::MPS, L::Int; featuremap::Symbol
     Renyis = compute_stats ? Vector{Float64}(undef, nsamples) : Float64[]
 
     for i in 1:nsamples
-        #println("Computing state for sample $i / $nsamples")
         x_i = samples[i]
 
-        # Elegir feature map
+        # Build circuit for sample x_i
         circuit_i = if featuremap === :ZZ
             ZZfeaturemap_linear(sites, N, L, x_i)
         elseif featuremap === :ising
@@ -220,10 +213,9 @@ function compute_all_states(samples, init_state::MPS, L::Int; featuremap::Symbol
             error("Feature map desconocido: $featuremap. Usa :Z, :ZZ o :ising, o añade tu caso.")
         end
 
-        # Copia del estado inicial para este sample
         ψ_i = deepcopy(init_state)
 
-        # Aplicar el circuito
+        # Apply circuit
         for layer in circuit_i
             for gate in layer
                 if D === nothing
