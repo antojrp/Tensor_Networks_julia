@@ -1,2 +1,0 @@
-/var/spool/slurmd/job5302276/slurm_script: línea 8: 541995 Killed                  OMP_NUM_THREADS=1 /home/ajrp/julia-1.11.1/bin/julia -t 1 QML.jl
-slurmstepd: error: Detected 1 oom_kill event in StepId=5302276.batch. Some of the step tasks have been OOM Killed.
