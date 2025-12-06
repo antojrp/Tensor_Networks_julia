@@ -8,14 +8,15 @@ import matplotlib.colors as colors
 
 # ==========================================================
 # CONFIGURACIÓN
-dataset_names = ["Breast_cancer", "Ionosphere", "Sonar"]
+dataset_names = ["Breast_cancer", "Ionosphere", "Sonar","Arrhythmia"]
 base_results_folder = Path("results")
 pattern = "*.out"
 
 dataset_thresholds = {
     "Breast_cancer": 0.94,
     "Ionosphere": 0.89,
-    "Sonar": 0.84
+    "Sonar": 0.84,
+    "Arrhythmia": 0.70,
 }
 
 default_threshold = 0.94
