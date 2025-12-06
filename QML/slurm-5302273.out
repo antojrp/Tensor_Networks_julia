@@ -1,0 +1,32 @@
+Dataset: Arrhythmia. Featuremap: ZZ
+
+Bond: 0.1
+
+L = 3
+
+Max dim = 2
+Memoria: 82.03607940673828 MB
+Mean D: 2.0
+Var  D: 0.0
+Mean Renyi2: 5.722980956952556
+Var  Renyi2: 0.8350866400814254
+Mean accuracy: 0.7211965811965813
+Variance of accuracy: 0.0007266194665462052
+
+Max dim = 4
+Memoria: 126.83881378173828 MB
+Mean D: 4.0
+Var  D: 0.0
+Mean Renyi2: 0.9053053868353428
+Var  Renyi2: 0.0037562217856843506
+Mean accuracy: 0.7345054945054945
+Variance of accuracy: 0.0008654244954611267
+
+Max dim = 8
+Memoria: 186.42865753173828 MB
+Mean D: 8.0
+Var  D: 0.0
+Mean Renyi2: 0.905305386835387
+Var  Renyi2: 0.0037562217856841654
+Mean accuracy: 0.7211477411477412
+Variance of accuracy: 0.001127707186315245

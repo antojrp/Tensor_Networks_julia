@@ -13,10 +13,10 @@ let
     include("QKernelFunctions.jl")
     using .QKernelFunctions
     featuremap = :ZZ         # :ZZ, :ising
-    println("Dataset: Breast_cancer. Featuremap: ", featuremap)
+    println("Dataset: Arrhythmia. Featuremap: ", featuremap)
 
-    bond_ini = 0.2
-    bond_fin = 0.2
+    bond_ini = 0.1
+    bond_fin = 0.1
     bond_step = 0.1
 
     L_ini = 6
@@ -28,13 +28,14 @@ let
         println("\nBond: ", bond)
         # 1) LOAD DATASET
 
-        y, samples, nsamples, nfeatures = load_data_and_samples("breast_cancer.csv"; label_col = 2, feature_cols = collect(3:32), pos_label = "B", neg_label = "M", bond = bond)
+        #, samples, nsamples, nfeatures = load_data_and_samples("breast_cancer.csv"; label_col = 2, feature_cols = collect(3:32), pos_label = "B", neg_label = "M", bond = bond)
         #y, samples, nsamples, nfeatures = load_data_and_samples("ionosphere.csv"; label_col = 35, feature_cols = Int[], pos_label = "g", neg_label = "b", bond = bond)
         #y, samples, nsamples, nfeatures = load_data_and_samples("sonar.csv"; label_col = 61, feature_cols = Int[], pos_label = "M", neg_label = "R", bond = bond)
-
+        y, samples, nsamples, nfeatures = load_data_and_samples("arrhythmia.csv"; label_col = 280, feature_cols = vcat(1:10, 16:279), pos_label = 1, neg_label = 2, bond = bond)
         for L in L_ini:L_step:L_fin
             println("\nL = $L")
             for k in 1:L 
+            #for k in L:L
                 D=2^k
                 println("\nMax dim = $D")
 
@@ -43,7 +44,7 @@ let
 
 
                 k_folds = 5         
-                n_runs  = 5
+                n_runs  = 1
 
                 accuracies = Float64[]
                 states = nothing
