@@ -15,12 +15,12 @@ let
     featuremap = :ZZ         # :ZZ, :ising
     println("Dataset: Arrhythmia. Featuremap: ", featuremap)
 
-    bond_ini = 0.1
-    bond_fin = 0.1
+    bond_ini = 0.01
+    bond_fin = 0.01
     bond_step = 0.1
 
-    L_ini = 6
-    L_fin = 6
+    L_ini = 5
+    L_fin = 5
     L_step = 1
 
     for bond in bond_ini:bond_step:bond_fin
@@ -103,7 +103,7 @@ let
                         #println("Kernel train calculado: ", size(K_train))
 
                         # SVM Train
-                        model = svmtrain(K_train, y_train_int; kernel = Kernel.Precomputed, cost=100.0)
+                        model = svmtrain(K_train, y_train_int; kernel = Kernel.Precomputed, cost=1.0)
                         #println("SVM entrenado.")
 
                         # Compute test kernel
