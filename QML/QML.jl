@@ -28,7 +28,7 @@ let
         println("\nBond: ", bond)
         # 1) LOAD DATASET
 
-        #, samples, nsamples, nfeatures = load_data_and_samples("breast_cancer.csv"; label_col = 2, feature_cols = collect(3:32), pos_label = "B", neg_label = "M", bond = bond)
+        #y, samples, nsamples, nfeatures = load_data_and_samples("breast_cancer.csv"; label_col = 2, feature_cols = collect(3:32), pos_label = "B", neg_label = "M", bond = bond)
         #y, samples, nsamples, nfeatures = load_data_and_samples("ionosphere.csv"; label_col = 35, feature_cols = Int[], pos_label = "g", neg_label = "b", bond = bond)
         #y, samples, nsamples, nfeatures = load_data_and_samples("sonar.csv"; label_col = 61, feature_cols = Int[], pos_label = "M", neg_label = "R", bond = bond)
         y, samples, nsamples, nfeatures = load_data_and_samples("arrhythmia.csv"; label_col = 280, feature_cols = vcat(1:10, 16:279), pos_label = 1, neg_label = 2, bond = bond)

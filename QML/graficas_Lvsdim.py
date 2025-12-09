@@ -122,9 +122,10 @@ for i, dname in enumerate(datasets):
         low = df_C[df_C["accuracy"] < th]
         high = df_C[df_C["accuracy"] >= th]
 
+        # === scatter con L en X y dim en Y ===
         if not low.empty:
             ax.scatter(
-                np.log2(low["dim"]), low["L"],
+                low["L"], np.log2(low["dim"]),
                 c=[base_color],
                 s=80,
                 marker="o"
@@ -132,22 +133,28 @@ for i, dname in enumerate(datasets):
 
         if not high.empty:
             sc = ax.scatter(
-                np.log2(high["dim"]), high["L"],
-                c=high["accuracy"],
+                df_C["L"], np.log2(df_C["dim"]),
+                c=df_C["accuracy"],
                 cmap=cmap,
                 norm=norm,
                 s=80,
                 marker="o"
             )
 
+        # === ticks del eje Y en base a dim reales ===
         dims_sorted = sorted(df_C["dim"].unique())
-        xticks = np.log2(dims_sorted)
-        ax.set_xticks(xticks)
-        ax.set_xticklabels([str(d) for d in dims_sorted], fontsize=8)
+        yticks = np.log2(dims_sorted)
+        ax.set_yticks(yticks)
+        ax.set_yticklabels([str(d) for d in dims_sorted], fontsize=8)
 
-        ax.set_xlabel("dim", fontsize=9)
+        # === eje X es L tal cual ===
+        Ls_sorted = sorted(df_C["L"].unique())
+        ax.set_xticks(Ls_sorted)
+        ax.set_xticklabels([str(L) for L in Ls_sorted], fontsize=8)
+
+        ax.set_xlabel("L", fontsize=9)
+        ax.set_ylabel("dim (real)", fontsize=9)
         ax.set_title(f"C = {C_val}", fontsize=10)
-
     axes[i, 0].set_ylabel(f"{dname}\nL", fontsize=10)
 
     cbar = fig.colorbar(

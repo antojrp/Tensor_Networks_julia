@@ -1,6 +1,6 @@
 module QKernelFunctions
 
-export load_data_and_samples, compute_train_kernel, split_train_test, compute_test_kernel, compute_all_states, ground_state_ising, schmidt, entropy
+export load_data_and_samples, compute_train_kernel, split_train_test, compute_test_kernel, compute_all_states, ground_state_ising, schmidt, entropy, compute_full_kernel
 
 using LinearAlgebra
 using ITensors
@@ -273,6 +273,28 @@ function ground_state_ising(sites, gamma; nsweeps::Int = 10, maxdim::Int = 32, c
     energy, psi = dmrg(H, psi0; nsweeps = nsweeps, maxdim = maxdim, cutoff = cutoff)
 
     return psi
+end
+
+function compute_full_kernel(states::Vector{MPS})
+    n = length(states)
+    K = Matrix{Float64}(undef, n, n)
+
+    for i in 1:n
+        ψ_i = states[i]
+
+        # Diagonal
+        K[i, i] = 1.0
+
+        for j in (i+1):n
+            ψ_j = states[j]
+            ov = inner(ψ_i, ψ_j)
+            k = abs2(ov)
+            K[i, j] = k
+            K[j, i] = k
+        end
+    end
+
+    return K
 end
 
 
