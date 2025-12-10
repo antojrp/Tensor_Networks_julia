@@ -15,12 +15,12 @@ let
 
     # CONFIGURACIÓN
     featuremap   = :ZZ        # :ZZ o :ising
-    dataset_name = "arrhythmia"
+    dataset_name = "arrhythmia_0.5"
     data_file    = "arrythmia.csv"
 
-    bond   = 0.05
-    L_ini  = 1
-    L_fin  = 6
+    bond   = 0.5
+    L_ini  = 3
+    L_fin  = 5
     L_step = 1
 
     println("Dataset: $dataset_name")
@@ -49,7 +49,7 @@ let
     ψ0    = MPS(sites, "0")
 
     # Asegurar carpeta de salida
-    folder = joinpath("Kernels", dataset_name)
+    folder = joinpath("Kernels_2", dataset_name)
     isdir(folder) || mkpath(folder)
 
     # 4) Barrer en L y en log(D)
