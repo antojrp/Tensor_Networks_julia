@@ -15,10 +15,10 @@ let
 
     # CONFIGURACIÓN
     featuremap   = :ZZ        # :ZZ o :ising
-    dataset_name = "sonar"
-    data_file    = "sonar.csv"
+    dataset_name = "arrhythmia"
+    data_file    = "arrythmia.csv"
 
-    bond   = 0.1
+    bond   = 0.05
     L_ini  = 1
     L_fin  = 6
     L_step = 1
@@ -29,8 +29,8 @@ let
     # 2) Cargar datos
     #y, samples, nsamples, nfeatures = load_data_and_samples("breast_cancer.csv"; label_col = 2, feature_cols = collect(3:32), pos_label = "B", neg_label = "M", bond = bond)
     #y, samples, nsamples, nfeatures = load_data_and_samples("ionosphere.csv"; label_col = 35, feature_cols = Int[], pos_label = "g", neg_label = "b", bond = bond)
-    y, samples, nsamples, nfeatures = load_data_and_samples("sonar.csv"; label_col = 61, feature_cols = Int[], pos_label = "M", neg_label = "R", bond = bond)
-    #y, samples, nsamples, nfeatures = load_data_and_samples("arrhythmia.csv"; label_col = 280, feature_cols = vcat(1:10, 16:279), pos_label = 1, neg_label = 2, bond = bond)
+    #y, samples, nsamples, nfeatures = load_data_and_samples("sonar.csv"; label_col = 61, feature_cols = Int[], pos_label = "M", neg_label = "R", bond = bond)
+    y, samples, nsamples, nfeatures = load_data_and_samples("arrhythmia.csv"; label_col = 280, feature_cols = vcat(1:10, 16:279), pos_label = 1, neg_label = 2, bond = bond)
         
     # 2.1) Reordenar: primero positivos (y = 1.0), luego negativos (y = -1.0)
     pos_idx = findall(==(1.0), y)
