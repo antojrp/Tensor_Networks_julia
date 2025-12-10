@@ -59,12 +59,7 @@ let
             println("\nL = $L, Max dim = $D")
 
             println("Calculando todos los estados...")
-            states = compute_all_states(
-                samples, ψ0, L;
-                featuremap    = featuremap,
-                compute_stats = false,
-                D             = D,
-            )
+            states = compute_all_states(samples, ψ0, L; featuremap = featuremap, compute_stats = false, D= D)
 
             println("Calculando kernel completo...")
             K = compute_full_kernel(states)

@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 
 # ==========================================
 # CONFIGURACIÓN
-dataset_name = "sonar"
+dataset_name = "breast_cancer"
 base_folder = Path("Kernels")
 # ==========================================
 
@@ -90,12 +90,7 @@ for col, L in enumerate(Ls):
         ax.set_yticks([])
 
 # Colorbar
-cbar = fig.colorbar(
-    ims[0],
-    ax=axes.ravel().tolist(),
-    fraction=0.035,
-    pad=0.01
-)
+cbar = fig.colorbar(ims[0], ax=axes.ravel().tolist(), fraction=0.035, pad=0.01)
 cbar.set_label("K_ij", fontsize=11)
 
 # ===================================================

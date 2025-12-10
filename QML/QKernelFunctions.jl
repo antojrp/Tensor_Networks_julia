@@ -210,7 +210,7 @@ function compute_all_states(samples, init_state::MPS, L::Int; featuremap::Symbol
         elseif featuremap === :ising
             IsingFeaturemap_linear(sites, N, L, x_i)
         else
-            error("Feature map desconocido: $featuremap. Usa :Z, :ZZ o :ising, o añade tu caso.")
+            error("Feature map desconocido: $featuremap. Usa :ZZ o :ising, o añade tu caso.")
         end
 
         ψ_i = deepcopy(init_state)
